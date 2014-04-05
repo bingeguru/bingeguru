@@ -11,15 +11,13 @@ var path = require('path');
 var trakt = require('node-trakt');
 var password = require('./Fixtures/password');
 var showlist = require('./Fixtures/showList');
-// Retrieve
-var MongoClient = require('mongodb').MongoClient;
+var fetchAPI = require('./fetchAPI');
+var tvSchema = require('./Fixtures/TVSchema');
+
+
 
 // Connect to the db
-MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
-  if(!err) {
-    console.log("We are connected");
-  }
-});
+
 
 var app = express();
 
@@ -35,6 +33,10 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -43,40 +45,18 @@ if ('development' == app.get('env')) {
 //ROUTES
 app.get('/', routes.index);
 
-//TRAKT API CONNECTION
-trakt.init(password.api);
+  // trakt.init(password.api);
+  // trakt.login(password.username, password.password , function(){
+  //   console.log("HERE");
+  //   db.tvshows.find({}, function (err, shows) {
+  //     shows.forEach(function(show){
+  //       trakt.showSummary({title: show.title}, function(err, data){
+  //         console.log(data);
+  //       });
+  //     });
+  //   });
 
-//Array of all SHOWS
-var shows = [];
-
-//input list of shows
-var showList = showlist.showList;
-
-// GET DATA
-trakt.login(password.username, password.password , function(){
-  for(var i = 0; i<showList.length; i++){
-
-      trakt.showSeasons({title : showList[i].title},function(err, data){
-        if(err){
-          throw err;
-        }
-        var show = {seasons:{}};
-        for(var j = 0; j < data.length; j++){
-          var showName = data[j].url;
-          showName = showName.split('/');
-          show['title'] = showName[4];
-          show.seasons[data[j].season+1] = data[j].episodes;
-
-
-        }
-        console.log("show", show);
-      });
-        // console.log(showList[i],shows);
-
-  }
- // console.log(shows);
-
-}); // trakt login
+  // });
 
 
 
