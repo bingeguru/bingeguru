@@ -3,10 +3,10 @@ var appControllers = angular.module('appControllers', ['testData']);
 appControllers.controller('homeCtrl', ['$scope', function($scope){
 }]);
 
-appControllers.controller('discoverCtrl', ['$scope', function($scope){
+appControllers.controller('findCtrl', ['$scope', function($scope){
 }]);
 
-appControllers.controller('findCtrl', ['$scope', 'testDataFactory', function($scope, testDataFactory){
+appControllers.controller('discoverCtrl', ['$scope', 'testDataFactory', function($scope, testDataFactory){
    $scope.data = testDataFactory.shows;
    for (var i = 0; i < $scope.data.length; i++) {
      var seasonList =$scope.data[i].seasons;
