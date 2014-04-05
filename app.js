@@ -9,7 +9,17 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var trakt = require('node-trakt');
-var password = require('./password');
+var password = require('./Fixtures/password');
+var showlist = require('./Fixtures/showList');
+// Retrieve
+var MongoClient = require('mongodb').MongoClient;
+
+// Connect to the db
+MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+  if(!err) {
+    console.log("We are connected");
+  }
+});
 
 var app = express();
 
@@ -36,23 +46,11 @@ app.get('/', routes.index);
 //TRAKT API CONNECTION
 trakt.init(password.api);
 
-//SHOW LIST
-
-var showList = [
-    {name:"The Wire", title:"the-wire"},
-    {name:"The West Wing", title: "the-west-wing"},
-    {name: "The Office", title: "the-office-us"},
-    {name: "Friday Night Lights", title: "friday-night-lights"},
-    {name: "My So-Called Life", title: "my-so-called-life" },
-    {name: "Breaking Bad", title: "my-so-called-life"},
-    {name: "Game of Thrones", title: "game-of-thrones"},
-    {name: "Parks and Recreation", title:"parks-and-recreation"},
-    {name: "The Good Wife", title: "the-good-wife"},
-    {name: "Freaks and Geeks", title:"freaks-and-geeks"}
-  ];
-
 //Array of all SHOWS
 var shows = [];
+
+//input list of shows
+var showList = showlist.showList;
 
 // GET DATA
 trakt.login(password.username, password.password , function(){
@@ -70,8 +68,8 @@ trakt.login(password.username, password.password , function(){
           show.seasons[data[j].season+1] = data[j].episodes;
 
 
-        console.log("show", show);
         }
+        console.log("show", show);
       });
         // console.log(showList[i],shows);
 
