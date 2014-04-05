@@ -1,13 +1,19 @@
-<div>find</div>
+<div>find</div><br>
 
 <div ng-controller = 'findCtrl'>
 
-<div ng-repeat='show in data'>
-  <p>{{ show.title }}</p>
-  <p><img class='showImage' src="{{show.images[0]}}"></p>
-  <p>{{ show.runtime }}</p>
-  <p>{{show.seasons}}</p>
+<table>
+<tbody ng-repeat='show in data'>
+<tr>
+<td> {{ show.title }} <br> <img class='showImage' src="{{show.images[0]}}"></td>
+<td>runtime: {{ show.runtime }} minutes<br>
+    seasons: {{show.totalSeasons}} / episodes: {{show.totalEp}} </td>
+<td> </td>
 
-</div>
+</tr>
 
+
+</tbody>
+
+</table>
 </div>
