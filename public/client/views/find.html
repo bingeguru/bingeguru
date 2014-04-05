@@ -2,11 +2,12 @@
 
 <div ng-controller = 'findCtrl'>
 
-<p ng-repeat='show in data'>
-  <div>hi</div>
-  <div>{{ show }}</div>
-  <div>{{ show }}</div>
-  <div>{{ show }}</div>
-</p>
+<div ng-repeat='show in data'>
+  <p>{{ show.title }}</p>
+  <p><img class='showImage' src="{{show.images[0]}}"></p>
+  <p>{{ show.runtime }}</p>
+  <p>{{show.seasons}}</p>
+
+</div>
 
 </div>
