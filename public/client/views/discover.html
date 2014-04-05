@@ -6,7 +6,7 @@
 <table>
 <tbody ng-repeat='show in data | filter:q:strict'>
 <tr>
-<td> {{ show.title }} <br> <img class='showImage' src="{{show.images[0]}}"></td>
+<td> {{ show.title }} <br> <img class='showImage' src='{{show.images[0]}}'></td>
 <td>runtime: {{ show.runtime }} minutes<br>
     seasons: {{show.totalSeasons}} / episodes: {{show.totalEp}} </td>
 <td> </td>

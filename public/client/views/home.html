@@ -1,5 +1,8 @@
 <h1>Welcome to BingeGuru</h1>
 
-<div class='discover'><a href = '#discover' >discover</a></div>
 
-<div class='find'><a href = '#find' >find</a></div>
+<div ng-controller = 'discoverCtrl'>
+<a href = '#discover' ng-click='requestShowData()' ><div class='discover'>discover</div></a>
+</div>
+
+<a href = '#find' ><div class='find'>find</div></a>

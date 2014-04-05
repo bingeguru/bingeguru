@@ -19,12 +19,15 @@ body {
   width: 150px;
   height: 150px;
   background-color: orange;
+  margin: 5px;
 }
 
 .find{
   width: 150px;
   height: 150px;
   background-color: orange;
+  margin: 5px;
+  
 }
 
 a{
