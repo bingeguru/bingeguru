@@ -1,5 +1,5 @@
 var angApp = angular.module('angApp', [
-  'ngRoute', 'appControllers'
+  'ngRoute', 'appControllers', 'testData'
 ]);
 
 angApp.config(['$routeProvider',
