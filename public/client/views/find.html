@@ -1,2 +1,13 @@
 <div>find</div>
 
+<div ng-controller='findCtrl'>
+<!-- <input type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
+<input type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input> -->
+<!-- <table ng-controller = 'findCtrl'> -->
+<div>
+<h2>{{ show }}</h2>
+<img class='findImage' src='{{show.images[0]}}'>
+<div>runtime: {{ time }} minutes</div>
+</div>
+
+</div>

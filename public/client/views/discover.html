@@ -3,12 +3,13 @@
 <div ng-controller = 'discoverCtrl'>
 <input type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
 <input type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input>
-<table>
+<table ng-controller = 'findCtrl'>
 <tbody ng-repeat='show in data | filter:q:strict'>
 <tr>
-<td> {{ show.title }} <br> <img class='showImage' src='{{show.images[0]}}'></td>
+<td> {{ show.title }} <br><a href = '#find' ><img class='showImage' src='{{show.images[0]}}'></a></td>
 <td>runtime: {{ show.runtime }} minutes<br>
     seasons: {{show.totalSeasons}} / episodes: {{show.totalEp}} </td>
+    
 <td> </td>
 
 </tr>

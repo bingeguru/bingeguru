@@ -4,7 +4,9 @@ appControllers.controller('homeCtrl', ['$scope', function($scope){
 
 }]);
 
-appControllers.controller('findCtrl', ['$scope', function($scope){
+appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http){
+
+
 }]);
 
 appControllers.controller('discoverCtrl', ['$scope', 'testDataFactory', '$http', function($scope, testDataFactory, $http){
@@ -30,6 +32,13 @@ appControllers.controller('discoverCtrl', ['$scope', 'testDataFactory', '$http',
       .error(function(data, status, headers, config){
         console.log('get error');
       });
+    console.log('in requestShowData');
    }
+   $scope.requestShowData();
 
 }]);
+
+
+// title: the-office
+// name: the long name
+// seasons: {1: 3, 2:5, 3:13}

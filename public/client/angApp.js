@@ -17,7 +17,12 @@ angApp.config(['$routeProvider',
         templateUrl: 'client/views/find.html',
         controller: 'findCtrl'
       })
+      .when('/movie/:title', {
+        templateUrl: 'client/views/find.html',
+        controller: 
+      })
       .otherwise({
         redirectTo: '/'
       });
   }]);
+

@@ -16,18 +16,18 @@ body {
 }
 
 .discover{
-  width: 150px;
+  width: 500px;
   height: 150px;
   background-color: orange;
   margin: 5px;
 }
 
 .find{
-  width: 150px;
-  height: 150px;
+  width: 500px;
+  height: 50px;
   background-color: orange;
   margin: 5px;
-  
+
 }
 
 a{
@@ -39,3 +39,9 @@ a{
   max-width: 100px;
   max-height: 100px;
 }
+
+.findImage{
+  max-width: 300px;
+  max-height: 300px;
+}
+
