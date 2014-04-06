@@ -1,8 +1,47 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: #eee;
+    /*text-align: center;*/
+    padding: 0 25px;
+    font-family: arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.main {
+    width: 500px;
+    margin: auto;
+    text-align: left;
+    background: white;
+    padding: 50px 60px;
+    border: solid #ddd;
+    border-width: 0 1px 1px 1px;
 }
+
+.discover{
+  width: 500px;
+  height: 150px;
+  background-color: orange;
+  margin: 5px;
+}
+
+.find{
+  width: 500px;
+  height: 50px;
+  background-color: orange;
+  margin: 5px;
+
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+.showImage{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.findImage{
+  max-width: 300px;
+  max-height: 300px;
+}
+
