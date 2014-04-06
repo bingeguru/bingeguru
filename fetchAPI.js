@@ -15,27 +15,27 @@ var _ = require('underscore');
 // })
 
 
-var fetchAPI = function(){
-  trakt.init(password.api);
-  trakt.login(password.username, password.password , function(){
-    console.log("HERE");
-    tvSchema.find({}, function (err, shows) {
-      shows.forEach(function(show){
-        trakt.showSeasons({title: 'the-wire'}, function(err, data){
-          _.each(data, function(obj){
-          show.seasons.push([obj.season, obj.episodes]);
-          });
-          show.save(function(err,result){
-            if (err) return console.error(err);
-          });
-        });
-      });
-    });
+// var fetchAPI = function(){
+//   trakt.init(password.api);
+//   trakt.login(password.username, password.password , function(){
+//     console.log("HERE");
+//     tvSchema.find({}, function (err, shows) {
+//       shows.forEach(function(show){
+//         trakt.showSeasons({title: 'the-wire'}, function(err, data){
+//           _.each(data, function(obj){
+//           show.seasons.push([obj.season, obj.episodes]);
+//           });
+//           show.save(function(err,result){
+//             if (err) return console.error(err);
+//           });
+//         });
+//       });
+//     });
 
-  });
-};
+//   });
+// };
 
-fetchAPI();
+// fetchAPI();
 
-module.exports = fetchAPI;
+// module.exports = fetchAPI;
 
