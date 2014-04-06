@@ -44,11 +44,7 @@ if ('development' == app.get('env')) {
 
 //ROUTES
 app.get('/', routes.index);
-app.get('/getShows', function(req,res){
-  db.tvshows.find({}, function(err, data){
-    res.send(data);
-  });
-});
+app.get('/getShows', routes.getData);
 
 
   // trakt.init(password.api);
