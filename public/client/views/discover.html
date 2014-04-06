@@ -6,7 +6,7 @@
 <table ng-controller = 'findCtrl'>
 <tbody ng-repeat='show in data | filter:q:strict'>
 <tr>
-<td> {{ show.title }} <br><a href = '#find' ><img class='showImage' src='{{show.images[0]}}'></a></td>
+<td> {{ show.title }} <br><a href = '#find' ><img class='showImage' src='{{show.poster}}'></a></td>
 <td>runtime: {{ show.runtime }} minutes<br>
     seasons: {{show.totalSeasons}} / episodes: {{show.totalEp}} </td>
     
