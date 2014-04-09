@@ -39,6 +39,12 @@ appControllers.controller('discoverCtrl', ['$scope', 'testDataFactory', '$http',
 
      $scope.data[i]['totalSeasons'] = totalSeasons;
      $scope.data[i]['totalEp'] = totalEp;
+     $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) / 60);
+     $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
+     $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
+     $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
+
+
    };
       })
       .error(function(data, status, headers, config){
