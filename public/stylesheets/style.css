@@ -6,7 +6,7 @@ body {
 }
 
 .main {
-    width: 500px;
+    width: auto;
     margin: auto;
     text-align: left;
     background: white;
