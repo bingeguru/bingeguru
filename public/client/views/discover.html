@@ -1,37 +1,13 @@
-
-<!-- <table ng-controller = 'findCtrl'> -->
-
-
-<!-- <tbody ng-repeat='show in data | filter:q:strict'> -->
-<!-- <tr>
-<td> {{ show.title }} <br><a href = '#find' ><img class='showImage' src='{{show.poster}}'></a></td>
-<td>runtime: {{ show.runtime }} minutes<br>
-    seasons: {{show.totalSeasons}} / episodes: {{show.totalEp}} </td>
-
-<td> </td>
-
-</tr>
-
-
-</tbody>
-
-</table>
-</div> -->
-
-<!-- OLD CODE ABOVE -->
 <div>discover</div>
-<div ng-controller = 'discoverCtrl'>
+  <div ng-controller = 'discoverCtrl'>
 
-<input type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
-<input type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input>
+    <input type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
+    <input type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input>
 
-
-    <div class="container">
-      <div class="btn-group">
-        <a href="#" class="btn btn-default">Binge</a>
-        <a href="#" class="btn btn-default">Daily</a>
-        <a href="#" class="btn btn-default">Weekly</a>
-      </div>
+    <div class="btn-group" style = "float:right">
+      <a href="#" class="btn btn-default">Binge</a>
+      <a href="#" class="btn btn-default">Daily</a>
+      <a href="#" class="btn btn-default">Weekly</a>
     </div>
 
 
@@ -45,29 +21,34 @@
       <th>Season/Episode</th>
       <th>Time</th>
       </tr>
+
+
+
         <tbody ng-repeat='show in data | filter:q:strict'>
           <tr>
             <td>
               <label class="checkbox">
-                Star
+                <input type="checkbox">
               </label>
             </td>
             <td>
-              <img class='showImage' src='{{show.poster}}' max-height="100px">
+              <img class='showImage' src='{{show.poster}}'>
             </td>
             <td>
-              **Show Description**
+              {{ show.name }}: **Show Description**
             </td>
             <td>
               **Rating**
             </td>
             <td>
-              {{ show.runtime }} minutes
+              Seasons: {{show.totalSeasons}} / Episodes: {{show.totalEp}}
             </td>
             <td>
-              Seasons: {{show.totalSeasons}} / Episodes: {{show.totalEp}}
+              {{ show.runtime }} minutes
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+
+</div>
