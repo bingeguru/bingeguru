@@ -4,10 +4,9 @@
     <input type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
     <input type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input>
 
-    <div class="btn-group" style = "float:right">
-      <a href="#" class="btn btn-default">binge-a-thon</a>
-      <a href="#" class="btn btn-default">one a day</a>
-      <!-- <a href="#" class="btn btn-default">Weekly</a> -->
+    <div class="btn-group" style="float: right">
+        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">binge-a-thon</button>
+        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">one a day</button>
     </div>
 
 
