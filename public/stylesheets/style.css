@@ -53,3 +53,13 @@ a{
   margin-bottom: 10px;
   background-color: #eee;
 }
+.modalPoster{
+  max-width: 300px;
+  max-height: 300px;
+  float:left;
+}
+.modalBrand{
+  max-width: 50px;
+  max-height: 50px;
+  padding: 0 5px;
+}

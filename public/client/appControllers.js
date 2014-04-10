@@ -82,6 +82,7 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', function($scope, $
 
    $scope.predicate = '-name';
 
+
    // shopping cart begin
   $scope.CartForm = function(){
       $scope.showCollection = {
@@ -139,3 +140,85 @@ appControllers.factory('getFiltered', function($http){
 // title: the-office
 // name: the long name
 // seasons: {1: 3, 2:5, 3:13}
+
+// modal start
+
+var ModalDemoCtrl = function ($scope, $modal, $log) {
+
+  $scope.items = [];
+
+  $scope.open = function () {
+    console.log('modal this: ', this);
+    $scope.items.push(
+      this.item.poster,
+      this.item.name,
+      this.item.rating,
+      this.item.totalSeasons,
+      this.item.totalEp,
+      this.item.runtime,
+      this.item.bingeHours,
+      this.item.bingeMins,
+      this.item.bingeWeeks,
+      this.item.bingeDays
+     );
+    var modalInstance = $modal.open({
+      template: "<div class='modal-header'>"+
+      "<p>" + $scope.items[1] + "</p></div>" +
+      "<div class='modal-body'>"+
+      "<img class='modalPoster' src='"+ $scope.items[0] + "'>"+
+      "<p>Summary: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>" +
+      "<p>Rating: " + $scope.items[2] + "</p>" +
+      "<p>Total # of Seasons: " + $scope.items[3] + "</p>" +
+      "<p>Total # of Episodes: " + $scope.items[4] + "</p>" +
+      "<p>Runtime: " + $scope.items[5] + "</p>" +
+      "<p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpeg'></a>"+
+      "<a href = 'http://www.amazon.com'><img class='modalBrand' src = '../../images/amazon.jpeg'></a>"+
+      "<a href = 'http://www.hulu.com'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>"+
+      "<a href = 'http://www.itunes.com'><img class='modalBrand' src = '../../images/itunes.jpeg'></a></p>"+
+      "</div>" +
+      "<div class='modal-footer'>"+
+      "<button class='btn btn-primary' ng-click='ok()'>CLOSE</button>"+
+      "</div>"
+
+      ,
+      controller: ModalInstanceCtrl,
+      resolve: {
+        items: function () {
+          console.log('scope.items ',$scope.items);
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+};
+
+// Please note that $modalInstance represents a modal window (instance) dependency.
+// It is not the same as the $modal service used above.
+
+var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+
+  $scope.items = items;
+  $scope.selected = {
+    item: $scope.items[0]
+  };
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+
+
+};
+
+// modal end
