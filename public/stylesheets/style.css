@@ -48,3 +48,8 @@ a{
 .bingeOption{
   display: none;
 }
+
+.showCart{
+  margin-top: 10px;
+  background-color: #eee;
+}
