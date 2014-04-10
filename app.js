@@ -54,6 +54,12 @@ app.get('/getShows', function(req,res){
   });
 });
 
+app.get('/getFiltered', function(req,res){
+  console.log("FFFING REQUEST", req.body);
+  res.send(data);
+});
+
+
 
   // trakt.init(password.api);
   // trakt.login(password.username, password.password , function(){

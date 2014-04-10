@@ -2,6 +2,10 @@ var angApp = angular.module('angApp', [
   'ngRoute', 'appControllers', 'testData'
 ]);
 
+// angApp.factory('getRequestParams',
+// }]);
+
+
 angApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
