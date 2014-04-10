@@ -6,31 +6,53 @@ appControllers.controller('homeCtrl', ['$scope', function($scope){
 
 appControllers.controller('ButtonsCtrl', ['$scope', 'getFiltered', function ($scope, getFiltered) {
 
-    $scope.radioModel = 'binge';
-    $scope.checkModel = {
-      comedy: false,
-      drama: false,
-      scifi: false,
-      action: false,
-      adventure: false,
-      fantasy: false,
-      reality: false,
-      soap: false,
-      animation: false,
-      children: false,
-      under30: false,
-      between3060: false,
-      over60: false,
+    $scope.bingeModel = 'binge';
+    $scope.genresModel = 'All';
+    $scope.runtimeModel = 'All';
+
+    $scope.providerModel = {
+      All : true,
       hulu: false,
       netflix: false,
       amazon: false
     };
 
+
+
+    // $scope.params = {'genres':genres};
+
     var callback = function(){
       console.log("CONNECTION YEHAW");
     };
 
-    getFiltered.getComedies().success(callback);
+
+
+    $scope.submitFind = function(){
+      var min;
+      var max;
+      if($scope.runtimeModel === 'under30'){
+        min = 0;
+        max = 31;
+      }else if($scope.runtimeModel === 'between3045'){
+        min = 30;
+        max = 46;
+      }else if($scope.runtimeModel === 'between4560'){
+        min = 45;
+        max = 61;
+      }else{
+        min = 0;
+        max = 1000;
+      }
+      var params = {'genres':$scope.genresModel,
+      'min':min,
+      'max':max
+    };
+      getFiltered.getComedies(params).success(function(err, result){
+        console.log("GET COMEDIES", result);
+        $scope.test = result;
+      });
+    };
+
 
 
 }]);
@@ -97,9 +119,9 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', function($scope, $
 
 appControllers.factory('getFiltered', function($http){
   return {
-     getComedies: function(){
+     getComedies: function(args){
       return $http.get('/getFiltered', {
-        params: {genre: ['comedy']}
+        params: args
       })
       .success(function(data, status, headers, config){
         console.log(data);

@@ -55,8 +55,20 @@ app.get('/getShows', function(req,res){
 });
 
 app.get('/getFiltered', function(req,res){
-  console.log("FFFING REQUEST", req.body);
-  res.send(data);
+  console.log("FFFING REQUEST", req.query.genres, req.query.min, req.query.max);
+  if(req.query.genres === 'All'){
+    TVShows.where('runtime').gt(req.query.min).lt(req.query.max).select('name').find({}, function(err, data){
+      res.send(data);
+
+    });
+
+  }else{
+    TVShows.where('genres').in([req.query.genres]).where('runtime').gt(req.query.min).lt(req.query.max).select('name').find().exec(function(err, data){
+      res.send(data);
+
+    });
+  }
+
 });
 
 
