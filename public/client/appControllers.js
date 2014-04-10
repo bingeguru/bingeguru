@@ -49,19 +49,6 @@ appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http
 }]);
 
 appControllers.controller('discoverCtrl', ['$scope', '$http', function($scope, $http){
-   // $scope.data = getAllFactory;
-   // for (var i = 0; i < $scope.data.length; i++) {
-   //   var seasonList =$scope.data[i].seasons;
-   //   var totalSeasons = Object.keys(seasonList).length;
-   //   var totalEp = 0;
-   //   for(var episode in seasonList){
-   //     totalEp += seasonList[episode];
-   //   }
-
-   //   $scope.data[i]['totalSeasons'] = totalSeasons;
-   //   $scope.data[i]['totalEp'] = totalEp;
-   // };
-   // console.log($scope.data);
 
   $scope.requestShowData = function(){
     $http({method: 'GET', url: '/getShows'})
@@ -92,6 +79,9 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', function($scope, $
     console.log('in requestShowData');
    }
    $scope.requestShowData();
+
+   $scope.predicate = '-name';
+
 
 }]);
 

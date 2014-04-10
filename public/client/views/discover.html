@@ -9,21 +9,23 @@
         <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">one a day</button>
     </div>
 
-
+    <pre>Sorting predicate = {{predicate}};
+    reverse = {{reverse}}</pre>
+    <hr/>
     <div class="container">
       <table class="table">
       <tr>
-      <th>Star</th>
-      <th>Poster</th>
-      <th>Summary</th>
-      <th>Rating</th>
-      <th>Season/Episode</th>
-      <th>Time</th>
+      <th><a href = "" ng-click="predicate='star'; reverse=false">Star</a></th>
+      <th> </th>
+      <th><a href = "" ng-click="predicate='name'; reverse=false">Summary</a></th>
+      <th><a href = "" ng-click="predicate='rating'; reverse=false">Rating</a></th>
+      <th><a href = "" ng-click="predicate='totalSeasons'; reverse=false">Season/Episode</a></th>
+      <th><a href = "" ng-click="predicate='runtime'; reverse=false">Time</a></th>
       </tr>
 
 
 
-        <tbody ng-repeat='show in data | filter:q:strict'>
+        <tbody ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse'>
           <tr>
             <td>
               <label class="checkbox">

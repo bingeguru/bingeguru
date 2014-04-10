@@ -49,7 +49,7 @@ if ('development' == app.get('env')) {
 //ROUTES - TODO: orderby ratings once db populated
 app.get('/', routes.index);
 app.get('/getShows', function(req,res){
-  TVShows.find({$query: {}, $orderby: {name : 1} }, function(err, data){
+  TVShows.find({$query: {}, $orderby: {name : -1} }, function(err, data){
     res.send(data);
   });
 });
