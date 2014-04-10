@@ -1,9 +1,155 @@
 <h1>Welcome to BingeGuru</h1>
 
 <!-- <div ng-controller = 'discoverCtrl'> -->
-<a href ='#discover'><div class='discover'>discover</div></a>
+<!-- <a href ='#discover'><div class='discover'>discover</div></a>
 </div>
 
 
 <a href = '#find' ><div class='find'>find</div></a>
-<input style='width:300px' type = 'search' placeholder = '...or enter show title'></input>
+<input style='width:300px' type = 'search' placeholder = '...or enter show title'></input> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+    >
+    </script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+    >
+    </script>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+          <h3>
+            Popular bingeables
+          </h3>
+          <div class="row">
+            <div class="col-md-3">
+              <h3>
+                House of Cards
+              </h3>
+                <img class="showImage" src="http://commcouncil.utexas.org/files/2014/02/Kevin-Spacey-in-House-of-Cards.jpg"><img>
+                <ul>
+                  <li>Series Total Time: 24 hrs</li>
+                  <li>Episode Length: 60 minutes</li>
+                  <li>Average Season Length: 12 Episodes</li>
+                </ul>
+
+            </div>
+            <div class="col-md-3">
+              <h3>
+                Breaking Bad
+              </h3>
+              <img class="showImage" src="http://commcouncil.utexas.org/files/2014/02/Kevin-Spacey-in-House-of-Cards.jpg"><img>
+                <ul>
+                  <li>Series Total Time: 24 hrs</li>
+                  <li>Episode Length: 60 minutes</li>
+                  <li>Average Season Length: 12 Episodes</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+              <h3>
+                Lost
+              </h3>
+              <img class="showImage" src="http://commcouncil.utexas.org/files/2014/02/Kevin-Spacey-in-House-of-Cards.jpg"><img>
+                <ul>
+                  <li>Series Total Time: 24 hrs</li>
+                  <li>Episode Length: 60 minutes</li>
+                  <li>Average Season Length: 12 Episodes</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+              <h3>
+                Orange is the New Black
+              </h3>
+              <img class="showImage" src="http://commcouncil.utexas.org/files/2014/02/Kevin-Spacey-in-House-of-Cards.jpg"><img>
+                <ul>
+                  <li>Series Total Time: 24 hrs</li>
+                  <li>Episode Length: 60 minutes</li>
+                  <li>Average Season Length: 12 Episodes</li>
+                </ul>
+            </div>
+          </div>
+          <p>
+          </p>
+         <div ng-controller="ButtonsCtrl">
+          <hr>
+          <h3>
+            Find Shows
+          </h3>
+          <h3>
+            Genre
+          </h3>
+          <div >
+            <pre>{{checkModel}}{{radioModel}}</pre>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" ng-model="checkModel.comedy" btn-checkbox>Comedy</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.drama" btn-checkbox>Drama</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.scifi" btn-checkbox>Science Fiction</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.action" btn-checkbox>Action</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.adventure" btn-checkbox>Adventure</button>
+
+
+
+            </div>
+            <div class="btn-group">
+
+              <button type="button" class="btn btn-default" ng-model="checkModel.fantasy" btn-checkbox>Fantasy</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.reality" btn-checkbox>Reality</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.soap" btn-checkbox>Soap</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.animation" btn-checkbox>Animation</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.children" btn-checkbox>Children</button>
+            </div>
+            <h3>
+              Episode Length
+            </h3>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" ng-model="checkModel.under30" btn-checkbox>Under 30 min</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.between3060" btn-checkbox>30 to 60 min</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.over60" btn-checkbox>Over 60 min</button>
+            </div>
+            <h3>
+              Frequency
+            </h3>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" ng-model="radioModel" btn-radio="'binge'">BINGE!</button>
+              <button type="button" class="btn btn-default" ng-model="radioModel"  btn-radio="'daily'">Daily</button>
+              <button type="'button'" class="btn btn-default" ng-model="radioModel" btn-radio="'weekly'">Weekly</button>
+            </div>
+            <h3>
+              Provider
+            </h3>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default" ng-model="checkModel.hulu" btn-checkbox>Hulu</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.netflix" btn-checkbox>Netflix</button>
+              <button type="button" class="btn btn-default" ng-model="checkModel.amazon" btn-checkbox>Amazon</button>
+            </div>
+            <hr>
+            <button type = "button" class="btn btn-success">FIND SHOWS</button>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>
+                  Search
+                </label>
+                <input type="text" class="form-control">
+                <button type="submit" class="btn btn-default">
+                  Click!
+                </button>
+              </div>
+            </div>
+            <div class="col-md-4">
+              Interesting Fun Facts
+            </div>
+            <div class="col-md-4">
+              <div>
+                <br>
+              </div>
+              <div>
+                reviews
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
