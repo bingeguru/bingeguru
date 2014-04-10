@@ -1,99 +1,72 @@
-<div>discover</div>
-  <div ng-controller = 'discoverCtrl'>
+<div ng-controller = 'discoverCtrl'>
 
-    <input type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
-    <input type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input>
-
-    <div class="btn-group" style="float: right">
-        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">binge-a-thon</button>
-        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">one a day</button>
-    </div>
-
-<div class = "container showCart">
+<!-- starred Shows area -->
+  <div class = "container showCart">
     <h2>Starred Shows</h2>
-<div ng:controller="CartForm">
-    <table class="table">
+    <div ng:controller="CartForm">
+      <table class="table">
         <tr>
-
-            <th> </th>
-            <th> </th>
-            <th>Summary</th>
-            <th>Rating</th>
-            <th>Season/Episode</th>
-            <th>Time</th>
+          <th> </th>
+          <th> </th>
+          <th>Summary</th>
+          <th>Rating</th>
+          <th>Season/Episode</th>
+          <th>Time</th>
         </tr>
         <tr ng:repeat="item in showCollection.items">
-            <td>
-
-      <button><a href ng:click="removeItem($index)" class="btn btn-small">remove</a></button>
-
-
-                <!-- [<a href ng:click="removeItem($index)"></a>] -->
-            </td>
-            <td><img class="showImage" src="{{ item.poster }}"></td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.rating }}</td>
-            <td>Seasons: {{item.totalSeasons}} / Episodes: {{item.totalEp}}</td>
-            <td>Runtime: {{ item.runtime }}<br>
-              <div>bingeHours: {{item.bingeHours}} h {{item.bingeMins}} m</div><br>
-              <div>bingeDays: {{item.bingeWeeks}} w {{item.bingeDays}} d</div></td>
+          <td><button><a href ng:click="removeItem($index)" class="btn btn-small">remove</a></button></td>
+          <td><img class="showImage" src="{{ item.poster }}"></td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.rating }}</td>
+          <td>Seasons: {{item.totalSeasons}} / Episodes: {{item.totalEp}}</td>
+          <td>Runtime: {{ item.runtime }}<br>
+            <div>bingeHours: {{item.bingeHours}} h {{item.bingeMins}} m</div><br>
+            <div>bingeDays: {{item.bingeWeeks}} w {{item.bingeDays}} d</div>
+          </td>
         </tr>
-        <!-- <tr>
-            <td><a href ng:click="addItem()" class="btn btn-small">add item</a></td>
-            <td></td>
-            <td>Total:</td>
-            <td>{{total() | currency}}</td>
-        </tr> -->
-    </table>
-</div>
-</div>
-
-
-
-
-    <hr/>
-    <div class="container">
-      <table class="table">
-      <tr>
-      <th></th>
-      <th> </th>
-      <th><a href = "" ng-click="predicate='name'; reverse=false">Summary</a></th>
-      <th><a href = "" ng-click="predicate='rating'; reverse=false">Rating</a></th>
-      <th><a href = "" ng-click="predicate='totalSeasons'; reverse=false">Season/Episode</a></th>
-      <th><a href = "" ng-click="predicate='runtime'; reverse=false">Time</a></th>
-      </tr>
-
-
-
-        <tbody ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse'>
-          <tr>
-            <td>
-              <!-- <label class="checkbox"> -->
-                <!-- <input type="checkbox"> -->
-                <button><a href ng:click="addItem()" class="btn btn-small">select</a></button>
-              <!-- </label> -->
-            </td>
-            <td>
-              <img class='showImage' src='{{show.poster}}'>
-            </td>
-            <td>
-              <a ng-click='showContent()'>{{ show.name }}</a>: **Show Description**
-            </td>
-            <td>
-              **Rating**
-            </td>
-            <td>
-              Seasons: {{show.totalSeasons}} / Episodes: {{show.totalEp}}
-            </td>
-            <td>
-              Runtime: {{ show.runtime }}<br>
-              <div>bingeHours: {{show.bingeHours}} h {{show.bingeMins}} m</div><br>
-              <div>bingeDays: {{show.bingeWeeks}} w {{show.bingeDays}} d</div>
-
-            </td>
-          </tr>
-        </tbody>
       </table>
     </div>
+  </div>
+
+  <!-- search area -->
+  <input type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
+  <input type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input>
+
+  <!-- binge option filters -->
+  <div class="btn-group" style="float: right">
+    <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">binge-a-thon</button>
+    <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">one a day</button>
+  </div>
+
+
+
+  <div class="container">
+    <table class="table">
+
+    <tr>
+    <th></th>
+    <th> </th>
+    <th><a href = "" ng-click="predicate='name'; reverse=false">Summary</a></th>
+    <th><a href = "" ng-click="predicate='rating'; reverse=false">Rating</a></th>
+    <th><a href = "" ng-click="predicate='totalSeasons'; reverse=false">Season/Episode</a></th>
+    <th><a href = "" ng-click="predicate='runtime'; reverse=false">Time</a></th>
+    </tr>
+
+
+
+      <tbody ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse'>
+        <tr>
+          <td><button><a href ng:click="addItem()" class="btn btn-small">select</a></button></td>
+          <td><img class='showImage' src='{{show.poster}}'></td>
+          <td><a ng-click='showContent()'>{{ show.name }}</a>: **Show Description**</td>
+          <td>**Rating**</td>
+          <td>Seasons: {{show.totalSeasons}} / Episodes: {{show.totalEp}}</td>
+          <td>Runtime: {{ show.runtime }}<br>
+          <div>bingeHours: {{show.bingeHours}} h {{show.bingeMins}} m</div><br>
+          <div>bingeDays: {{show.bingeWeeks}} w {{show.bingeDays}} d</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>

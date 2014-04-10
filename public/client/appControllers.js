@@ -82,46 +82,35 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', function($scope, $
 
    $scope.predicate = '-name';
 
-
-
- // $scope.showContent = function(){
- //  console.log(this.show.name);
- // };
-
    // shopping cart begin
   $scope.CartForm = function(){
       $scope.showCollection = {
-          items: []
+          items: [],
+          starredShows: []
           };
 
       $scope.addItem = function() {
-        console.log(this.show.name, this.show.rating);
+        if($scope.showCollection.starredShows.indexOf(this.show.name) === -1) {
           $scope.showCollection.items.push({
-              poster: this.show.poster,
-              name: this.show.name + " **Show Description**",
-              rating: "**Rating**",
-              totalSeasons: this.show.totalSeasons,
-              totalEp: this.show.totalEp,
-              runtime: this.show.runtime,
-              bingeHours: this.show.bingeHours,
-              bingeMins: this.show.bingeMins,
-              bingeWeeks: this.show.bingeWeeks,
-              bingeDays: this.show.bingeDays
-            });
-        },
+            poster: this.show.poster,
+            name: this.show.name + " **Show Description**",
+            rating: "**Rating**",
+            totalSeasons: this.show.totalSeasons,
+            totalEp: this.show.totalEp,
+            runtime: this.show.runtime,
+            bingeHours: this.show.bingeHours,
+            bingeMins: this.show.bingeMins,
+            bingeWeeks: this.show.bingeWeeks,
+            bingeDays: this.show.bingeDays
+          });
+          $scope.showCollection.starredShows.push(this.show.name);
+        }
+      };
 
       $scope.removeItem = function(index) {
           $scope.showCollection.items.splice(index, 1);
-        },
-
-      $scope.total = function() {
-          var total = 0;
-          angular.forEach($scope.showCollection.items, function(item) {
-              total += item.qty * item.cost;
-            });
-
-          return total;
-      };
+          $scope.showCollection.starredShows.splice(index,1);
+        };
     };
 
    // shopping cart end
