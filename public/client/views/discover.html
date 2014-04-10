@@ -5,9 +5,9 @@
     <input type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input>
 
     <div class="btn-group" style = "float:right">
-      <a href="#" class="btn btn-default">Binge</a>
-      <a href="#" class="btn btn-default">Daily</a>
-      <a href="#" class="btn btn-default">Weekly</a>
+      <a href="#" class="btn btn-default">binge-a-thon</a>
+      <a href="#" class="btn btn-default">one a day</a>
+      <!-- <a href="#" class="btn btn-default">Weekly</a> -->
     </div>
 
 
@@ -45,8 +45,8 @@
             </td>
             <td>
               Runtime: {{ show.runtime }}<br>
-              bingeHours: {{show.bingeHours}} h {{show.bingeMins}} m<br>
-              bingeDays: {{show.bingeWeeks}} w {{show.bingeDays}} d<br>
+              <div>bingeHours: {{show.bingeHours}} h {{show.bingeMins}} m</div><br>
+              <div>bingeDays: {{show.bingeWeeks}} w {{show.bingeDays}} d</div>
 
             </td>
           </tr>
