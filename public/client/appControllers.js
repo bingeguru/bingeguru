@@ -80,9 +80,6 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', function($scope, $
    }
    $scope.requestShowData();
 
-   $scope.predicate = '-name';
-
-
    // shopping cart begin
   $scope.CartForm = function(){
       $scope.showCollection = {
