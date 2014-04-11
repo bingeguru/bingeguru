@@ -48,3 +48,18 @@ a{
 .bingeOption{
   display: none;
 }
+
+.sliderText{
+  text-align:left;
+  padding-right: 20px;
+}
+
+.carousel{
+  float:right;
+  min-width:500px;
+  height: 305px;
+  width: 100%;
+  -moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+}

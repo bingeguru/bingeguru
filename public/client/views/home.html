@@ -15,62 +15,35 @@
     >
     </script>
     <div class="container">
-      <div class="row">
+      <div ng-controller="ButtonsCtrl">
         <div class="col-md-12">
           <hr>
           <h3>
             Popular bingeables
           </h3>
-          <div class="row">
-            <div class="col-md-3">
-              <h3>
-                House of Cards
-              </h3>
-                <img class="showImage" src="http://commcouncil.utexas.org/files/2014/02/Kevin-Spacey-in-House-of-Cards.jpg"><img>
-                <ul>
-                  <li>Series Total Time: 24 hrs</li>
-                  <li>Episode Length: 60 minutes</li>
-                  <li>Average Season Length: 12 Episodes</li>
-                </ul>
+          <div class="carousel">
+              <carousel interval="myInterval">
+                <slide ng-repeat="slide in data" active="slide.active">
+                <div class="row">
+                  <div>
+                    <img ng-src="{{slide.poster}}" style="float: left; padding: 10px 40px; max-height: 250px; margin-top: 20px; max-width 300px">
+                  </div>
+                  <div class="sliderText">
+                    <h3>{{slide.name}}</h3>
+                    <h4>Epsiode Length: {{slide.runtime}}</h4>
 
+
+
+                  </div>
+
+
+                </div>
+                </slide>
+              </carousel>
             </div>
-            <div class="col-md-3">
-              <h3>
-                Breaking Bad
-              </h3>
-              <img class="showImage" src="http://commcouncil.utexas.org/files/2014/02/Kevin-Spacey-in-House-of-Cards.jpg"><img>
-                <ul>
-                  <li>Series Total Time: 24 hrs</li>
-                  <li>Episode Length: 60 minutes</li>
-                  <li>Average Season Length: 12 Episodes</li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-              <h3>
-                Lost
-              </h3>
-              <img class="showImage" src="http://commcouncil.utexas.org/files/2014/02/Kevin-Spacey-in-House-of-Cards.jpg"><img>
-                <ul>
-                  <li>Series Total Time: 24 hrs</li>
-                  <li>Episode Length: 60 minutes</li>
-                  <li>Average Season Length: 12 Episodes</li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-              <h3>
-                Orange is the New Black
-              </h3>
-              <img class="showImage" src="http://commcouncil.utexas.org/files/2014/02/Kevin-Spacey-in-House-of-Cards.jpg"><img>
-                <ul>
-                  <li>Series Total Time: 24 hrs</li>
-                  <li>Episode Length: 60 minutes</li>
-                  <li>Average Season Length: 12 Episodes</li>
-                </ul>
-            </div>
-          </div>
           <p>
           </p>
-         <div ng-controller="ButtonsCtrl">
+         <div class="row">
           <hr>
           <h3>
             Find Shows

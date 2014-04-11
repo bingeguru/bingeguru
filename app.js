@@ -57,18 +57,27 @@ app.get('/getShows', function(req,res){
 app.get('/getFiltered', function(req,res){
   console.log("FFFING REQUEST", req.query.genres, req.query.min, req.query.max);
   if(req.query.genres === 'All'){
-    TVShows.where('runtime').gt(req.query.min).lt(req.query.max).select('name').find({}, function(err, data){
+    TVShows.where('runtime').gt(req.query.min).lt(req.query.max).find({}, function(err, data){
+      console.log(data);
       res.send(data);
 
     });
 
   }else{
-    TVShows.where('genres').in([req.query.genres]).where('runtime').gt(req.query.min).lt(req.query.max).select('name').find().exec(function(err, data){
+    TVShows.where('genres').in([req.query.genres]).where('runtime').gt(req.query.min).lt(req.query.max).find().exec(function(err, data){
+      console.log(data);
       res.send(data);
+
 
     });
   }
 
+});
+
+app.get('/slider', function(req, res){
+  TVShows.find().limit(10).exec(function(err, data){
+    res.send(data);
+  });
 });
 
 
