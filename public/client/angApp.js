@@ -1,5 +1,5 @@
 var angApp = angular.module('angApp', [
-  'ngRoute', 'appControllers', 'testData'
+  'ngRoute', 'appControllers', 'testData', 'angApp.directive'
 ]);
 
 // angApp.factory('getRequestParams',
