@@ -85,7 +85,7 @@ app.get('/slider', function(req, res){
   // trakt.init(password.api);
   // trakt.login(password.username, password.password , function(){
   //   console.log("HERE");
-  //   db.TVShows.find({}, function (err, shows) {
+  //   TVShows.find({}, function (err, shows) {
   //     shows.forEach(function(show){
   //       trakt.showSummary({title: show.title}, function(err, data){
   //         console.log(data);
