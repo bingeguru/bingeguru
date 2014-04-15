@@ -49,8 +49,6 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       'max':max
     };
       getFiltered.getComedies(params).success(function(err, result){
-        console.log("GET COMEDIES", result);
-        $scope.test = result;
         $location.path( "/discover");
       });
     };
@@ -82,29 +80,8 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
 
 
 
-
-  // $scope.addSlide = function() {
-  //   var newWidth = 600 + slides.length;
-  //   slides.push({
-  //     image: 'http://placekitten.com/' + newWidth + '/300',
-  //     text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
-  //       ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
-  //   });
-  // };
-  // for (var i=0; i<4; i++) {
-  //   $scope.addSlide();
-  // }
-
-
 }]);
 
-// var ButtonsCtrl = function ($scope) {
-//   $scope.checkModel = {
-//     comedy: true,
-//     drama: true,
-//     scifi: true
-//   };
-// };
 
 appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http){
 
@@ -112,25 +89,9 @@ appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http
 }]);
 
 appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', function($scope, $http, getFiltered){
-   // $scope.data = getAllFactory;
-   // for (var i = 0; i < $scope.data.length; i++) {
-   //   var seasonList =$scope.data[i].seasons;
-   //   var totalSeasons = Object.keys(seasonList).length;
-   //   var totalEp = 0;
-   //   for(var episode in seasonList){
-   //     totalEp += seasonList[episode];
-   //   }
-
-   //   $scope.data[i]['totalSeasons'] = totalSeasons;
-   //   $scope.data[i]['totalEp'] = totalEp;
-   // };
-   // console.log($scope.data);
 
   $scope.requestShowData = function(){
-    $http({method: 'GET', url: '/getShows'})
-      .success(function(data, status, headers, config) {
-        console.log(data);
-    $scope.data = data;
+    $scope.data = getFiltered.getReceivedData();
       for (var i = 0; i < $scope.data.length; i++) {
        var seasonList =$scope.data[i].seasons;
        var totalSeasons = Object.keys(seasonList).length;
@@ -145,15 +106,8 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
        $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
        $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
        $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
-
-
      }
-      })
-       .error(function(data, status, headers, config){
-         console.log('get error');
-       });
-     console.log('in requestShowData');
-  };
+   };
    $scope.requestShowData();
 
    // shopping cart begin
@@ -192,18 +146,21 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
 }]);
 
 appControllers.factory('getFiltered', function($http){
+  var receivedData;
   var shows = {
    getComedies: function(args){
     return $http.get('/getFiltered', {
       params: args
     })
     .success(function(data,status, headers, config){
-      console.log(data);
-      shows.data = data;
+      receivedData = data;
     })
     .error(function(data, status, headers, config){
       console.log('get error');
     });
+   },
+   getReceivedData: function(){
+      return receivedData;
    }
   };
   return shows;
