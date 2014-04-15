@@ -30,13 +30,13 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
     $scope.submitFind = function(){
       var min;
       var max;
-      if($scope.runtimeModel === 'under30'){
+      if($scope.runtimeModel === 'under 30 min'){
         min = 0;
         max = 31;
-      }else if($scope.runtimeModel === 'between3045'){
+      }else if($scope.runtimeModel === '30 - 45 min'){
         min = 30;
         max = 46;
-      }else if($scope.runtimeModel === 'between4560'){
+      }else if($scope.runtimeModel === '60 min'){
         min = 45;
         max = 61;
       }else{

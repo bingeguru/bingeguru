@@ -1,8 +1,115 @@
 body {
     background: #eee;
     /*text-align: center;*/
-    padding: 0 25px;
     font-family: arial, sans-serif;
+}
+
+.header{
+  margin-right: 20px;
+  height: 150px;
+  background-color: white;
+  font-family: Verdana;
+  -webkit-border-top-right-radius: 2px;
+   -webkit-border-bottom-right-radius: 2px;
+       -moz-box-shadow:    2px 2px 2px 2px ##CCFFCC;
+    -webkit-box-shadow: 2px 2px 2px 2px ##CCFFCC;
+    box-shadow:         2px 2px 2px 2px ##CCFFCC;
+}
+.b {
+    display: inline-block;
+    position: relative;
+    margin: 1%;
+    float: left;
+    width: 23%;
+    height: 90%;
+    overflow: hidden;
+    background-color: white;
+    -moz-box-shadow:    1px 1px 2px 1px #ccc;
+    -webkit-box-shadow: 1px 1px 2px 1px #ccc;
+    box-shadow:         1px 1px 2px 1px #ccc;
+    text-align:center;
+}
+
+.mainwrapper{
+  padding:10px;
+}
+
+.submit{
+  margin-right: auto;
+  margin-left: 45%;
+}
+
+
+
+.glyphicon{
+  padding-top:45px;
+  padding-left: 0;
+  padding-bottom: 1px;
+  margin-bottom: 20px;
+  margin-left:auto;
+  margin-right: auto;
+   font-size: 36px;
+}
+
+.filterLabels{
+  font-family: 'Playfair Display SC', serif;
+  font-weight: bold;
+}
+
+
+.explainText{
+  text-align: center;
+}
+
+#logo{
+  padding: 25px;
+  color: #fff;
+  font-size: 72px;
+  font-family: 'Almendra', serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px #fff;
+}
+
+.selectedFilter{
+  color: #003399;
+  text-align: center;
+}
+
+#logo :hover{
+  text-decoration: none;
+  color: lightblue;
+  text-shadow: 1px 1px 0px #333;
+
+}
+
+.labelFilter{
+  padding-left: 30px;
+
+}
+
+#searchWrapper{
+  width:50%;
+  margin-left:25%;
+}
+
+.transparent {
+  background-color: #66CCFF;
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+#tagline{
+  text-align:center;
+  padding:20px 20px;
+  color:   #003399;
+  opacity: 1;
+  
+}
+
+.welcome{
+  height: 250px;
+  text-align: center;
 }
 
 .main {
@@ -10,7 +117,6 @@ body {
     margin: auto;
     text-align: left;
     background: white;
-    padding: 50px 60px;
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
 }
@@ -76,4 +182,19 @@ a{
   -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 border-radius: 10px;
+}
+
+.supplementInfo{
+  height: 200px
+}
+
+.footer{
+  height: 200px;
+  background-color: lightgrey;
+  padding: 10px;
+}
+
+.footer li{
+  list-style-type: none;
+margin-left: 25px;
 }
