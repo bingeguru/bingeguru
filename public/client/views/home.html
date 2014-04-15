@@ -8,12 +8,16 @@
 <div class="welcome transparent">
   
   <div class="b"><h4>What kind of show?</h4>
+    <div class="glyph" ><span class="glyphicon glyphicon-film" style="font-size:100px;"></span></div>
   </div>
   <div class="b"><h4>How much time does it take?</h4>
+    <div class="glyph"><span class="glyphicon glyphicon-time" style="font-size:100px;"></span></div>
   </div>
   <div class="b"><h4>Where can I watch it?</h4>
+  <img class='networkImage' src='../images/amazon.jpeg'><img class='networkImage' src='../images/hulu.jpeg'><img class='networkImage' src='../images/itunes.jpeg'><img class='networkImage' src='../images/netflix.jpeg'>
   </div>
   <div class="b"><h4>How much would it cost?</h4>
+      <div class="glyph"><span class="glyphicon glyphicon-usd" style="font-size:100px;"></span></div>
   </div>
 </div>
 <div class="container mainwrapper">
@@ -22,7 +26,7 @@
         
         <div class="col-md-5">
           <div class="welcome">
-            <h1>&nbsp; I looking for ...</h1>
+            <h1>&nbsp; I'm looking for ...</h1>
             <hr>
             <h3 class="labelFilter">Genres: <span class="selectedFilter">{{genresModel}}</span></h3>
             <h3 class="labelFilter">Episode Runtime: <span class="selectedFilter">{{runtimeModel}}</span></h3>
@@ -80,7 +84,7 @@
                 <div class="carousel">
                   <carousel interval="myInterval">
                     <slide ng-repeat="slide in data" active="slide.active">
-                      <div class="row">
+                      <div class="row" ng:click="open()">
                         <div>
                           <img ng-src="{{slide.poster}}" style="float: left; padding: 10px 40px; max-height: 250px; margin-top: 20px; max-width 300px">
                         </div>

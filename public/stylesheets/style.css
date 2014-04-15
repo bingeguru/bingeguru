@@ -198,3 +198,8 @@ border-radius: 10px;
   list-style-type: none;
 margin-left: 25px;
 }
+.networkImage{
+  max-width: 90px;
+  max-height: 90px;
+}
+
