@@ -21,7 +21,7 @@ angApp.config(['$routeProvider',
         templateUrl: 'client/views/find.html',
         controller: 'findCtrl'
       })
-      .when('/showDetail', {
+      .when('/showDetail/:title', {
         templateUrl: 'client/views/showDetail.html',
         controller: 'showDetailCtrl'
       })

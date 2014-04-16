@@ -25,7 +25,8 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
     $scope.submitSearch = function(slugName){
       var searchParam = {'name': slugName};
       getSearchedShow.getAShow(searchParam).success(function(err, result){
-        $location.path( "/showDetail" + '/'+slugName);
+        
+        $location.path( "/showDetail/:" + slugName);
       });
     }
 
@@ -36,12 +37,12 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       console.log("CONNECTION YEHAW");
     };
 
-    $scope.getMovieInfo = function(slide){
+    $scope.getShowInfo = function(slide){
         console.log("requested slide ", slide);
-        var params1Movie = {'title': slide.title};
-        getFiltered.getAShow(params1Movie).success(function(err, result){
+        var params1Show = {'title': slide.title};
+        getFiltered.getAShow(params1Show).success(function(err, result){
           console.log("getAShow result ", result);
-          $location.path( "/showDetail");
+          $location.path( "/showDetail/:" + slide.name);
         });
       };
 
@@ -107,6 +108,8 @@ appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http
 }]);
 
 appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered', 'getSearchedShow', '$http', function ($scope, $location, getFiltered, getSearchedShow, $http) {
+  console.log(" location ", $location.path());
+
   $scope.requestShowData = function(){
     $scope.data = getFiltered.getReceivedShow() || getSearchedShow.getReceivedShow();
     console.log("scopedata ", $scope.data);
@@ -128,6 +131,22 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
      
    };
    $scope.requestShowData();
+   if(!$scope.data){
+    var urlName = (""+ $location.path());
+    title = urlName.slice(13);
+    console.log(title);
+        $http.get('/getSearchedShow', {
+          params: {'name': title}
+        })
+        .success(function(data, status, headers, config){
+          console.log("getASearchedShowData ", data);
+          $scope.data = data;
+        })
+        .error(function(data, status, headers, config){
+          console.log('get error in getAshow');
+        });
+       }
+  
 
 }]);
 
