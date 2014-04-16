@@ -17,7 +17,7 @@
           </tr> 
         </thead>
         <tbody >
-          <tr  class="showEntry" ng-controller = 'ModalDemoCtrl' ng-repeat="item in showCollection.items">
+          <tr class="showEntry" ng-controller = 'ModalDemoCtrl' ng-repeat="item in showCollection.items">
             <td><button><a href ng-click="removeItem($index)" class="btn btn-small">remove</a></button></td>
             <td><a href ng-click="open()"><img class="showImage" src="{{ item.poster }}"></a></td>
             <td>{{ item.name }}</td>
