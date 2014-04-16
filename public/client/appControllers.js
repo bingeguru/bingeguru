@@ -175,7 +175,8 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
             bingeHours: this.show.bingeHours,
             bingeMins: this.show.bingeMins,
             bingeWeeks: this.show.bingeWeeks,
-            bingeDays: this.show.bingeDays
+            bingeDays: this.show.bingeDays,
+            title: this.show.title
           });
           $scope.showCollection.starredShows.push(this.show.name);
         }
@@ -258,7 +259,8 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       this.show.bingeHours,
       this.show.bingeMins,
       this.show.bingeWeeks,
-      this.show.bingeDays
+      this.show.bingeDays,
+      this.show.title
      );
     var modalInstance = $modal.open({
       template: "<div class='modal-header'>"+
@@ -271,8 +273,8 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       "<p>Total # of Episodes: " + $scope.items[4] + "</p>" +
       "<p>Runtime: " + $scope.items[5] + "</p>" +
       "<p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpeg'></a>"+
-      "<a href = 'http://www.amazon.com'><img class='modalBrand' src = '../../images/amazon.jpeg'></a>"+
-      "<a href = 'http://www.hulu.com'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>"+
+      "<a href = 'http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/amazon.jpeg'></a>"+
+      "<a href = 'http://www.hulu.com/" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>"+
       "<a href = 'http://www.itunes.com'><img class='modalBrand' src = '../../images/itunes.jpeg'></a></p>"+
       "</div>" +
       "<div class='modal-footer'>"+

@@ -12,6 +12,19 @@
             <th>Rating</th>
             <th>Season/Episode</th>
             <th>Time</th>
+          </tr> 
+        </thead>
+        <tbody >
+          <tr class="showEntry" ng-controller = 'ModalDemoCtrl' ng-repeat="item in showCollection.items">
+            <td><button><a href ng-click="removeItem($index)" class="btn btn-small">remove</a></button></td>
+            <td><a href ng-click="open()"><img class="showImage" src="{{ item.poster }}"></a></td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.rating }}</td>
+            <td>Seasons: {{item.totalSeasons}} / Episodes: {{item.totalEp}}</td>
+            <td>Runtime: {{ item.runtime }}<br>
+              <div>bingeHours: {{item.bingeHours}} h {{item.bingeMins}} m</div><br>
+              <div>bingeDays: {{item.bingeWeeks}} w {{item.bingeDays}} d</div>
+            </td>
           </tr>
         </thead>
         <tbody ng-controller = 'ModalDemoCtrl'>
