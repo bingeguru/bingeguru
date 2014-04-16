@@ -125,7 +125,7 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
 appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', function($scope, $http, getFiltered){
 
   $scope.requestShowData = function(){
-    $scope.searchParams = getFiltered.searchParams;
+    $scope.searchParams = getFiltered.searchParams();
     $scope.data = getFiltered.getReceivedData();
     console.log("Scopedata", $scope.data);
       for (var i = 0; i < $scope.data.length; i++) {
@@ -187,7 +187,7 @@ appControllers.factory('getFiltered', function($http){
   var receivedShow;
   var shows = {
    getComedies: function(args){
-    args = searchParams;
+    searchParams = args;
     return $http.get('/getFiltered', {
       params: args
 
@@ -217,6 +217,9 @@ appControllers.factory('getFiltered', function($http){
    },
    getReceivedShow: function(){
       return receivedShow;
+   },
+   getSearchParams: function(){
+       return searchParams;
    }
   };
   return shows;
