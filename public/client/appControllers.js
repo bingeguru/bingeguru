@@ -1,10 +1,10 @@
-var appControllers = angular.module('appControllers', ['ui.bootstrap']);
+var appControllers = angular.module('appControllers', ['ui.bootstrap', 'appFactories']);
 
 appControllers.controller('homeCtrl', ['$scope', function($scope){
 
 }]);
 
-appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' , '$http', function ($scope, $location, getFiltered, $http) {
+appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,'getAllShows', 'getSearchedShow', '$http', function ($scope, $location, getFiltered, getAllShows, getSearchedShow, $http) {
 
     $scope.bingeModel = 'binge';
     $scope.genresModel = 'All';
@@ -17,6 +17,17 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       amazon: false
     };
 
+    $scope.showNames = [];
+    for (var i = 0; i < getAllShows.showNames.length; i++) {
+      $scope.showNames.push(getAllShows.showNames[i].name);
+    };
+
+    $scope.submitSearch = function(slugName){
+      var searchParam = {'name': slugName};
+      getSearchedShow.getAShow(searchParam).success(function(err, result){
+        $location.path( "/showDetail");
+      });
+    }
 
 
     // $scope.params = {'genres':genres};
@@ -96,9 +107,9 @@ appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http
 
 }]);
 
-appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered' , '$http', function ($scope, $location, getFiltered, $http) {
+appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered', 'getSearchedShow', '$http', function ($scope, $location, getFiltered, getSearchedShow, $http) {
   $scope.requestShowData = function(){
-    $scope.data = getFiltered.getReceivedShow();
+    $scope.data = getFiltered.getReceivedShow() || getSearchedShow.getReceivedShow();
     console.log("scopedata ", $scope.data);
     // console.log("scope datas ", getFiltered.getReceivedShow());
     // console.log("hi mom");
@@ -125,7 +136,7 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
 appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', function($scope, $http, getFiltered){
 
   $scope.requestShowData = function(){
-    $scope.searchParams = getFiltered.searchParams();
+    $scope.searchParams = getFiltered.getSearchParams();
     $scope.data = getFiltered.getReceivedData();
     console.log("Scopedata", $scope.data);
       for (var i = 0; i < $scope.data.length; i++) {

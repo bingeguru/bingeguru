@@ -60,6 +60,13 @@ app.get('/getAShow', function(req,res){
     res.send(data);
   });
 });
+app.get('/getSearchedShow', function(req,res){
+  console.log(req.query.name);
+  TVShows.findOne({name: req.query.name }, function(err, data){
+    console.log(data);
+    res.send(data);
+  });
+});
 
 app.get('/getFiltered', function(req,res){
   console.log("FFFING REQUEST", req.query.genres, req.query.min, req.query.max);
