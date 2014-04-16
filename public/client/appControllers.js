@@ -178,6 +178,7 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
             bingeDays: this.show.bingeDays,
             title: this.show.title
           });
+          console.log("showcollection", showCollection.starredShows)
           $scope.showCollection.starredShows.push(this.show.name);
         }
       };
