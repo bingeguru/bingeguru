@@ -125,7 +125,7 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
 appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', function($scope, $http, getFiltered){
 
   $scope.requestShowData = function(){
-    $scope.searchParams = getFiltered.searchParams();
+    $scope.searchParams = getFiltered.getSearchParams();
     $scope.data = getFiltered.getReceivedData();
     console.log("Scopedata", $scope.data);
       for (var i = 0; i < $scope.data.length; i++) {
