@@ -25,7 +25,7 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
     $scope.submitSearch = function(slugName){
       var searchParam = {'name': slugName};
       getSearchedShow.getAShow(searchParam).success(function(err, result){
-        $location.path( "/showDetail");
+        $location.path( "/showDetail" + '/'+slugName);
       });
     }
 

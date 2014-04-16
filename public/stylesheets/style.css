@@ -252,3 +252,7 @@ margin-left: 25px;
 .tvshowsArea{
   margin-top: 10px;
 }
+.detailPoster{
+  max-width: 500px;
+  max-height: 500px;
+}
