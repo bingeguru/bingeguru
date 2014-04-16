@@ -25,8 +25,11 @@ angApp.config(['$routeProvider',
         templateUrl: 'client/views/showDetail.html',
         controller: 'showDetailCtrl'
       })
+      .when('/about', {
+        templateUrl: 'client/views/about.html',
+        controller: 'homeCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
   }]);
-
