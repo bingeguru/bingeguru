@@ -75,8 +75,11 @@
           <h3 style="text-align: center">Or</h3>
           <div id="searchWrapper">
             <div class="form-group">
-              <input type="text" class="form-control search" placeholder="Search...">
-              <h4 style="text-align: center; text-decoration: underline; color: blue" ><a href=""></a>Search</h4>
+
+              <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control">
+              <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success">Search</button>
+
+
                 <hr>
                 <h3 >Popular Shows to Binge</h3>
                 <div class="carousel">
