@@ -78,15 +78,15 @@
           <div id="searchWrapper">
             <div class="form-group">
               <input type="text" class="form-control search" placeholder="Search...">
-              <h4 style="text-align: center; text-decoration: underline; color: blue"><a href=""></a>Search</h4>
+              <h4 style="text-align: center; text-decoration: underline; color: blue" ><a href=""></a>Search</h4>
                 <hr>
-                <h3>Popular Shows to Binge</h3>
+                <h3 >Popular Shows to Binge</h3>
                 <div class="carousel">
                   <carousel interval="myInterval">
                     <slide ng-repeat="slide in data" active="slide.active">
-                      <div class="row" ng:click="open()">
+                      <div class="row" >
                         <div>
-                          <img ng-src="{{slide.poster}}" style="float: left; padding: 10px 40px; max-height: 250px; margin-top: 20px; max-width 300px">
+                          <img ng-src="{{slide.poster}}" style="float: left; padding: 10px 40px; max-height: 250px; margin-top: 20px; max-width 300px" ng-click="getMovieInfo(slide)" >
                         </div>
                         <div class="sliderText">
                           <h3>{{slide.name}}</h3>
