@@ -91,6 +91,7 @@ appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http
 appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', function($scope, $http, getFiltered){
 
   $scope.requestShowData = function(){
+    $scope.searchParams = getFiltered.searchParams;
     $scope.data = getFiltered.getReceivedData();
       for (var i = 0; i < $scope.data.length; i++) {
        var seasonList =$scope.data[i].seasons;
@@ -147,10 +148,13 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
 
 appControllers.factory('getFiltered', function($http){
   var receivedData;
+  var searchParams;
   var shows = {
    getComedies: function(args){
+    args = searchParams;
     return $http.get('/getFiltered', {
       params: args
+
     })
     .success(function(data,status, headers, config){
       receivedData = data;

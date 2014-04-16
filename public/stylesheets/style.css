@@ -35,6 +35,7 @@ body {
 }
 
 .submit{
+  padding-top: 20px;
   margin-right: auto;
   margin-left: 45%;
 }
@@ -110,6 +111,26 @@ body {
 .welcome{
   height: 250px;
   text-align: center;
+}
+
+tr.showEntry:hover{
+  background-color: #ffffcc;
+}
+
+thead > tr{
+  background-color: white;
+}
+
+#searchCriteria{
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 10px;
+  border: 1px solid lightgrey;
+  height:50px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  background-color: #fdf7ef;
 }
 
 .main {
