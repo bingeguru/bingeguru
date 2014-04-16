@@ -43,12 +43,9 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       }else if($scope.runtimeModel === '30 - 45 min'){
         min = 30;
         max = 46;
-      }else if($scope.runtimeModel === '60 min'){
+      }else{
         min = 45;
         max = 61;
-      }else{
-        min = 0;
-        max = 1000;
       }
       //params for
       var params = {'genres':$scope.genresModel,
@@ -59,6 +56,8 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
         $location.path( "/discover");
       });
     };
+
+
 
 //carousel
  $scope.myInterval = 5000;
@@ -125,7 +124,7 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
 appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', function($scope, $http, getFiltered){
 
   $scope.requestShowData = function(){
-    $scope.searchParams = getFiltered.searchParams();
+    $scope.searchParams = getFiltered.getSearchParams();
     $scope.data = getFiltered.getReceivedData();
     console.log("Scopedata", $scope.data);
       for (var i = 0; i < $scope.data.length; i++) {
@@ -157,7 +156,7 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
         if($scope.showCollection.starredShows.indexOf(this.show.name) === -1) {
           $scope.showCollection.items.push({
             poster: this.show.poster,
-            name: this.show.name + " **Show Description**",
+            name: this.show.name,
             rating: "**Rating**",
             totalSeasons: this.show.totalSeasons,
             totalEp: this.show.totalEp,
@@ -238,18 +237,17 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
   $scope.items = [];
 
   $scope.open = function () {
-    console.log('modal this: ', this);
     $scope.items.push(
-      this.item.poster,
-      this.item.name,
-      this.item.rating,
-      this.item.totalSeasons,
-      this.item.totalEp,
-      this.item.runtime,
-      this.item.bingeHours,
-      this.item.bingeMins,
-      this.item.bingeWeeks,
-      this.item.bingeDays
+      this.show.poster,
+      this.show.name,
+      this.show.rating,
+      this.show.totalSeasons,
+      this.show.totalEp,
+      this.show.runtime,
+      this.show.bingeHours,
+      this.show.bingeMins,
+      this.show.bingeWeeks,
+      this.show.bingeDays
      );
     var modalInstance = $modal.open({
       template: "<div class='modal-header'>"+

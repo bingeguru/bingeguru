@@ -113,18 +113,25 @@ body {
   text-align: center;
 }
 
-tr.showEntry:hover{
+/*tr.showEntry:hover{
   background-color: #ffffcc;
 }
-
+*/
 thead > tr{
   background-color: white;
 }
 
-#searchCriteria{
+
+.showName:hover{
+  text-decoration: underline;
+  color: darkblue;
+}
+
+#searchCriteriaBox{
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 10px;
+  padding: 10px
   border: 1px solid lightgrey;
   height:50px;
   -moz-border-radius: 5px;
@@ -132,6 +139,13 @@ thead > tr{
   border-radius: 5px; 
   background-color: #fdf7ef;
 }
+
+#searchCriteria{
+  font-size: 1.4em;
+  margin-left: 20px;
+  padding: 5px;
+}
+
 
 .main {
     width: auto;
@@ -163,8 +177,13 @@ a{
 }
 
 .showImage{
+  text-align: center;
   max-width: 100px;
-  max-height: 100px;
+  max-height: 120px;
+}
+
+#imageCell{
+  text-align: center;
 }
 
 .findImage{
