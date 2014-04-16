@@ -49,10 +49,10 @@
     <tr>
     <th></th>
     <th> </th>
-    <th><a href = "" ng-click="predicate='name'; reverse=false">Summary</a></th>
-    <th><a href = "" ng-click="predicate='rating'; reverse=false">Rating</a></th>
-    <th><a href = "" ng-click="predicate='totalSeasons'; reverse=false">Season/Episode</a></th>
-    <th><a href = "" ng-click="predicate='runtime'; reverse=false">Time</a></th>
+    <th><a href = "" ng-click="predicate='name'; reverse=!reverse">Summary</a></th>
+    <th><a href = "" ng-click="predicate='rating'; reverse=!reverse">Rating</a></th>
+    <th><a href = "" ng-click="predicate='totalSeasons'; reverse=!reverse">Season/Episode</a></th>
+    <th><a href = "" ng-click="predicate='runtime'; reverse=!reverse">Time</a></th>
     </tr>
 
       <tbody ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse'>
