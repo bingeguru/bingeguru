@@ -56,8 +56,8 @@
     </tr>
 
       <tbody ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse'>
-        <tr hide>
-          <td><button><a href ng:click="addItem()" class="btn btn-small">select</a></button></td>
+        <tr>
+          <td><button hide><a href ng:click="addItem()" class="btn btn-small">select</a></button></td>
           <td><img class='showImage' src='{{show.poster}}'></td>
           <td>{{ show.name }}: **Show Description**</td>
           <td>**Rating**</td>
