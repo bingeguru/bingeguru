@@ -25,7 +25,14 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       console.log("CONNECTION YEHAW");
     };
 
-
+    $scope.getMovieInfo = function(slide){
+        console.log("requested slide ", slide);
+        var params1Movie = {'title': slide.title};
+        getFiltered.getAShow(params1Movie).success(function(err, result){
+          console.log("getAShow result ", result);
+          $location.path( "/showDetail");
+        });
+      };
 
     $scope.submitFind = function(){
       var min;
@@ -80,6 +87,7 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
 
 
 
+
 }]);
 
 
@@ -88,11 +96,38 @@ appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http
 
 }]);
 
+appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered' , '$http', function ($scope, $location, getFiltered, $http) {
+  $scope.requestShowData = function(){
+    $scope.data = getFiltered.getReceivedShow();
+    console.log("scopedata ", $scope.data);
+    // console.log("scope datas ", getFiltered.getReceivedShow());
+    // console.log("hi mom");
+       // var seasonList =$scope.data.seasons;
+       // // var totalSeasons = Object.keys(seasonList).length;
+       // var totalEp = 0;
+       // for(var episode in seasonList){
+       //  totalEp += parseInt(seasonList[episode], 10);
+       // // }
+
+       // $scope.data['totalSeasons'] = totalSeasons;
+       // $scope.data['totalEp'] = totalEp;
+       // $scope.data['bingeHours'] = Math.floor(($scope.data['totalEp'] * $scope.data['runtime']) / 60);
+       // $scope.data['bingeMins'] = ($scope.data['totalEp'] * $scope.data['runtime']) % 60;
+       // $scope.data['bingeWeeks'] = Math.floor($scope.data['totalEp'] / 7);
+       // $scope.data['bingeDays'] = $scope.data['totalEp'] % 7;
+     
+   };
+   $scope.requestShowData();
+
+}]);
+
+
 appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', function($scope, $http, getFiltered){
 
   $scope.requestShowData = function(){
     $scope.searchParams = getFiltered.searchParams;
     $scope.data = getFiltered.getReceivedData();
+    console.log("Scopedata", $scope.data);
       for (var i = 0; i < $scope.data.length; i++) {
        var seasonList =$scope.data[i].seasons;
        var totalSeasons = Object.keys(seasonList).length;
@@ -149,6 +184,7 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
 appControllers.factory('getFiltered', function($http){
   var receivedData;
   var searchParams;
+  var receivedShow;
   var shows = {
    getComedies: function(args){
     args = searchParams;
@@ -163,12 +199,29 @@ appControllers.factory('getFiltered', function($http){
       console.log('get error');
     });
    },
+
+   getAShow: function(args){
+    return $http.get('/getAShow', {
+      params: args
+    })
+    .success(function(data,status, headers, config){
+      console.log("getAShow Data ", data);
+      receivedShow = data;
+    })
+    .error(function(data, status, headers, config){
+      console.log('get error in getAshow');
+    });
+   },
    getReceivedData: function(){
       return receivedData;
+   },
+   getReceivedShow: function(){
+      return receivedShow;
    }
   };
   return shows;
 });
+
 
 
 // title: the-office

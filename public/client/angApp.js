@@ -21,6 +21,10 @@ angApp.config(['$routeProvider',
         templateUrl: 'client/views/find.html',
         controller: 'findCtrl'
       })
+      .when('/showDetail', {
+        templateUrl: 'client/views/showDetail.html',
+        controller: 'showDetailCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
