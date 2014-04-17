@@ -181,7 +181,7 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$l
       }else {
         timeStats();
      }
-     var timeStats = function(){
+     function timeStats(){
         for (var i = 0; i < $scope.data.length; i++) {
          var seasonList =$scope.data[i].seasons;
          var totalSeasons = Object.keys(seasonList).length;
