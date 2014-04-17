@@ -29,3 +29,8 @@ results
 npm-debug.log
 node_modules
 password.js
+
+###Testing###
+
+# testing/*
+# *.tests.js
