@@ -151,10 +151,10 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
   console.log(" location ", $location.path());
 
   $scope.requestShowData = function(){
-    $scope.data = getFiltered.getReceivedShow() || getSearchedShow.getReceivedShow();
-    console.log("scopedata ", $scope.data);
+    // $scope.data = getFiltered.getReceivedShow() || getSearchedShow.getReceivedShow();
+    // console.log("scopedata ", $scope.data);
     
-   if(!$scope.data){
+   // if(!$scope.data){
     var urlName = (""+ $location.path());
     title = urlName.slice(13);
     console.log(title);
@@ -170,7 +170,7 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
         .error(function(data, status, headers, config){
           console.log('get error in getAshow');
         });
-       }else{createShowVars();}
+       // }else{createShowVars();}
 
     function createShowVars(){
        if(!$scope.data.seasons){ $location.path('/error');}

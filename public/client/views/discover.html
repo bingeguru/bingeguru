@@ -62,7 +62,7 @@
         <th></th>
         <th></th>
         <th><a href = "" ng-click="predicate='name'; reverse=!reverse">Title</a></th>
-        <th style="text-align: center"><a href = "" ng-click="predicate='rating'; reverse=!reverse">Rating</a></th>
+        <th style="text-align: center"><a href = "" ng-click="predicate='ratings'; reverse=!reverse">Rating</a></th>
         <th style="text-align: center"><a href = "" ng-click="predicate='totalSeasons'; reverse=!reverse">Season/Episode</a></th>
         <th style="text-align: center"><a href = "" ng-click="predicate='runtime'; reverse=!reverse">Time to Watch Series</a></th>
       </tr>
@@ -72,7 +72,7 @@
         <td width="2%"><button ng:click="addItem()"><a href  class="btn btn-small">Add to Starred</a></button></td>
         <td width="9%" id="imageCell"><img class='showImage' src='{{show.poster}}'></td>
         <td width="30%"><h2><a class="showName" href ng-click="open()" >{{ show.name }}</a></h2></td>
-        <td width="5%">**Rating**</td>
+        <td width="5%">{{ show.ratings }}/100</td>
         <td width="20%">
           <TABLE>
             <TR>

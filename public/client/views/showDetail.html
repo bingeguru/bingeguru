@@ -1,41 +1,51 @@
 
 <div ng-controller="showDetailCtrl">
+  <div class="">
       <h2> {{data.name}}</h2></div> 
       <h3> {{data.year}}</h3> 
-      <div>
-      <div>
-        <img class='detailPoster' src={{data.poster}}>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6">
+            <img class='detailPoster' src={{data.poster}}>
+          </div>
+
+          <div class="col-md-4">
+            <div>
+              <div>hours: {{data.bingeHours}} minutes: {{data.bingeMins}} </div>
+              <div>weeks: {{data.bingeWeeks}} days: {{data.bingeDays}} </div>
+            </div>
+
+            <div class="detailStats">
+            <p>Network: {{data.network}}</p>
+            <p>Rating:   {{data.ratings}} /100  </p> 
+            <p>Total # of Seasons:   {{data.totalSeasons}} </p> 
+            <p>Total # of Episodes:   {{data.totalEp}} </p> 
+            <p>Runtime:   {{data.runtime}} min/episode  </p> 
+
+            <p>Summary: {{data.overview}}</p> 
+             
+            </div>
+          </div> <!-- text column end -->
+          <div class="col-md-2"></div>
+        </div> <!-- row end -->
+
+
+
+          <div>CAST:</div>
+          <div ng-repeat="actor in actorList | limitTo:quantity">
+            <p>{{actor.character}}:   {{actor.name}}</p>
+          </div>
+
+          <p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpeg'></a>
+          <a href = "http://www.amazon.com/s?url=search-alias%3Daps&field-keywords={{data.title}}"><img class='modalBrand' src = '../../images/amazon.jpeg'></a>
+          <a href = 'http://www.hulu.com/search?q={{data.title}}'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>
+          <a href = 'http://itunes.com'><img class='modalBrand' src = '../../images/itunes.jpeg'></a></p>
+      
+
       </div>
 
-      <div>
-        <div>hours: {{data.bingeHours}} minutes: {{data.bingeMins}} </div>
-        <div>weeks: {{data.bingeWeeks}} days: {{data.bingeDays}} </div>
-      </div>
 
-      <div class="detailStats">
-      <p>Network: {{data.network}}</p>
-      <p>Rating:   {{data.ratings}} /100  </p> 
-      <p>Total # of Seasons:   {{data.totalSeasons}} </p> 
-      <p>Total # of Episodes:   {{data.totalEp}} </p> 
-      <p>Runtime:   {{data.runtime}} min/episode  </p> 
-
-      <p>Summary: {{data.overview}}</p> 
-       
-      </div>
-
-
-      <div>CAST:</div>
-      <div ng-repeat="actor in actorList | limitTo:quantity">
-        <p>{{actor.character}}:   {{actor.name}}</p>
-      </div>
-
-      <p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpeg'></a>
-      <a href = "http://www.amazon.com/s?url=search-alias%3Daps&field-keywords={{data.title}}"><img class='modalBrand' src = '../../images/amazon.jpeg'></a>
-      <a href = 'http://www.hulu.com/search?q={{data.title}}'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>
-      <a href = 'http://itunes.com'><img class='modalBrand' src = '../../images/itunes.jpeg'></a></p>
-      </div> 
-
-
-      <div class='modal-footer'>
+<!--       <div class='modal-footer'>
       <button class='btn btn-primary' ng-click=''>DONT CLICK THIS YET</button>
-      </div>
+      </div> -->
