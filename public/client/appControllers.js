@@ -50,7 +50,7 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       var min;
       var max;
       if($scope.runtimeModel === 'under 30 min'){
-        min = 0;
+        min = 10;
         max = 31;
       }else if($scope.runtimeModel === '30 - 45 min'){
         min = 30;
@@ -65,7 +65,7 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       'max':max
     };
       getFiltered.getComedies(params).success(function(err, result){
-        $location.path( "/discover");
+        $location.path( "/discover/:"+ params.min+"/:"+params.max+"/:"+params.genres);
       });
     };
 
@@ -151,30 +151,68 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
 }]);
 
 
-appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', function($scope, $http, getFiltered){
+appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$location', function($scope, $http, getFiltered, $location){
 
   $scope.requestShowData = function(){
     $scope.searchParams = getFiltered.getSearchParams();
     $scope.data = getFiltered.getReceivedData();
 
-    console.log("Scopedata", $scope.data);
-      for (var i = 0; i < $scope.data.length; i++) {
-       var seasonList =$scope.data[i].seasons;
-       var totalSeasons = Object.keys(seasonList).length;
-       var totalEp = 0;
-       for(var episode in seasonList){
-        totalEp += parseInt(seasonList[episode], 10);
-       }
-
-       $scope.data[i]['totalSeasons'] = totalSeasons;
-       $scope.data[i]['totalEp'] = totalEp;
-       $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) / 60);
-       $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
-       $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
-       $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
+     //REFRESH GET REQUEST
+     console.log("scope data", $scope.data)
+     if(!$scope.data){
+      var urlName = (""+ $location.path());
+      min = urlName.slice(11,13);
+      max = urlName.slice(15,17);
+      genres = urlName.slice(19);
+      $http.get('/getFiltered', {
+        params: {'genres':genres,
+          'min':min,
+          'max':max
+        }
+      })
+      .success(function(data,status, headers, config){
+        
+        $scope.data = data;
+        timeStats();
+      })
+      .error(function(data, status, headers, config){
+        console.log('get error');
+      });
+      }else {
+        timeStats();
      }
+     var timeStats = function(){
+        for (var i = 0; i < $scope.data.length; i++) {
+         var seasonList =$scope.data[i].seasons;
+         var totalSeasons = Object.keys(seasonList).length;
+         var totalEp = 0;
+         for(var episode in seasonList){
+          totalEp += parseInt(seasonList[episode], 10);
+         }
+
+         $scope.data[i]['totalSeasons'] = totalSeasons;
+         $scope.data[i]['totalEp'] = totalEp;
+         $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) / 60);
+         $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
+         $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
+         $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
+       }
+     };
    };
    $scope.requestShowData();
+
+
+       //  $http.get('/getSearchedShow', {
+       //    params: {'name': title}
+       //  })
+       //  .success(function(data, status, headers, config){
+       //    console.log("getASearchedShowData ", data);
+       //    $scope.data = data;
+       //  })
+       //  .error(function(data, status, headers, config){
+       //    console.log('get error in getAshow');
+       //  });
+       // }else{$scope.data = $scope.data;}
 
    // shopping cart begin
   $scope.CartForm = function(){

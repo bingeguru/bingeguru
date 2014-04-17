@@ -13,7 +13,7 @@ angApp.config(['$routeProvider',
         templateUrl: 'client/views/home.html',
         controller: 'homeCtrl'
       })
-      .when('/discover', {
+      .when('/discover/:min/:max/:genre', {
         templateUrl: 'client/views/discover.html',
         controller: 'discoverCtrl'
       })
