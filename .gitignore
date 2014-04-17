@@ -33,5 +33,4 @@ password.js
 
 ###Testing###
 
-# testing/*
-# *.tests.js
+test

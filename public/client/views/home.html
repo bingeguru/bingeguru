@@ -8,16 +8,16 @@
 <div class="welcome transparent">
   
   <div class="b"><h4>What kind of show?</h4>
-    <div class="glyph" ><span class="glyphicon glyphicon-film" style="font-size:100px;"></span></div>
+    <div class="glyph" ><span class="glyphicon glyphicon-film" style="font-size:80px;"></span></div>
   </div>
-  <div class="b"><h4>How much time does it take?</h4>
-    <div class="glyph"><span class="glyphicon glyphicon-time" style="font-size:100px;"></span></div>
+  <div class="b"><h4>How much time?</h4>
+    <div class="glyph"><span class="glyphicon glyphicon-time" style="font-size:80px;"></span></div>
   </div>
   <div class="b"><h4>Where can I watch it?</h4>
-  <img class='networkImage' src='../images/amazon.jpeg'><img class='networkImage' src='../images/hulu.jpeg'><img class='networkImage' src='../images/itunes.jpeg'><img class='networkImage' src='../images/netflix.jpeg'>
+  <img class='networkImage' src='../images/amazon.jpeg'><img class='networkImage' src='../images/hulu.jpeg'><br><img class='networkImage' src='../images/itunes.jpeg'><img class='networkImage' src='../images/netflix.jpeg'>
   </div>
   <div class="b"><h4>How much would it cost?</h4>
-      <div class="glyph"><span class="glyphicon glyphicon-usd" style="font-size:100px;"></span></div>
+      <div class="glyph"><span class="glyphicon glyphicon-usd" style="font-size:80px;"></span></div>
   </div>
 </div>
 <div class="container mainwrapper">
@@ -76,8 +76,10 @@
           <div id="searchWrapper">
             <div class="form-group">
 
-              <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control">
+            <form ng-submit="submitSearch(selected)">
+              <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control"><br>
               <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success">Search</button>
+            </form>
 
 
                 <hr>
@@ -103,7 +105,7 @@
       </div>
     </div>
   </div>
-  <div class="row welcome supplementInfo">
+  <!-- <div class="row welcome supplementInfo">
     <div class="col-md-6">
       <h2>Fun Facts</h2>
     </div>
@@ -112,7 +114,7 @@
       <h2>Reviews</h2>
     </div>
     
-  </div>
+  </div> -->
 
   <!-- 
   <div class="footer">

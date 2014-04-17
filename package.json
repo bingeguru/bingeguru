@@ -10,6 +10,7 @@
     "ejs": "*",
     "node-trakt": "0.0.2",
     "mongoose": "~3.8.8",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "karma-jasmine": "^0.1.5"
   }
 }
