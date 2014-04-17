@@ -309,9 +309,8 @@ appControllers.service('getFiltered', function($http){
 
 var ModalDemoCtrl = function ($scope, $modal, $log) {
 
-  $scope.items = [];
-
   $scope.open = function () {
+    $scope.items = [];
     $scope.items.push(
       this.show.poster,
       this.show.name,
