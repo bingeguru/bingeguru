@@ -155,7 +155,10 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
 
   $scope.requestShowData = function(){
     $scope.searchParams = getFiltered.getSearchParams();
-    $scope.data = getFiltered.getReceivedData();
+    $scope.recentData = getFiltered.getReceivedData();
+    console.log("recent",$scope.recentData);
+    $scope.data = $scope.recentData;
+    console.log("recent", $scope.recentData);
     console.log("Scopedata", $scope.data);
       for (var i = 0; i < $scope.data.length; i++) {
        var seasonList =$scope.data[i].seasons;
@@ -212,7 +215,7 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
 
 }]);
 
-appControllers.factory('getFiltered', function($http){
+appControllers.service('getFiltered', function($http){
   var receivedData;
   var searchParams;
   var receivedShow;
@@ -294,7 +297,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       "<p>Runtime: " + $scope.items[5] + "</p>" +
       "<p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpeg'></a>"+
       "<a href = 'http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/amazon.jpeg'></a>"+
-      "<a href = 'http://www.hulu.com/" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>"+
+      "<a href = 'http://www.hulu.com/search?q=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>"+
       "<a href = 'http://www.itunes.com'><img class='modalBrand' src = '../../images/itunes.jpeg'></a></p>"+
       "</div>" +
       "<div class='modal-footer'>"+
