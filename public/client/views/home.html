@@ -10,7 +10,7 @@
   <div class="b"><h4>What kind of show?</h4>
     <div class="glyph" ><span class="glyphicon glyphicon-film" style="font-size:100px;"></span></div>
   </div>
-  <div class="b"><h4>How much time does it take?</h4>
+  <div class="b"><h4>How much time?</h4>
     <div class="glyph"><span class="glyphicon glyphicon-time" style="font-size:100px;"></span></div>
   </div>
   <div class="b"><h4>Where can I watch it?</h4>
@@ -75,7 +75,7 @@
           <h3 style="text-align: center">Or</h3>
           <div id="searchWrapper">
             <div class="form-group">
-              
+
             <form ng-submit="submitSearch(selected)">
               <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control"><br>
               <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success">Search</button>
