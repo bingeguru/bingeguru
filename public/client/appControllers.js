@@ -113,14 +113,15 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
   $scope.requestShowData = function(){
     $scope.data = getFiltered.getReceivedShow() || getSearchedShow.getReceivedShow();
     console.log("scopedata ", $scope.data);
-    // console.log("scope datas ", getFiltered.getReceivedShow());
-    // console.log("hi mom");
+    createShowVars();
+   };
+    function createShowVars(){
        // var seasonList =$scope.data.seasons;
-       // // var totalSeasons = Object.keys(seasonList).length;
+       // var totalSeasons = Object.keys(seasonList).length;
        // var totalEp = 0;
        // for(var episode in seasonList){
        //  totalEp += parseInt(seasonList[episode], 10);
-       // // }
+       // }
 
        // $scope.data['totalSeasons'] = totalSeasons;
        // $scope.data['totalEp'] = totalEp;
@@ -128,8 +129,7 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
        // $scope.data['bingeMins'] = ($scope.data['totalEp'] * $scope.data['runtime']) % 60;
        // $scope.data['bingeWeeks'] = Math.floor($scope.data['totalEp'] / 7);
        // $scope.data['bingeDays'] = $scope.data['totalEp'] % 7;
-     
-   };
+    }
    $scope.requestShowData();
    if(!$scope.data){
     var urlName = (""+ $location.path());
@@ -141,6 +141,8 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
         .success(function(data, status, headers, config){
           console.log("getASearchedShowData ", data);
           $scope.data = data;
+          createShowVars();
+
         })
         .error(function(data, status, headers, config){
           console.log('get error in getAshow');
