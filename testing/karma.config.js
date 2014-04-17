@@ -15,17 +15,19 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'public/lib/angular-route.min.js',
+      'public/lib/angular.min.js',
       // 'angular-mocks.js',
       // '../*.js',
       // '../**/*.js',
-      '../public/client/*.tests.js',
+      'testing/lib/*.tests.js',
       '*.tests.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      './karma.config.js'
+      './lib/karma.config.js'
     ],
 
 
