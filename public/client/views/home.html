@@ -75,9 +75,11 @@
           <h3 style="text-align: center">Or</h3>
           <div id="searchWrapper">
             <div class="form-group">
-
-              <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control">
+              
+            <form ng-submit="submitSearch(selected)">
+              <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control"><br>
               <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success">Search</button>
+            </form>
 
 
                 <hr>
