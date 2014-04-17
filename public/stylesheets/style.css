@@ -257,7 +257,29 @@ margin-left: 25px;
   max-height: 500px;
   float: left;
 }
-.detailStats{
-  
+.detailbody {
 
+    text-align: center;
+    background-color: lightgray;
+    padding: 0 25px;
+    font-family: arial, sans-serif;
 }
+
+.detailmain {
+    width: 75%;
+    margin: auto;
+    text-align: left;
+    background: white;
+    padding: 50px 60px;
+    border: solid #ddd;
+    border-width: 0 1px 1px 1px;
+}
+.detailTitle {
+  font-weight: bold;
+}
+.bingeStats{
+  font-size: 18px;
+}
+
+
+

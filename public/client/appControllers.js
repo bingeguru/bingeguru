@@ -31,10 +31,10 @@ appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'get
 
        $scope.data[i]['totalSeasons'] = totalSeasons;
        $scope.data[i]['totalEp'] = totalEp;
-       $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) / 60);
+       $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']* $scope.data[i]['totalSeasons']) / 60);
        $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
-       $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
-       $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
+       $scope.data[i]['bingeWeeks'] = Math.floor(($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) / 7);
+       $scope.data[i]['bingeDays'] = ($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) % 7;
      }
     })
     .error(function(data, status, headers, config){
@@ -95,8 +95,11 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       }else if($scope.runtimeModel === '30 - 45 min'){
         min = 30;
         max = 46;
+      }else if($scope.runtimeModel === '60 min'){
+        min = 47;
+        max = 61;
       }else{
-        min = 45;
+        min = 10;
         max = 61;
       }
       //params for
@@ -124,12 +127,12 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
         totalEp += parseInt(seasonList[episode], 10);
        }
 
-       $scope.data[i]['totalSeasons'] = totalSeasons;
-       $scope.data[i]['totalEp'] = totalEp;
-       $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) / 60);
-       $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
-       $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
-       $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
+         $scope.data[i]['totalSeasons'] = totalSeasons;
+         $scope.data[i]['totalEp'] = totalEp;
+         $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']* $scope.data[i]['totalSeasons']) / 60);
+         $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
+         $scope.data[i]['bingeWeeks'] = Math.floor(($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) / 7);
+         $scope.data[i]['bingeDays'] = ($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) % 7;
      }
     })
     .error(function(data, status, headers, config){
@@ -142,19 +145,15 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
 }]);
 
 
-appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http){
-
-
-}]);
 
 appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered', 'getSearchedShow', '$http', function ($scope, $location, getFiltered, getSearchedShow, $http) {
   console.log(" location ", $location.path());
 
   $scope.requestShowData = function(){
-    $scope.data = getFiltered.getReceivedShow() || getSearchedShow.getReceivedShow();
-    console.log("scopedata ", $scope.data);
+    // $scope.data = getFiltered.getReceivedShow() || getSearchedShow.getReceivedShow();
+    // console.log("scopedata ", $scope.data);
     
-   if(!$scope.data){
+   // if(!$scope.data){
     var urlName = (""+ $location.path());
     title = urlName.slice(13);
     console.log(title);
@@ -170,7 +169,7 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
         .error(function(data, status, headers, config){
           console.log('get error in getAshow');
         });
-       }else{createShowVars();}
+       // }else{createShowVars();}
 
     function createShowVars(){
        if(!$scope.data.seasons){ $location.path('/error');}
@@ -187,10 +186,11 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
 
        $scope.data['totalSeasons'] = totalSeasons;
        $scope.data['totalEp'] = totalEp;
-       $scope.data['bingeHours'] = Math.floor(($scope.data['totalEp'] * $scope.data['runtime']) / 60);
-       $scope.data['bingeMins'] = ($scope.data['totalEp'] * $scope.data['runtime']) % 60;
-       $scope.data['bingeWeeks'] = Math.floor($scope.data['totalEp'] / 7);
-       $scope.data['bingeDays'] = $scope.data['totalEp'] % 7;
+       $scope.data['totaltime'] = ($scope.data['totalEp'] * $scope.data['runtime'] * $scope.data['totalSeasons']);
+       $scope.data['bingeHours'] = Math.floor(($scope.data['totaltime'] / 60));
+       $scope.data['bingeMins'] = ($scope.data['totalEp'] * $scope.data['runtime']* $scope.data['totalSeasons']) % 60;
+       $scope.data['bingeWeeks'] = Math.floor(($scope.data['totalEp'] * $scope.data['totalSeasons'])/ 7);
+       $scope.data['bingeDays'] = ($scope.data['totalEp'] * $scope.data['totalSeasons']) % 7;
     }
    };
 
@@ -200,23 +200,22 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
 }]);
 
 
-appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$location', function($scope, $http, getFiltered, $location){
+
+appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$location', function($scope, $http, getFiltered, $location){
 
   $scope.requestShowData = function(){
-    $scope.searchParams = getFiltered.getSearchParams();
     $scope.data = getFiltered.getReceivedData();
-
      //REFRESH GET REQUEST
      console.log("scope data", $scope.data)
-     if(!$scope.data){
       var urlName = (""+ $location.path());
-      min = urlName.slice(11,13);
-      max = urlName.slice(15,17);
-      genres = urlName.slice(19);
+      $scope.min = urlName.slice(11,13);
+      $scope.max = urlName.slice(15,17);
+      $scope.genres = urlName.slice(19);
+     if(!$scope.data){
       $http.get('/getFiltered', {
-        params: {'genres':genres,
-          'min':min,
-          'max':max
+        params: {'genres':$scope.genres,
+          'min':$scope.min,
+          'max':$scope.max
         }
       })
       .success(function(data,status, headers, config){
@@ -241,13 +240,22 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$l
 
          $scope.data[i]['totalSeasons'] = totalSeasons;
          $scope.data[i]['totalEp'] = totalEp;
-         $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) / 60);
+         $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']* $scope.data[i]['totalSeasons']) / 60);
          $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
-         $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
-         $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
+         $scope.data[i]['bingeWeeks'] = Math.floor(($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) / 7);
+         $scope.data[i]['bingeDays'] = ($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) % 7;
        }
      };
    };
+
+   console.log("247",$scope.min, $scope.max);
+   
+   if($scope.min === '10' && $scope.max === '61'){
+      $scope.runtime = 'All'
+   }else{
+      $scope.runtime = $scope.max - 1;
+   }
+
    $scope.requestShowData();
 
 
@@ -271,7 +279,10 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$l
           };
 
       $scope.addItem = function() {
-        if($scope.showCollection.starredShows.indexOf(this.show.name) === -1) {
+        if($scope.showCollection.starredShows.indexOf(this.show.name) < 0) {
+          console.log("STARRED   :"+$scope.showCollection.starredShows);
+          $scope.showCollection.starredShows.push(this.show.name);
+          console.log("STARRED   :"+$scope.showCollection.starredShows);
           $scope.showCollection.items.push({
             poster: this.show.poster,
             name: this.show.name,
@@ -285,8 +296,7 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$l
             bingeDays: this.show.bingeDays,
             title: this.show.title
           });
-          console.log("showcollection", showCollection.starredShows)
-          $scope.showCollection.starredShows.push(this.show.name);
+          console.log("showcollection", $scope.showCollection.starredShows)
         }
       };
 
@@ -361,7 +371,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
     $scope.items.push(
       this.show.poster,
       this.show.name,
-      this.show.rating,
+      this.show.ratings,
       this.show.totalSeasons,
       this.show.totalEp,
       this.show.runtime,
@@ -369,14 +379,27 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       this.show.bingeMins,
       this.show.bingeWeeks,
       this.show.bingeDays,
-      this.show.title
+      this.show.title,
+      this.show.overview
      );
     var modalInstance = $modal.open({
       template: "<div class='modal-header'>"+
-      "<p>" + $scope.items[1] + "</p></div>" +
+      "<h2 class= 'modalTitle'>" + $scope.items[1] + "</h></div>" +
+
       "<div class='modal-body'>"+
+      "<div class='row'>"+
+      "<div class='col-md-6'>"+
       "<img class='modalPoster' src='"+ $scope.items[0] + "'>"+
-      "<p>Summary: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>" +
+      "</div>"+
+
+      "<div class='col-md-6'>"+
+      "<p>Summary: "+ $scope.items[11] +"</p>" +
+
+      "</div>"+
+
+      "</div>"+
+
+      "<div class='container'>"+
       "<p>Rating: " + $scope.items[2] + "</p>" +
       "<p>Total # of Seasons: " + $scope.items[3] + "</p>" +
       "<p>Total # of Episodes: " + $scope.items[4] + "</p>" +
@@ -386,6 +409,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       "<a href = 'http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/amazon.jpeg'></a>"+
       "<a href = 'http://www.hulu.com/search?q=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>"+
       "<a href = 'http://www.itunes.com'><img class='modalBrand' src = '../../images/itunes.jpeg'></a></p>"+
+      "</div>" +
       "</div>" +
       "<div class='modal-footer'>"+
       "<button class='btn btn-primary' ng-click='ok()'>CLOSE</button>"+

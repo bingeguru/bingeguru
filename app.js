@@ -50,7 +50,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 
 app.get('/getShows', function(req,res){
-  TVShows.find({$query: {}, $orderby: {name : -1} }, function(err, data){
+  TVShows.find({$query: {}, $orderby: {ratings : -1} }, function(err, data){
     res.send(data);
   });
 });
