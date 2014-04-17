@@ -30,6 +30,8 @@ npm-debug.log
 node_modules
 password.js
 .showList.js
+azure.err
+diagnostics.zip
 
 ###Testing###
 
