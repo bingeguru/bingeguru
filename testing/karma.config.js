@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '..',
 
 
     // frameworks to use
@@ -15,19 +15,17 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'public/lib/angular-route.min.js',
-      'public/lib/angular.min.js',
-      // 'angular-mocks.js',
-      // '../*.js',
-      // '../**/*.js',
-      'testing/lib/*.tests.js',
-      '*.tests.js'
+      'testing/main.tests.js',
+      'app.js',
+      '*/**/*.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      './lib/karma.config.js'
+      'views/*',
+      'testing/lib/karma.config.js',
+      'fetchAPI.js'
     ],
 
 
