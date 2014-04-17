@@ -102,9 +102,10 @@ body {
 
 #tagline{
   text-align:center;
-  padding:20px 20px;
+  padding:10px 10px;
   color:   #003399;
   opacity: 1;
+  margin-top: -50px;
   
 }
 
