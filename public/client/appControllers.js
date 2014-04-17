@@ -50,7 +50,7 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       var min;
       var max;
       if($scope.runtimeModel === 'under 30 min'){
-        min = 0;
+        min = 10;
         max = 31;
       }else if($scope.runtimeModel === '30 - 45 min'){
         min = 30;
@@ -65,7 +65,7 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       'max':max
     };
       getFiltered.getComedies(params).success(function(err, result){
-        $location.path( "/discover");
+        $location.path( "/discover/:"+ params.min+"/:"+params.max+"/:"+params.genres);
       });
     };
 
@@ -113,14 +113,15 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
   $scope.requestShowData = function(){
     $scope.data = getFiltered.getReceivedShow() || getSearchedShow.getReceivedShow();
     console.log("scopedata ", $scope.data);
-    // console.log("scope datas ", getFiltered.getReceivedShow());
-    // console.log("hi mom");
+    createShowVars();
+   };
+    function createShowVars(){
        // var seasonList =$scope.data.seasons;
-       // // var totalSeasons = Object.keys(seasonList).length;
+       // var totalSeasons = Object.keys(seasonList).length;
        // var totalEp = 0;
        // for(var episode in seasonList){
        //  totalEp += parseInt(seasonList[episode], 10);
-       // // }
+       // }
 
        // $scope.data['totalSeasons'] = totalSeasons;
        // $scope.data['totalEp'] = totalEp;
@@ -128,8 +129,7 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
        // $scope.data['bingeMins'] = ($scope.data['totalEp'] * $scope.data['runtime']) % 60;
        // $scope.data['bingeWeeks'] = Math.floor($scope.data['totalEp'] / 7);
        // $scope.data['bingeDays'] = $scope.data['totalEp'] % 7;
-     
-   };
+    }
    $scope.requestShowData();
    if(!$scope.data){
     var urlName = (""+ $location.path());
@@ -141,6 +141,8 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
         .success(function(data, status, headers, config){
           console.log("getASearchedShowData ", data);
           $scope.data = data;
+          createShowVars();
+
         })
         .error(function(data, status, headers, config){
           console.log('get error in getAshow');
@@ -151,30 +153,68 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
 }]);
 
 
-appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', function($scope, $http, getFiltered){
+appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$location', function($scope, $http, getFiltered, $location){
 
   $scope.requestShowData = function(){
     $scope.searchParams = getFiltered.getSearchParams();
     $scope.data = getFiltered.getReceivedData();
 
-    console.log("Scopedata", $scope.data);
-      for (var i = 0; i < $scope.data.length; i++) {
-       var seasonList =$scope.data[i].seasons;
-       var totalSeasons = Object.keys(seasonList).length;
-       var totalEp = 0;
-       for(var episode in seasonList){
-        totalEp += parseInt(seasonList[episode], 10);
-       }
-
-       $scope.data[i]['totalSeasons'] = totalSeasons;
-       $scope.data[i]['totalEp'] = totalEp;
-       $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) / 60);
-       $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
-       $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
-       $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
+     //REFRESH GET REQUEST
+     console.log("scope data", $scope.data)
+     if(!$scope.data){
+      var urlName = (""+ $location.path());
+      min = urlName.slice(11,13);
+      max = urlName.slice(15,17);
+      genres = urlName.slice(19);
+      $http.get('/getFiltered', {
+        params: {'genres':genres,
+          'min':min,
+          'max':max
+        }
+      })
+      .success(function(data,status, headers, config){
+        
+        $scope.data = data;
+        timeStats();
+      })
+      .error(function(data, status, headers, config){
+        console.log('get error');
+      });
+      }else {
+        timeStats();
      }
+     function timeStats(){
+        for (var i = 0; i < $scope.data.length; i++) {
+         var seasonList =$scope.data[i].seasons;
+         var totalSeasons = Object.keys(seasonList).length;
+         var totalEp = 0;
+         for(var episode in seasonList){
+          totalEp += parseInt(seasonList[episode], 10);
+         }
+
+         $scope.data[i]['totalSeasons'] = totalSeasons;
+         $scope.data[i]['totalEp'] = totalEp;
+         $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) / 60);
+         $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
+         $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
+         $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
+       }
+     };
    };
    $scope.requestShowData();
+
+
+       //  $http.get('/getSearchedShow', {
+       //    params: {'name': title}
+       //  })
+       //  .success(function(data, status, headers, config){
+       //    console.log("getASearchedShowData ", data);
+       //    $scope.data = data;
+       //  })
+       //  .error(function(data, status, headers, config){
+       //    console.log('get error in getAshow');
+       //  });
+       // }else{$scope.data = $scope.data;}
 
    // shopping cart begin
   $scope.CartForm = function(){
@@ -210,6 +250,8 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
     };
 
    // shopping cart end
+
+
 
 }]);
 
@@ -293,6 +335,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       "<p>Total # of Seasons: " + $scope.items[3] + "</p>" +
       "<p>Total # of Episodes: " + $scope.items[4] + "</p>" +
       "<p>Runtime: " + $scope.items[5] + "</p>" +
+      "<button class='btn btn-primary' ng-click='sendToDetail("+'"'+$scope.items[1]+'"'+"); ok()'>Learn More</button>"+
       "<p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpeg'></a>"+
       "<a href = 'http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/amazon.jpeg'></a>"+
       "<a href = 'http://www.hulu.com/search?q=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>"+
@@ -324,7 +367,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+var ModalInstanceCtrl = function ($scope, $modalInstance, items, $location) {
 
   $scope.items = items;
   $scope.selected = {
@@ -337,6 +380,11 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
+  };
+
+  $scope.sendToDetail = function(arg){
+    var stringArg = ""+arg;
+    $location.path( "/showDetail/:" + stringArg);
   };
 
 
