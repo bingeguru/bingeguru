@@ -1,41 +1,64 @@
 
-<div ng-controller="showDetailCtrl">
-      <h2> {{data.name}}</h2></div> 
-      <h3> {{data.year}}</h3> 
-      <div>
-      <div>
-        <img class='detailPoster' src={{data.poster}}>
-      </div>
-
-      <div>
-        <div>hours: {{data.bingeHours}} minutes: {{data.bingeMins}} </div>
-        <div>weeks: {{data.bingeWeeks}} days: {{data.bingeDays}} </div>
-      </div>
-
-      <div class="detailStats">
-      <p>Network: {{data.network}}</p>
-      <p>Rating:   {{data.ratings}} /100  </p> 
-      <p>Total # of Seasons:   {{data.totalSeasons}} </p> 
-      <p>Total # of Episodes:   {{data.totalEp}} </p> 
-      <p>Runtime:   {{data.runtime}} min/episode  </p> 
-
-      <p>Summary: {{data.overview}}</p> 
-       
-      </div>
-
-
-      <div>CAST:</div>
-      <div ng-repeat="actor in actorList | limitTo:quantity">
-        <p>{{actor.character}}:   {{actor.name}}</p>
-      </div>
-
-      <p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpeg'></a>
-      <a href = "http://www.amazon.com/s?url=search-alias%3Daps&field-keywords={{data.title}}"><img class='modalBrand' src = '../../images/amazon.jpeg'></a>
-      <a href = 'http://www.hulu.com/search?q={{data.title}}'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>
-      <a href = 'http://itunes.com'><img class='modalBrand' src = '../../images/itunes.jpeg'></a></p>
+<div class="detailbody" ng-controller="showDetailCtrl">
+  <div class="detailmain">
+      <div class="container">
+      <h2>{{data.name}}</h2>
+      <h3>{{data.year}}</h3> 
       </div> 
 
+        <div class="row">
+          <div class="col-md-6">
+            <img class='detailPoster' src={{data.poster}}>
+          </div>
 
-      <div class='modal-footer'>
+          <div class="col-md-4">
+            <div class="alert alert-danger">
+              <div class="bingeStats"><span class="detailTitle">Hours: </span>{{data.bingeHours}} <span class="detailTitle">Minutes: </span>{{data.bingeMins}} </div>
+              <div class="bingeStats"><span class="detailTitle">Weeks: </span>{{data.bingeWeeks}} <span class="detailTitle">Days: </span>{{data.bingeDays}} </div>
+            </div>
+
+            <div class="detailStats">
+            <p><span class="detailTitle">Network: </span>{{data.network}}</p>
+            <p><span class="detailTitle">Rating: </span>  {{data.ratings}} /100  </p> 
+            <p><span class="detailTitle">Total # of Seasons:  </span> {{data.totalSeasons}} </p> 
+            <p><span class="detailTitle">Total # of Episodes: </span>  {{data.totalEp}} </p> 
+            <p><span class="detailTitle">Runtime:  </span> {{data.runtime}} min/episode  </p> 
+
+            <p><span class="detailTitle">Summary: </span>{{data.overview}}</p> 
+             
+            </div>
+          </div> <!-- text column end -->
+          <div class="col-md-2"></div>
+        </div> <!-- row end -->
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <p><a href = 'http://www.netflix.com'><img class='networkImage' src = '../../images/netflix.jpeg'></a>
+            <a href = "http://www.amazon.com/s?url=search-alias%3Daps&field-keywords={{data.title}}"><img class='networkImage' src = '../../images/amazon.jpeg'></a>
+            <a href = 'http://www.hulu.com/search?q={{data.title}}'><img class='networkImage' src = '../../images/hulu.jpeg'></a>
+            <a href = 'http://itunes.com'><img class='networkImage' src = '../../images/itunes.jpeg'></a></p>
+          </div>
+
+          <div class="col-md-4">
+            <div><h4>CAST:<h4></div>
+              <div ng-repeat="actor in actorList | limitTo:quantity">
+              <p><span class="detailTitle">{{actor.character}}: </span>  {{actor.name}}</p>
+              </div>
+          </div>
+           <div class="col-md-2"></div>
+          </div><!-- row end -->
+
+
+      
+
+      </div> <!--container end-->
+  
+
+ </div>
+
+
+
+<!--       <div class='modal-footer'>
       <button class='btn btn-primary' ng-click=''>DONT CLICK THIS YET</button>
-      </div>
+      </div> -->
