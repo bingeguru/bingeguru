@@ -249,6 +249,8 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$l
 
    // shopping cart end
 
+
+
 }]);
 
 appControllers.service('getFiltered', function($http){
@@ -331,6 +333,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       "<p>Total # of Seasons: " + $scope.items[3] + "</p>" +
       "<p>Total # of Episodes: " + $scope.items[4] + "</p>" +
       "<p>Runtime: " + $scope.items[5] + "</p>" +
+      "<button class='btn btn-primary' ng-click='sendToDetail("+'"'+$scope.items[1]+'"'+"); ok()'>Learn More</button>"+
       "<p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpeg'></a>"+
       "<a href = 'http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/amazon.jpeg'></a>"+
       "<a href = 'http://www.hulu.com/search?q=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>"+
@@ -362,7 +365,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+var ModalInstanceCtrl = function ($scope, $modalInstance, items, $location) {
 
   $scope.items = items;
   $scope.selected = {
@@ -375,6 +378,13 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
+  };
+
+  $scope.sendToDetail = function(arg){
+    console.log("sendToDetail arg ",arg);
+    var stringArg = ""+arg;
+    console.log("sendToDetail arg ",stringArg);
+    $location.path( "/showDetail/:" + stringArg);
   };
 
 
