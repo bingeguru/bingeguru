@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var password = require('./password');
 
-var mongoURI = password.uri;
-
-mongoose.connect(mongoURI);
+// var mongoURI = password.uri;
+// mongoose.connect(mongoURI);
+// trying on local
+mongoose.connect('mongodb://localhost/bingeguruShows');
 
 var db = mongoose.connection;
 
@@ -12,7 +13,6 @@ db.once('open', function() {
   console.log('HOORAY!!!! WE ARE CONNECTED');
 });
 
-// mongoose.connect('mongodb://localhost/bingeguru');
 
 module.exports = db;
 

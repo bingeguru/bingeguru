@@ -155,10 +155,8 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', fun
 
   $scope.requestShowData = function(){
     $scope.searchParams = getFiltered.getSearchParams();
-    $scope.recentData = getFiltered.getReceivedData();
-    console.log("recent",$scope.recentData);
-    $scope.data = $scope.recentData;
-    console.log("recent", $scope.recentData);
+    $scope.data = getFiltered.getReceivedData();
+
     console.log("Scopedata", $scope.data);
       for (var i = 0; i < $scope.data.length; i++) {
        var seasonList =$scope.data[i].seasons;
