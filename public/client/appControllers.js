@@ -95,8 +95,11 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
       }else if($scope.runtimeModel === '30 - 45 min'){
         min = 30;
         max = 46;
+      }else if($scope.runtimeModel === '60 min'){
+        min = 47;
+        max = 61;
       }else{
-        min = 45;
+        min = 10;
         max = 61;
       }
       //params for
@@ -142,10 +145,6 @@ appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
 }]);
 
 
-appControllers.controller('findCtrl', ['$scope', '$http', function($scope, $http){
-
-
-}]);
 
 appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered', 'getSearchedShow', '$http', function ($scope, $location, getFiltered, getSearchedShow, $http) {
   console.log(" location ", $location.path());
@@ -200,23 +199,22 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
 }]);
 
 
-appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$location', function($scope, $http, getFiltered, $location){
+
+appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$location', function($scope, $http, getFiltered, $location){
 
   $scope.requestShowData = function(){
-    $scope.searchParams = getFiltered.getSearchParams();
     $scope.data = getFiltered.getReceivedData();
-
      //REFRESH GET REQUEST
      console.log("scope data", $scope.data)
-     if(!$scope.data){
       var urlName = (""+ $location.path());
-      min = urlName.slice(11,13);
-      max = urlName.slice(15,17);
-      genres = urlName.slice(19);
+      $scope.min = urlName.slice(11,13);
+      $scope.max = urlName.slice(15,17);
+      $scope.genres = urlName.slice(19);
+     if(!$scope.data){
       $http.get('/getFiltered', {
-        params: {'genres':genres,
-          'min':min,
-          'max':max
+        params: {'genres':$scope.genres,
+          'min':$scope.min,
+          'max':$scope.max
         }
       })
       .success(function(data,status, headers, config){
@@ -248,6 +246,15 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$l
        }
      };
    };
+
+   console.log("247",$scope.min, $scope.max);
+   
+   if($scope.min === '10' && $scope.max === '61'){
+      $scope.runtime = 'All'
+   }else{
+      $scope.runtime = $scope.max - 1;
+   }
+
    $scope.requestShowData();
 
 
@@ -271,7 +278,10 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$l
           };
 
       $scope.addItem = function() {
-        if($scope.showCollection.starredShows.indexOf(this.show.name) === -1) {
+        if($scope.showCollection.starredShows.indexOf(this.show.name) < 0) {
+          console.log("STARRED   :"+$scope.showCollection.starredShows);
+          $scope.showCollection.starredShows.push(this.show.name);
+          console.log("STARRED   :"+$scope.showCollection.starredShows);
           $scope.showCollection.items.push({
             poster: this.show.poster,
             name: this.show.name,
@@ -285,8 +295,7 @@ appControllers.controller('discoverCtrl', ['$scope', '$http', 'getFiltered', '$l
             bingeDays: this.show.bingeDays,
             title: this.show.title
           });
-          console.log("showcollection", showCollection.starredShows)
-          $scope.showCollection.starredShows.push(this.show.name);
+          console.log("showcollection", $scope.showCollection.starredShows)
         }
       };
 

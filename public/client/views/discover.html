@@ -41,7 +41,7 @@
 </div>
 <div id="searchCriteriaBox">
   <div id="searchCriteria">
-    <span style="font-size: 28px; font-weight: bold">You are Viewing: </span> <span style="color: darkgreen; font-weight: bold">Genre:</span> <em>{{searchParams.genres}} </em><span style="color: darkgreen; font-weight: bold">Episode Runtime:</span> <em>{{searchParams.max -1}} Minutes</em>
+    <span style="font-size: 28px; font-weight: bold">You are Viewing: </span> <span style="color: darkgreen; font-weight: bold">Genre:</span> <em>{{genres}} &nbsp&nbsp&nbsp</em><span style="color: darkgreen; font-weight: bold">Episode Runtime: </span><em>{{runtime}} Minutes</em>
   </div>
   
 </div>
@@ -69,10 +69,10 @@
     </thead>
     <tbody ng-controller = 'ModalDemoCtrl' ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse'>
       <tr class="showEntry" hide>
-        <td width="2%"><button ng:click="addItem()"><a href  class="btn btn-small">Add to Starred</a></button></td>
+        <td style="vertical-align: middle" width="2%"><button ng:click="addItem()"><a href  class="btn btn-small">Add to Starred</a></button></td>
         <td width="9%" id="imageCell"><img class='showImage' src='{{show.poster}}'></td>
         <td width="30%"><h2><a class="showName" href ng-click="open()" >{{ show.name }}</a></h2></td>
-        <td width="5%">**Rating**</td>
+        <td style="vertical-align: middle" width="%"><h4 style="font-weight: bold">{{ show.ratings }}</h4><h5>/100</h5> </td>
         <td width="20%">
           <TABLE>
             <TR>
@@ -87,8 +87,8 @@
           </TABLE>
           
         </td >
-        <td width="30%">
-          <TABLE>
+        <td width="30%" style="vertical-align: middle">
+          <TABLE style="background-color: lightgrey">
             <TR>
               <TD><h4><span style="color: darkgreen">Straight Through</span></h4>
               <h4><span style="color: darkgreen;">At 1 per Day</span></h4></TD>
