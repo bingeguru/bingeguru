@@ -61,9 +61,7 @@ app.get('/getAShow', function(req,res){
   });
 });
 app.get('/getSearchedShow', function(req,res){
-  console.log(req.query.name);
   TVShows.findOne({name: req.query.name }, function(err, data){
-    console.log(data);
     res.send(data);
   });
 });

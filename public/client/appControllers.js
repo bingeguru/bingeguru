@@ -3,6 +3,46 @@ var appControllers = angular.module('appControllers', ['ui.bootstrap', 'appFacto
 appControllers.controller('homeCtrl', ['$scope', function($scope){
 
 }]);
+appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'getAllShows', 'getSearchedShow', '$http', function ($scope, $location, getFiltered, getAllShows, getSearchedShow, $http) {
+   $scope.showNames = [];
+    for (var i = 0; i < getAllShows.showNames.length; i++) {
+      $scope.showNames.push(getAllShows.showNames[i].name);
+    };
+
+    $scope.submitSearch = function(slugName){
+      var searchParam = {'name': slugName};
+      getSearchedShow.getAShow(searchParam).success(function(err, result){
+        
+        $location.path( "/showDetail/:" + slugName);
+      });
+    };
+   //carousel
+ $scope.myInterval = 5000;
+  return $http.get('/slider', {})
+    .success(function(data,status, headers, config){
+     $scope.data = data;
+      for (var i = 0; i < $scope.data.length; i++) {
+       var seasonList =$scope.data[i].seasons;
+       var totalSeasons = Object.keys(seasonList).length;
+       var totalEp = 0;
+       for(var episode in seasonList){
+        totalEp += parseInt(seasonList[episode], 10);
+       }
+
+       $scope.data[i]['totalSeasons'] = totalSeasons;
+       $scope.data[i]['totalEp'] = totalEp;
+       $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) / 60);
+       $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
+       $scope.data[i]['bingeWeeks'] = Math.floor($scope.data[i]['totalEp'] / 7);
+       $scope.data[i]['bingeDays'] = $scope.data[i]['totalEp'] % 7;
+     }
+    })
+    .error(function(data, status, headers, config){
+      console.log('get error');
+    });
+
+}]);
+
 
 appControllers.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,'getAllShows', 'getSearchedShow', '$http', function ($scope, $location, getFiltered, getAllShows, getSearchedShow, $http) {
 
@@ -113,24 +153,7 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
   $scope.requestShowData = function(){
     $scope.data = getFiltered.getReceivedShow() || getSearchedShow.getReceivedShow();
     console.log("scopedata ", $scope.data);
-    createShowVars();
-   };
-    function createShowVars(){
-       // var seasonList =$scope.data.seasons;
-       // var totalSeasons = Object.keys(seasonList).length;
-       // var totalEp = 0;
-       // for(var episode in seasonList){
-       //  totalEp += parseInt(seasonList[episode], 10);
-       // }
-
-       // $scope.data['totalSeasons'] = totalSeasons;
-       // $scope.data['totalEp'] = totalEp;
-       // $scope.data['bingeHours'] = Math.floor(($scope.data['totalEp'] * $scope.data['runtime']) / 60);
-       // $scope.data['bingeMins'] = ($scope.data['totalEp'] * $scope.data['runtime']) % 60;
-       // $scope.data['bingeWeeks'] = Math.floor($scope.data['totalEp'] / 7);
-       // $scope.data['bingeDays'] = $scope.data['totalEp'] % 7;
-    }
-   $scope.requestShowData();
+    
    if(!$scope.data){
     var urlName = (""+ $location.path());
     title = urlName.slice(13);
@@ -147,7 +170,31 @@ appControllers.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered
         .error(function(data, status, headers, config){
           console.log('get error in getAshow');
         });
-       }
+       }else{createShowVars();}
+
+    function createShowVars(){
+       if(!$scope.data.seasons){ $location.path('/error');}
+       var seasonList =$scope.data.seasons;
+       var totalSeasons = seasonList.length;
+       var totalEp = 0;
+       for (var i = 0; i < seasonList.length; i++) {
+          totalEp += seasonList[i][1];
+          // totalEp += parseInt(seasonList[episode], 10);
+        } 
+       $scope.actorList =$scope.data.people;
+       $scope.quantity = 10;
+       
+
+       $scope.data['totalSeasons'] = totalSeasons;
+       $scope.data['totalEp'] = totalEp;
+       $scope.data['bingeHours'] = Math.floor(($scope.data['totalEp'] * $scope.data['runtime']) / 60);
+       $scope.data['bingeMins'] = ($scope.data['totalEp'] * $scope.data['runtime']) % 60;
+       $scope.data['bingeWeeks'] = Math.floor($scope.data['totalEp'] / 7);
+       $scope.data['bingeDays'] = $scope.data['totalEp'] % 7;
+    }
+   };
+
+   $scope.requestShowData();
   
 
 }]);
