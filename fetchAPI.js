@@ -1,5 +1,5 @@
 var trakt = require('node-trakt');
-var password = require('./Fixtures/password');
+// var password = require('./Fixtures/password');
 var showlist = require('./Fixtures/showList');
 var tvSchema = require('./Fixtures/TVSchema');
 var db = require('mongoose');

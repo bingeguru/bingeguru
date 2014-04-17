@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
-var password = require('./password');
 
-var mongoURI = proces.env.API || password.uri;
+if(!process.env.URI){
+	var password = require('./password');
+}
+
+var mongoURI = process.env.URI || password.uri;
 mongoose.connect(mongoURI);
 // trying on local
 // mongoose.connect('mongodb://localhost/bingeguruShows');
