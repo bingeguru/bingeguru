@@ -255,4 +255,9 @@ margin-left: 25px;
 .detailPoster{
   max-width: 500px;
   max-height: 500px;
+  float: left;
+}
+.detailStats{
+  
+
 }
