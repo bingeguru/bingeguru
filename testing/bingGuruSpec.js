@@ -4,6 +4,12 @@ describe("Hello, World! (2+2)", function() {
   });
 });
 
+describe("Your Homepage is Served", function() {
+  it("index.title = BingeGuru?", function() {
+    expect(index.title).toBe("BingeGuru");
+  });
+});
+
 
 
 /*toBe: represents the exact equality (===) operator.
