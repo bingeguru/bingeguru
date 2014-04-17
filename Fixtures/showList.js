@@ -250,7 +250,9 @@ var showList = [
     {name: "Days of Our Lives", title: "days-of-our-lives", imdb_rating: 52}
 ];
 
+// PLEASE DO NOT DELETE THE COMMENTED CODE BELOW
 
+// ------ creating docs in the database ------
 // for(var i = 0; i < showList.length; i++ ){
 //     var show = new tvSchema(showList[i]);
 //     show.save(function (err, result) {
