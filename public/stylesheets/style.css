@@ -43,13 +43,13 @@ body {
 
 
 .glyphicon{
-  padding-top:25px;
+  padding-top:18px;
   padding-left: 0;
   padding-bottom: 1px;
   margin-bottom: 20px;
   margin-left:auto;
   margin-right: auto;
-   font-size: 36px;
+   font-size: 32px;
 }
 
 .filterLabels{
@@ -110,7 +110,7 @@ body {
 }
 
 .welcome{
-  height: 200px;
+  height: 190px;
   text-align: center;
   width: 80%;
   margin-left: auto;
