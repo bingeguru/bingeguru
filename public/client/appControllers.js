@@ -381,9 +381,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items, $location) {
   };
 
   $scope.sendToDetail = function(arg){
-    console.log("sendToDetail arg ",arg);
     var stringArg = ""+arg;
-    console.log("sendToDetail arg ",stringArg);
     $location.path( "/showDetail/:" + stringArg);
   };
 
