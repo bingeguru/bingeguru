@@ -1,0 +1,26 @@
+             
+ <div class="container mainwrapper">
+ <h3 ng-controller="errCtrl">Oops, we could not find the requested show.  Try searching again.</h3>
+
+  <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control">
+  <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success">Search</button>
+
+
+    <hr>
+    <h3 >Popular Shows to Binge</h3>
+    <div class="carousel">
+      <carousel interval="myInterval">
+        <slide ng-repeat="slide in data" active="slide.active">
+          <div class="row" >
+            <div>
+              <img ng-src="{{slide.poster}}" style="float: left; padding: 10px 40px; max-height: 250px; margin-top: 20px; max-width 300px" ng-click="getShowInfo(slide)" >
+            </div>
+            <div class="sliderText">
+              <h3>{{slide.name}}</h3>
+              <h4>Epsiode Length: {{slide.runtime}}</h4>
+            </div>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+    </div> 

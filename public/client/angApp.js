@@ -29,6 +29,10 @@ angApp.config(['$routeProvider',
         templateUrl: 'client/views/about.html',
         controller: 'homeCtrl'
       })
+      .when('/error', {
+        templateUrl: 'client/views/err.html',
+        controller: 'errCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
