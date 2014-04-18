@@ -15,6 +15,13 @@ appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'get
         $location.path( "/showDetail/:" + slugName);
       });
     };
+    $scope.getShowInfo = function(slide){
+        var params1Show = {'title': slide.title};
+        getFiltered.getAShow(params1Show).success(function(err, result){
+          $location.path( "/showDetail/:" + slide.name);
+        });
+     };
+
    //carousel
  $scope.myInterval = 5000;
   return $http.get('/slider', {})
@@ -39,7 +46,7 @@ appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'get
     .error(function(data, status, headers, config){
       console.log('get error');
     });
-
+    
 }]);
 
 
