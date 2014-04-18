@@ -43,3 +43,26 @@ appServices.service('getFiltered', function($http){
   };
   return shows;
 });
+
+appServices.service('getBingeTimes', function(){
+  var bingeTimes = {
+    calculate: function(show){
+      console.log('function running!', show.seasons);
+       show.totalSeasons = show.seasons[0][0];
+
+       show.totalEp = 0;
+       for (var i = 0; i < show.seasons.length; i++) {
+          show.totalEp += show.seasons[i][1];
+        }
+
+       show.bingeHours = Math.floor(show.totalEp * show.runtime / 60);
+       show.bingeMins = show.totalEp * show.runtime % 60;
+       show.bingeWeeks = Math.floor(show.totalEp/ 7);
+       show.bingeDays = show.totalEp % 7;
+       
+       show.actorList =show.people;
+       show.quantity = 10;
+    }
+  };
+  return bingeTimes;
+});
