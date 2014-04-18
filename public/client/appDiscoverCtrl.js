@@ -127,7 +127,6 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       controller: ModalInstanceCtrl,
       resolve: {
         items: function () {
-          console.log('scope.items ',$scope.items);
           return $scope.items;
         }
       }
