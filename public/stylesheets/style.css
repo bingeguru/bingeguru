@@ -94,7 +94,7 @@ body {
 }
 
 .transparent {
-  background-color: #66CCFF;
+  background-color: #90C8E4;
   zoom: 1;
   filter: alpha(opacity=50);
   opacity: 0.5;
@@ -221,11 +221,12 @@ a{
 .carousel{
   float:right;
   min-width:600px;
-  height: 305px;
+  height: 280px;
   width: 100%;
   -moz-border-radius: 10px;
--webkit-border-radius: 10px;
-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding-top: 15px 0 10px 0;
 }
 
 .supplementInfo{
@@ -234,15 +235,13 @@ border-radius: 10px;
 
 .footer{
   height: 200px;
-  background-color: lightgrey;
-  padding: 10px;
+  background-color: #ddd;
   font-size: 16px;
-
 }
 
 .footer li{
   list-style-type: none;
-margin-left: 25px;
+  margin-left: 25px;
 }
 .networkImage{
   max-width: 60px;
@@ -285,5 +284,11 @@ margin-left: 25px;
   font-size: 18px;
 }
 
-
-
+/*overwrites bootstrap*/
+.row {
+  margin-left: 65px !important;
+  margin-right: 65px !important;
+}
+.carousel-indicators{
+  visibility: hidden !important;
+}
