@@ -54,7 +54,7 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
           $scope.showCollection.items.push({
             poster: this.show.poster,
             name: this.show.name,
-            rating: "**Rating**",
+            rating: this.show.ratings,
             totalSeasons: this.show.totalSeasons,
             totalEp: this.show.totalEp,
             runtime: this.show.runtime,
