@@ -1,5 +1,4 @@
 var trakt = require('node-trakt');
-// var password = require('./Fixtures/password');
 var showlist = require('./Fixtures/showList');
 var tvSchema = require('./Fixtures/TVSchema');
 var db = require('mongoose');
@@ -10,14 +9,12 @@ var TVShows = db.model('tvshow');
 // ------ testing db entries ------
 TVShows.find({title:'suits'}, function(err, shows){
   shows.forEach(function(show){
-  	console.log(show);
   });
 });
 
 // ------ API call ------
 // trakt.init(password.api);
 // trakt.login(password.username, password.password , function(){
-// 	console.log("API call!");
 // 	TVShows.find({}, function (err, shows) {
 // 		shows.forEach(function(show){
 
@@ -79,6 +76,5 @@ var populateEpisodeInfo = function(show){
 var updateDatabase = function(show){
 	show.save(function(err, result){
 		if(err) console.log('error in saving to db', err);
-		console.log('saved to db');
 	});
 };

@@ -1,5 +1,5 @@
 var angApp = angular.module('angApp', [
-  'ngRoute', 'appControllers', 'appFactories', 'appServices', 'appDiscoverCtrl'
+  'ngRoute', 'appControllers', 'appFactories', 'appServices', 'appDiscoverCtrl', 'appShowDetailCtrl', 'appButtonsCtrl'
 ]);
 
 // angApp.factory('getRequestParams',

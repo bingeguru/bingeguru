@@ -5,7 +5,6 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
   $scope.requestShowData = function(){
     $scope.data = getFiltered.getReceivedData();
      //REFRESH GET REQUEST
-     console.log("scope data", $scope.data)
       var urlName = (""+ $location.path());
       $scope.min = urlName.slice(11,13);
       $scope.max = urlName.slice(15,17);
@@ -18,7 +17,6 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
         }
       })
       .success(function(data,status, headers, config){
-        
         $scope.data = data;
         timeStats();
       })
@@ -33,6 +31,7 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
          var seasonList =$scope.data[i].seasons;
          var totalSeasons = Object.keys(seasonList).length;
          var totalEp = 0;
+         
          for(var episode in seasonList){
           totalEp += parseInt(seasonList[episode], 10);
          }
@@ -46,8 +45,6 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
        }
      };
    };
-
-   console.log("247",$scope.min, $scope.max);
    
    if($scope.min === '10' && $scope.max === '61'){
       $scope.runtime = 'All'
@@ -91,12 +88,8 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
           $scope.showCollection.starredShows.splice(index,1);
         };
     };
-
-   // starred show end
 }]);
 
-
-// modal start
 var ModalDemoCtrl = function ($scope, $modal, $log) {
 
   $scope.open = function () {
@@ -146,9 +139,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       "</div>" +
       "<div class='modal-footer'>"+
       "<button class='btn btn-primary' ng-click='ok()'>CLOSE</button>"+
-      "</div>"
-
-      ,
+      "</div>",
       controller: ModalInstanceCtrl,
       resolve: {
         items: function () {
@@ -166,9 +157,6 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
   };
 
 };
-
-// Please note that $modalInstance represents a modal window (instance) dependency.
-// It is not the same as the $modal service used above.
 
 var ModalInstanceCtrl = function ($scope, $modalInstance, items, $location) {
 
@@ -189,9 +177,6 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items, $location) {
     var stringArg = ""+arg;
     $location.path( "/showDetail/:" + stringArg);
   };
-
-
-
 };
 
 // modal end
