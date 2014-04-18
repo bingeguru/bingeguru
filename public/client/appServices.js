@@ -47,7 +47,6 @@ appServices.service('getFiltered', function($http){
 appServices.service('getBingeTimes', function(){
   var bingeTimes = {
     calculate: function(show){
-      console.log('function running!', show);
        show.totalSeasons = show.seasons[0][0];
 
        show.totalEp = 0;

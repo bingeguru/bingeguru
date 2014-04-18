@@ -67,7 +67,7 @@ appButtonsCtrl.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
     .success(function(data,status, headers, config){
      $scope.data = data;
       for (var i = 0; i < $scope.data.length; i++) {
-       getBingeTimes.calculate(scope.data[i]);
+       getBingeTimes.calculate($scope.data[i]);
      }
     })
     .error(function(data, status, headers, config){
