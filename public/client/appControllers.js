@@ -2,7 +2,7 @@ var appControllers = angular.module('appControllers', ['ui.bootstrap', 'appFacto
 
 appControllers.controller('homeCtrl', ['$scope', function($scope){}]);
 
-appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'getAllShows', 'getSearchedShow', '$http', 'getBingeTime', function ($scope, $location, getFiltered, getAllShows, getSearchedShow, $http, getBingeTime) {
+appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'getAllShows', 'getSearchedShow', '$http', 'getBingeTimes', function ($scope, $location, getFiltered, getAllShows, getSearchedShow, $http, getBingeTimes) {
    $scope.showNames = [];
     for (var i = 0; i < getAllShows.showNames.length; i++) {
       $scope.showNames.push(getAllShows.showNames[i].name);
@@ -21,7 +21,7 @@ appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'get
     .success(function(data,status, headers, config){
      $scope.data = data;
       for (var i = 0; i < $scope.data.length; i++) {
-       getBingeTime.calculate(scope.data[i]);
+       getBingeTimes.calculate(scope.data[i]);
      }
     })
     .error(function(data, status, headers, config){
