@@ -8,9 +8,9 @@ var TVShows = db.model('tvshow');
 //PLEASE DO NOT DELETE THE COMMENTED CODE BELOW
 
 // ------ testing db entries ------
-TVShows.find({}, function(err, shows){
+TVShows.find({title:'suits'}, function(err, shows){
   shows.forEach(function(show){
-  	console.log(show.name);
+  	console.log(show);
   });
 });
 

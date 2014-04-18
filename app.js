@@ -1,31 +1,17 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
-var getData = require('./routes/getData');
 var http = require('http');
 var path = require('path');
 var trakt = require('node-trakt');
-// var password = require('./Fixtures/password');
 var showlist = require('./Fixtures/showList');
 var fetchAPI = require('./fetchAPI');
 var tvSchema = require('./Fixtures/TVSchema');
 var db = require('mongoose');
 var TVShows = db.model('tvshow');
 
-
-
-
-// Connect to the db
-
-
 var app = express();
 
-// all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -37,16 +23,11 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
-
-// development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//ROUTES - TODO: orderby ratings once db populated
+
 app.get('/', routes.index);
 
 app.get('/getShows', function(req,res){
@@ -74,16 +55,12 @@ app.get('/getFiltered', function(req,res){
       res.send(data);
 
     });
-
   }else{
     TVShows.where('genres').in([req.query.genres]).where('runtime').gt(req.query.min).lt(req.query.max).find().exec(function(err, data){
       console.log(data);
       res.send(data);
-
-
     });
   }
-
 });
 
 app.get('/slider', function(req, res){

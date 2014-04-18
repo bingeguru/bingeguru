@@ -24,18 +24,6 @@ appFactories.factory('getSearchedShow', function($http){
 
 appFactories.factory('getAllShows', function($http){
 var shows = {showNames:[
-   // getAllShows: function(){
-   //  return $http.get('/getShows')
-   //  .success(function(data,status, headers, config){
-   //    angular.forEach(data.data, function(item){
-   //      console.log("data in factory", item);
-        
-   //    });
-   //  })
-   //  .error(function(data, status, headers, config){
-   //    console.log('get error');
-   //  });
-   // }
     {name: "Game of Thrones", title: "game-of-thrones", imdb_rating: 95}, 
     {name: "The Walking Dead", title: "the-walking-dead", imdb_rating: 87}, 
     {name: "How I Met Your Mother", title: "how-i-met-your-mother", imdb_rating: 86}, 
