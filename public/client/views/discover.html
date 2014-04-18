@@ -1,5 +1,4 @@
 <div ng-controller = 'discoverCtrl'>
-  <!-- starred Shows area -->
   <div class = "container showCart">
     <h2>Starred Shows</h2>
     <div ng-controller="CartForm">
@@ -44,17 +43,12 @@
   <div id="searchCriteria">
     <span style="font-size: 28px; font-weight: bold">You are Viewing: </span> <span style="color: darkgreen; font-weight: bold">Genre:</span> <em>{{genres}} &nbsp&nbsp&nbsp</em><span style="color: darkgreen; font-weight: bold">Episode Runtime: </span><em>{{runtime}} Minutes</em>
   </div>
-  
 </div>
+
 <!-- search area -->
 <input class = 'filterBox' type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
 <input class = 'filterBox' type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input>
-<!-- binge option filters -->
-<!-- <div class="btn-group" style="float: right">
-  <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">binge-a-thon</button>
-  <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">one a day</button>
-</div>
--->
+
 <!-- tvshows area -->
 <div class="container tvshowsArea">
   <table class="table" >
