@@ -43,3 +43,13 @@ appServices.service('getFiltered', function($http){
   };
   return shows;
 });
+
+appServices.service('bingeTimeCalc', function(){
+ 
+  
+});
+
+
+
+
+
