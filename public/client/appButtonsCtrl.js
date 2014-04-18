@@ -16,7 +16,7 @@ appButtonsCtrl.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
     $scope.showNames = [];
     for (var i = 0; i < getAllShows.showNames.length; i++) {
       $scope.showNames.push(getAllShows.showNames[i].name);
-    };
+    }
 
     $scope.submitSearch = function(slugName){
       var searchParam = {'name': slugName};
@@ -24,7 +24,7 @@ appButtonsCtrl.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
         
         $location.path( "/showDetail/:" + slugName);
       });
-    }
+    };
 
     $scope.getShowInfo = function(slide){
         var params1Show = {'title': slide.title};
@@ -74,12 +74,12 @@ appButtonsCtrl.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
         totalEp += parseInt(seasonList[episode], 10);
        }
 
-         $scope.data[i]['totalSeasons'] = totalSeasons;
-         $scope.data[i]['totalEp'] = totalEp;
-         $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']* $scope.data[i]['totalSeasons']) / 60);
-         $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
-         $scope.data[i]['bingeWeeks'] = Math.floor(($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) / 7);
-         $scope.data[i]['bingeDays'] = ($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) % 7;
+         $scope.data[i].totalSeasons = totalSeasons;
+         $scope.data[i].totalEp = totalEp;
+         $scope.data[i].bingeHours = Math.floor(($scope.data[i].totalEp * $scope.data[i].runtime * $scope.data[i].totalSeasons) / 60);
+         $scope.data[i].bingeMins = ($scope.data[i].totalEp * $scope.data[i].runtime) % 60;
+         $scope.data[i].bingeWeeks = Math.floor(($scope.data[i].totalEp* $scope.data[i].totalSeasons) / 7);
+         $scope.data[i].bingeDays = ($scope.data[i].totalEp* $scope.data[i].totalSeasons) % 7;
      }
     })
     .error(function(data, status, headers, config){

@@ -20,8 +20,8 @@ var TVSchema = new mongoose.Schema({
   itunes: Boolean,
   seasons:[],
   seasons_details: [{
-  	season: Number,
-  	episodes: Number,
+    season: Number,
+    episodes: Number,
     url: String,
     poster: String,
     images: {
@@ -35,9 +35,9 @@ var TVSchema = new mongoose.Schema({
     overview: String
   }],
   people: [{
-  	name: String,
-  	character: String,
-  	images: String
+    name: String,
+    character: String,
+    images: String
   }]
 });
 

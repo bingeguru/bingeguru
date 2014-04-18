@@ -30,15 +30,15 @@ appShowDetailCtrl.controller('showDetailCtrl', ['$scope', '$location', 'getFilte
        $scope.quantity = 10;
        
 
-       $scope.data['totalSeasons'] = totalSeasons;
-       $scope.data['totalEp'] = totalEp;
-       $scope.data['totaltime'] = ($scope.data['totalEp'] * $scope.data['runtime'] * $scope.data['totalSeasons']);
-       $scope.data['bingeHours'] = Math.floor(($scope.data['totaltime'] / 60));
-       $scope.data['bingeMins'] = ($scope.data['totalEp'] * $scope.data['runtime']* $scope.data['totalSeasons']) % 60;
-       $scope.data['bingeWeeks'] = Math.floor(($scope.data['totalEp'] * $scope.data['totalSeasons'])/ 7);
-       $scope.data['bingeDays'] = ($scope.data['totalEp'] * $scope.data['totalSeasons']) % 7;
+       $scope.data.totalSeasons = totalSeasons;
+       $scope.data.totalEp = totalEp;
+       $scope.data.totaltime = ($scope.data.totalEp * $scope.data.runtime * $scope.data.totalSeasons);
+       $scope.data.bingeHours = Math.floor(($scope.data.totaltime / 60));
+       $scope.data.bingeMins = ($scope.data.totalEp * $scope.data.runtime * $scope.data.totalSeasons) % 60;
+       $scope.data.bingeWeeks = Math.floor(($scope.data.totalEp * $scope.data.totalSeasons)/ 7);
+       $scope.data.bingeDays = ($scope.data.totalEp * $scope.data.totalSeasons) % 7;
     }
    };
-
+   
    $scope.requestShowData();
 }]);

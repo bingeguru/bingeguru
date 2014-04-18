@@ -15,12 +15,12 @@ TVShows.find({title:'suits'}, function(err, shows){
 // ------ API call ------
 // trakt.init(password.api);
 // trakt.login(password.username, password.password , function(){
-// 	TVShows.find({}, function (err, shows) {
-// 		shows.forEach(function(show){
+//  TVShows.find({}, function (err, shows) {
+//    shows.forEach(function(show){
 
-// 			populateShowInfo(show);
-// 			populateSeasonInfo(show);
-// 			populateEpisodeInfo(show);
+//      populateShowInfo(show);
+//      populateSeasonInfo(show);
+//      populateEpisodeInfo(show);
 
 //     });
 //   });

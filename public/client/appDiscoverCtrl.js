@@ -36,18 +36,18 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
           totalEp += parseInt(seasonList[episode], 10);
          }
 
-         $scope.data[i]['totalSeasons'] = totalSeasons;
-         $scope.data[i]['totalEp'] = totalEp;
-         $scope.data[i]['bingeHours'] = Math.floor(($scope.data[i]['totalEp'] * $scope.data[i]['runtime']* $scope.data[i]['totalSeasons']) / 60);
-         $scope.data[i]['bingeMins'] = ($scope.data[i]['totalEp'] * $scope.data[i]['runtime']) % 60;
-         $scope.data[i]['bingeWeeks'] = Math.floor(($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) / 7);
-         $scope.data[i]['bingeDays'] = ($scope.data[i]['totalEp']* $scope.data[i]['totalSeasons']) % 7;
+         $scope.data[i].totalSeasons = totalSeasons;
+         $scope.data[i].totalEp = totalEp;
+         $scope.data[i].bingeHours = Math.floor(($scope.data[i].totalEp * $scope.data[i].runtime* $scope.data[i].totalSeasons) / 60);
+         $scope.data[i].bingeMins = ($scope.data[i].totalEp * $scope.data[i].runtime) % 60;
+         $scope.data[i].bingeWeeks = Math.floor(($scope.data[i].totalEp* $scope.data[i].totalSeasons) / 7);
+         $scope.data[i].bingeDays = ($scope.data[i].totalEp* $scope.data[i].totalSeasons) % 7;
        }
-     };
+     }
    };
    
    if($scope.min === '10' && $scope.max === '61'){
-      $scope.runtime = 'All'
+      $scope.runtime = 'All';
    }else{
       $scope.runtime = $scope.max - 1;
    }
@@ -63,9 +63,7 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
 
       $scope.addItem = function() {
         if($scope.showCollection.starredShows.indexOf(this.show.name) < 0) {
-          console.log("STARRED   :"+$scope.showCollection.starredShows);
           $scope.showCollection.starredShows.push(this.show.name);
-          console.log("STARRED   :"+$scope.showCollection.starredShows);
           $scope.showCollection.items.push({
             poster: this.show.poster,
             name: this.show.name,
@@ -79,7 +77,6 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
             bingeDays: this.show.bingeDays,
             title: this.show.title
           });
-          console.log("showcollection", $scope.showCollection.starredShows)
         }
       };
 
