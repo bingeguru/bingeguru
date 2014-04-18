@@ -94,7 +94,9 @@
                         <div class="sliderText">
                           <h3>{{slide.name}}</h3>
                           <h4>Epsiode Length: {{slide.runtime}}</h4>
-                          <p ng-click="getShowInfo(slide)">{{slide.overview}}</p>
+                          <div class="body-override" ng-click="getShowInfo(slide)">{{slide.overview}}
+                          </div><br>
+                          <button type="button" class="btn btn-default" ng-click="getShowInfo(slide)">More Info</button>
                         </div>
                       </div>
                     </slide>
