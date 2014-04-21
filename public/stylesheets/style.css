@@ -10,12 +10,6 @@ body {
   margin: 0;
   padding: 0;
   height: 150px;
-  background-color: black;
-  box-shadow: 2px 2px 2px 2px ##CCFFCC;
-  -moz-box-shadow: 2px 2px 2px 2px ##CCFFCC;
-  -webkit-box-shadow: 2px 2px 2px 2px ##CCFFCC;
-  -webkit-border-top-right-radius: 2px;
-  -webkit-border-bottom-right-radius: 2px;
 }
 
 .submit{
@@ -84,8 +78,8 @@ thead > tr{
 }
 
 .showName:hover{
-  /*text-decoration: underline;*/
   color: green;
+  cursor: pointer;
 }
 
 #searchCriteriaBox{
@@ -97,7 +91,6 @@ thead > tr{
 
 .filterBox{
   margin-top: 1%;
-  font-size: 1em;
 }
 
 .main {
@@ -340,12 +333,13 @@ a:link, a:visited, a:hover, a:active {
 }
 
 th{
-  font-size: 1.6em;
+  font-size: 1.2em;
   font-weight: bold;
   color: #ca9b0a;
 }
 
 th:hover{
+  text-decoration: underline;
   cursor: pointer;
 }
 
