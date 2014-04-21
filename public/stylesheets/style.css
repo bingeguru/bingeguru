@@ -309,7 +309,7 @@ color: #000;
   font-size: 1.3em;
   text-align: center;
   background-color: #fff;
-  border-top: 1px solid #000;
+  /*border-top: 1px solid #000;  Alex. removes top line from all footers*/
 }
 
 .divider{
