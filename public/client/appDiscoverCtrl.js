@@ -94,36 +94,6 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       this.show.overview
      );
     var modalInstance = $modal.open({
-
-      // template: "<div class='modal-header'>"+
-      // "<h2 class='modalTitle topTitle'>" + $scope.items[1] + "</h2></div>" +
-
-      // "<div class='modal-body'>"+
-      // "<div class='row'>"+
-      // "<div class='col-md-6'>"+
-      // "<img class='modalPoster' src='"+ $scope.items[0] + "'>"+
-      // "</div>"+
-
-      // "<div class='col-md-6'>"+
-      // "<p><span class='description'>Summary: </span>"+ $scope.items[11] +"</p>" +
-      // "<p><span class='description'>Rating: </span>" + $scope.items[2] + "%</p>" +
-      // "<p><span class='description'># of Seasons: </span>" + $scope.items[3] + "</p>" +
-      // "<p><span class='description'># of Episodes: </span>" + $scope.items[4] + "</p>" +
-      // "<p><span class='description'>Runtime: </span>" + $scope.items[5] + " minutes</p>" +
-      // "<button class='btn btn-success' ng-click='sendToDetail("+'"'+$scope.items[1]+'"'+"); ok()'>Learn More</button>"+
-      // "</div>"+
-      // "</div>"+
-
-      // "<div class='container'>"+
-      // "<p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpg'></a>"+
-      // "<a href = 'http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/amazon.jpg'></a>"+
-      // "<a href = 'http://www.hulu.com/search?q=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/hulu.jpg'></a>"+
-      // "<a href = 'http://www.itunes.com'><img class='modalBrand' src = '../../images/itunes.jpg'></a></p>"+
-      // "</div>" +
-      // "</div>" +
-      // "<div class='modal-footer'>"+
-      // "<button class='btn btn-success' ng-click='ok()'>CLOSE</button>"+
-      // "</div>",
       templateUrl: 'client/views/modal.html',
       controller: ModalInstanceCtrl,
       resolve: {
