@@ -18,8 +18,12 @@ appShowDetailCtrl.controller('showDetailCtrl', ['$scope', '$location', 'getFilte
         });
 
     function createShowVars(){
-       if(!$scope.data.seasons){ $location.path('/error');}
+      if(!$scope.data.seasons){
+        $location.path('/error').replace(); 
+        // $location.path('/error');
+      }
        getBingeTimes.calculate($scope.data);
+
     }
    };
    

@@ -44,6 +44,7 @@ appServices.service('getFiltered', function($http){
   return shows;
 });
 
+
 appServices.service('getBingeTimes', function(){
   var bingeTimes = {
     calculate: function(show){
@@ -78,3 +79,4 @@ appServices.service('getBingeTimes', function(){
   };
   return bingeTimes;
 });
+
