@@ -40,7 +40,7 @@ appButtonsCtrl.controller('ButtonsCtrl', ['$scope', '$location', 'getFiltered' ,
         min = 10;
         max = 31;
       }else if($scope.runtimeModel === '30 - 45 min'){
-        min = 30;
+        min = 32;
         max = 46;
       }else if($scope.runtimeModel === '60 min'){
         min = 47;
