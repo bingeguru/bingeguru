@@ -60,14 +60,14 @@ appServices.service('getBingeTimes', function(){
       show.bingeWeeks = Math.floor(show.totalEp/ 7);
       show.bingeDays = show.totalEp % 7;
        
-      show.genre = show.genres[0];
+      show.genre = (show.genres.length > 0) ? show.genres[0] : "";
       for(var j = 1; j < show.genres.length; j++){
         if(show.genres[j] !== null){
           show.genre += '/' + show.genres[j];
         }
       }
      
-      show.actorList = show.people[0]['name'];
+      show.actorList = (show.people.length > 0) ? show.people[0]['name'] : "";
       for(var k = 1; k < show.people.length; k++){
         if(show.people[k]['name']){
           show.actorList += ', ' + show.people[k]['name'];
