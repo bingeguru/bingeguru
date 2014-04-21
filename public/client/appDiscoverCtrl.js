@@ -62,7 +62,8 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
             bingeMins: this.show.bingeMins,
             bingeWeeks: this.show.bingeWeeks,
             bingeDays: this.show.bingeDays,
-            title: this.show.title
+            title: this.show.title,
+            overview: this.show.overview
           });
         }
       };
@@ -94,7 +95,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
      );
     var modalInstance = $modal.open({
       template: "<div class='modal-header'>"+
-      "<h2 class= 'modalTitle'>" + $scope.items[1] + "</h></div>" +
+      "<h2 class='modalTitle topTitle'>" + $scope.items[1] + "</h2></div>" +
 
       "<div class='modal-body'>"+
       "<div class='row'>"+
@@ -103,26 +104,24 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       "</div>"+
 
       "<div class='col-md-6'>"+
-      "<p>Summary: "+ $scope.items[11] +"</p>" +
-
+      "<p><span class='description'>Summary: </span>"+ $scope.items[11] +"</p>" +
+      "<p><span class='description'>Rating: </span>" + $scope.items[2] + "%</p>" +
+      "<p><span class='description'># of Seasons: </span>" + $scope.items[3] + "</p>" +
+      "<p><span class='description'># of Episodes: </span>" + $scope.items[4] + "</p>" +
+      "<p><span class='description'>Runtime: </span>" + $scope.items[5] + " minutes</p>" +
+      "<button class='btn btn-success' ng-click='sendToDetail("+'"'+$scope.items[1]+'"'+"); ok()'>Learn More</button>"+
       "</div>"+
-
       "</div>"+
 
       "<div class='container'>"+
-      "<p>Rating: " + $scope.items[2] + "</p>" +
-      "<p>Total # of Seasons: " + $scope.items[3] + "</p>" +
-      "<p>Total # of Episodes: " + $scope.items[4] + "</p>" +
-      "<p>Runtime: " + $scope.items[5] + "</p>" +
-      "<button class='btn btn-primary' ng-click='sendToDetail("+'"'+$scope.items[1]+'"'+"); ok()'>Learn More</button>"+
-      "<p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpeg'></a>"+
-      "<a href = 'http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/amazon.jpeg'></a>"+
-      "<a href = 'http://www.hulu.com/search?q=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/hulu.jpeg'></a>"+
-      "<a href = 'http://www.itunes.com'><img class='modalBrand' src = '../../images/itunes.jpeg'></a></p>"+
+      "<p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpg'></a>"+
+      "<a href = 'http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/amazon.jpg'></a>"+
+      "<a href = 'http://www.hulu.com/search?q=" + $scope.items[10] + "'><img class='modalBrand' src = '../../images/hulu.jpg'></a>"+
+      "<a href = 'http://www.itunes.com'><img class='modalBrand' src = '../../images/itunes.jpg'></a></p>"+
       "</div>" +
       "</div>" +
       "<div class='modal-footer'>"+
-      "<button class='btn btn-primary' ng-click='ok()'>CLOSE</button>"+
+      "<button class='btn btn-success' ng-click='ok()'>CLOSE</button>"+
       "</div>",
       controller: ModalInstanceCtrl,
       resolve: {

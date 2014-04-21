@@ -1,91 +1,48 @@
 body {
-    background: #eee;
-    /*text-align: center;*/
-    font-family: arial, sans-serif;
+  font-family: 'raleway', sans-serif;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .header{
-  margin-right: 20px;
+  margin: 0;
+  padding: 0;
   height: 150px;
-  background-color: white;
-  font-family: Verdana;
+  background-color: black;
+  box-shadow: 2px 2px 2px 2px ##CCFFCC;
+  -moz-box-shadow: 2px 2px 2px 2px ##CCFFCC;
+  -webkit-box-shadow: 2px 2px 2px 2px ##CCFFCC;
   -webkit-border-top-right-radius: 2px;
-   -webkit-border-bottom-right-radius: 2px;
-       -moz-box-shadow:    2px 2px 2px 2px ##CCFFCC;
-    -webkit-box-shadow: 2px 2px 2px 2px ##CCFFCC;
-    box-shadow:         2px 2px 2px 2px ##CCFFCC;
-}
-.b {
-    display: inline-block;
-    position: relative;
-    margin: 1%;
-    float: left;
-    width: 23%;
-    height: 90%;
-    overflow: hidden;
-    background-color: white;
-    -moz-box-shadow:    1px 1px 2px 1px #ccc;
-    -webkit-box-shadow: 1px 1px 2px 1px #ccc;
-    box-shadow:         1px 1px 2px 1px #ccc;
-    text-align:center;
-}
-
-.mainwrapper{
-  padding:10px;
+  -webkit-border-bottom-right-radius: 2px;
 }
 
 .submit{
   padding-top: 20px;
-  margin-right: auto;
-  margin-left: 45%;
-}
-
-
-
-.glyphicon{
-  padding-top:18px;
-  padding-left: 0;
-  padding-bottom: 1px;
-  margin-bottom: 20px;
-  margin-left:auto;
-  margin-right: auto;
-   font-size: 32px;
+  text-align: center;
 }
 
 .filterLabels{
-  /*font-family: 'Playfair Display SC', serif;*/
   font-weight: bold;
-}
-
-
-.explainText{
-  text-align: center;
+  font-family: 'Raleway', serif;
 }
 
 #logo{
   padding: 25px;
-  color: #fff;
   font-size: 72px;
-  font-family: 'Almendra', serif;
-  font-weight: bold;
-  text-shadow: 1px 1px 0px #fff;
+  font-family: 'Raleway', serif;
 }
 
 .selectedFilter{
-  color: #003399;
+  font-weight: bold;
   text-align: center;
-}
-
-#logo :hover{
-  text-decoration: none;
-  color: lightblue;
-  text-shadow: 1px 1px 0px #333;
-
 }
 
 .labelFilter{
   padding-left: 30px;
-
+  text-align: left;
+  font-family: 'raleway', sans-serif;
 }
 
 #searchWrapper{
@@ -110,54 +67,44 @@ body {
 }
 
 .welcome{
-  height: 190px;
   text-align: center;
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
-/*tr.showEntry:hover{
-  background-color: #ffffcc;
-}
-*/
 thead > tr{
   background-color: white;
 }
 
+.showName{
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.4em;
+}
 
 .showName:hover{
-  text-decoration: underline;
-  color: darkblue;
+  /*text-decoration: underline;*/
+  color: green;
 }
 
 #searchCriteriaBox{
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 10px;
-  padding: 10px
-  border: 1px solid lightgrey;
-  height:50px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px; 
-  background-color: #fdf7ef;
-}
-
-#searchCriteria{
+  margin-left: 7%;
+  margin-top: 1%;
   font-size: 1.4em;
-  margin-left: 20px;
-  padding: 5px;
+  color: green;
 }
 
+.filterBox{
+  margin-top: 1%;
+  font-size: 1em;
+}
 
 .main {
-    width: auto;
-    margin: auto;
-    text-align: left;
-    background: white;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
+  width: auto;
+  margin: auto;
+  background: white;
+  font-family: 'raleway', sans-serif;
 }
 
 .discover{
@@ -175,15 +122,10 @@ thead > tr{
 
 }
 
-a{
-  text-decoration: none;
-  color: #000;
-}
-
 .showImage{
-  text-align: center;
-  max-width: 100px;
-  max-height: 120px;
+  /*text-align: center;*/
+  max-width: 50%;
+  max-height: 50%;
 }
 
 #imageCell{
@@ -200,92 +142,79 @@ a{
 }
 
 .showCart{
-  margin-bottom: 10px;
-  background-color: #eee;
+  margin: 10px;
+  border: solid 1px;
+  border-radius: 10px;
 }
-.modalPoster{
-  max-width: 300px;
-  max-height: 300px;
-  float:left;
+
+.showCart > h2{
+  font-family: 'raleway', sans-serif;
+  font-weight: bold;
 }
-.modalBrand{
-  max-width: 50px;
-  max-height: 50px;
-  padding: 0 5px;
-}
+
 .sliderText{
   text-align:left;
   padding-right: 20px;
 }
 
 .carousel{
-  /*float:right;*/
   min-width:800px;
   height: 280px;
-  /*width: 100%;*/
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
   padding-top: 15px 0 10px 0;
-  margin-left: -14%;
+  /*margin-left: -14%;*/
 }
 
 .supplementInfo{
   height: 200px
 }
 
-.footer{
-  height: 200px;
-  background-color: #ddd;
-  font-size: 16px;
-}
-
-.footer li{
-  list-style-type: none;
-  margin-left: 25px;
-}
 .networkImage{
-  max-width: 60px;
-  max-height: 60px;
-}
-
-.filterBox{
-  margin-left: 5%;
+  max-width: 15%;
+  max-height: 15%;
 }
 
 .tvshowsArea{
   margin-top: 10px;
 }
-.detailPoster{
-  max-width: 500px;
-  max-height: 500px;
-  float: left;
-}
-.detailbody {
 
-    text-align: center;
-    background-color: lightgray;
-    padding: 0 25px;
-    font-family: arial, sans-serif;
+.detailPoster{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.detailbody {
+  text-align: center;
+  padding: 0 25px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .detailmain {
-    width: 75%;
-    margin: auto;
-    text-align: left;
-    background: white;
-    padding: 0px 60px;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
+
+  width: 75%;
+  margin: auto;
+  margin-top: 2%;
+  text-align: left;
+  background: white;
+
 }
 .detailTitle {
   font-weight: bold;
+  color: #ca9b0a;
 }
+
+.mainTitle{
+  font-size: 3em;
+}
+
 .bingeStats{
   font-size: 18px;
 }
 
 /*overwrites bootstrap*/
+
 .row {
   margin-left: 65px !important;
   margin-right: 65px !important;
@@ -295,10 +224,176 @@ a{
 }
 
 .body-override{
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.05;
 }
 
 .carousel-control{
   width: 12% !important;
+  background-image: none;
 }
+
+.header{
+  background-image: url('/images/breakingBad.png');
+  background-size: cover;
+}
+
+.one-liner{
+  padding-top: 0;
+  margin-top: -35px;
+  margin-left: 30px;
+  font-size: 1.4em;
+  color: #000;
+  font-family: 'raleway', sans-serif;
+  font-style: italic;
+}
+
+.mainwrapper{
+  font-family: 'raleway', sans-serif !important;
+  width: 100%;
+}
+
+.lookingFor, .or, .popular{
+  font-family: 'raleway', sans-serif;
+  font-weight: bold;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.homefilters{
+  text-align: center;
+  font-weight: bold;
+}
+
+.homeFilterArea{
+  margin: auto;
+}
+
+.btn-block {
+  background-color: #ccc;
+  border-color: #ccc;
+}
+
+.slideName{
+  font-family: 'raleway', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.carousel-control.right, .carousel-control.left{
+  background-image: none !important;
+}
+
+.icon-next, .icon-prev{
+color: #000;
+}
+
+.errText{
+  margin-top: 4%;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+.btn-success, .btn-small{
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+.btn-success:hover, .btn-small:hover{
+  background-color: #807d6a !important;
+  border-color: #807d6a !important;
+  /*color: #000 !important;*/
+}
+
+.footer{
+  width:100%;
+  font-family: 'raleway', sans-serif;
+  font-weight: bold;
+  font-size: 1.3em;
+  text-align: center;
+  background-color: #fff;
+  border-top: 1px solid #000;
+}
+
+.divider{
+  padding: 5%;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color:#000 !important;
+  font-weight:600;
+  text-decoration: none !important;
+}
+
+.title{
+  text-align: left !important;
+  font-size: 1.4em;
+}
+
+.toggleEntry{
+  vertical-align: middle;
+}
+
+.showEntry{
+  text-align: left !important;
+}
+
+.showInfo{
+  vertical-align: middle;
+}
+
+th{
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #ca9b0a;
+}
+
+th:hover{
+  cursor: pointer;
+}
+
+.query{
+  text-align: left;
+  font-weight: bold;
+  border: none;
+}
+
+.container{
+  text-align: center;
+}
+
+.topTitle, .modal-body, .modal-footer {
+  font-family: 'raleway', sans-serif;
+}
+
+.description{
+  font-weight: bold;
+  color: #CA9B0A;
+}
+
+.topTitle{
+  font-size: 2em;
+  font-weight: bold
+}
+
+.modalPoster{
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modalBrand{
+  max-width: 20%;
+  max-height: 20%;
+  padding-top: 3%;
+  padding-right:2%;
+}
+
+.well{
+  background: #fff !important;
+  border: none !important;
+}
+
+.text{
+  font-size: 1.5em !important;
+}
+

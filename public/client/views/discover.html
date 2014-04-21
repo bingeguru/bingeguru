@@ -1,98 +1,63 @@
 <div ng-controller = 'discoverCtrl'>
+
   <div class = "container showCart">
-    <h2>Starred Shows</h2>
+    <h2>STARRED SHOWS</h2>
     <div ng-controller="CartForm">
       <table class="table">
         <tbody ng-controller = 'ModalDemoCtrl'>
           <tr  class="showEntry" ng-repeat="show in showCollection.items">
-            <td width="2%"><button><a href ng-click="removeItem($index)" class="toggleEntry btn btn-small">remove</a></button></td>
-            <td width="9%"><img class="showImage" src="{{ show.poster }}"></td>
-            <td width="30%"><h2><a class="showName" href ng-click="open()" >{{ show.name }}</a></h2></td>
-            <td width="5%">{{show.ratings}}</td>
-            <td width="20%">
-            <TABLE>
-              <TR>
-                <TD><h4><span style="color: darkgreen">Seasons:</span></h4>
-                  <h4><span style="color: darkgreen;">Episodes:</span></h4>
-                <h4><span style="color: darkgreen">Runtime:</span></h4></TD>
-                <TD><h4>{{show.totalSeasons}}</h4>
-                  <h4>{{show.totalEp}}</h4>
-                  <h4>{{ show.runtime }} min.</h4>
-                </TD>
-              </TR>
-            </TABLE>
-          </td>
-          <td width="30%">
-            <table>
-              <TR>
-                <TD class="alert alert-danger"><h4><span style="color: darkgreen">Straight Through</span></h4>
-                  <h4><span style="color: darkgreen;">At 1 per Day</span></h4>
-                </TD>
-                <TD class="alert alert-danger"><h4>{{show.bingeHours}} h {{show.bingeMins}} m</h4>
-                  <h4>{{show.bingeWeeks}} w {{show.bingeDays}} d</h4>
-                </TD>
-              </TR>
-            </table>
-          </td>
+            <td><button ng-click="removeItem($index)" type="button" class="toggleEntry btn-large btn btn-success">REMOVE</button></td>
+            <td><img class="showImage" src="{{show.poster}}"></td>
+            <td>
+              <p class="title name"><a class="showName" href ng-click="open()" >{{show.name}}</a></p>
+              <p class="title"><span># of Seasons: </span>{{show.totalSeasons}}</p>
+              <p class="title"><span># of Episodes: </span>{{show.totalEp}}</p>
+              <p class="title"><span>Ratings: </span>{{show.rating}}%</p>
+            </td>
+            <td>
+              <p class="title binge"><span>Binge Time: </span>{{show.bingeHours}} hrs {{show.bingeMins}} mins</p>
+            </td>
         </tr>
       </tbody>
     </table>
   </div>
-</div>
-<div id="searchCriteriaBox">
-  <div id="searchCriteria">
-    <span style="font-size: 28px; font-weight: bold">You are Viewing: </span> <span style="color: darkgreen; font-weight: bold">Genre:</span> <em>{{genres}} &nbsp&nbsp&nbsp</em><span style="color: darkgreen; font-weight: bold">Episode Runtime: </span><em>{{runtime}} Minutes</em>
-  </div>
+
 </div>
 
-<!-- search area -->
-<input class = 'filterBox' type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
-<input class = 'filterBox' type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input>
+<div id="searchCriteriaBox">
+  <div id="searchCriteria"><span class="query">You are viewing {{runtime}} minute {{genres}} shows</span></div>
+</div>
+
 
 <!-- tvshows area -->
-<div class="container tvshowsArea">
-  <table class="table" >
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th><a href = "" ng-click="predicate='name'; reverse=!reverse">Title</a></th>
-        <th style="text-align: center"><a href = "" ng-click="predicate='ratings'; reverse=!reverse">Rating</a></th>
-        <th style="text-align: center"><a href = "" ng-click="predicate='totalSeasons'; reverse=!reverse">Season/Episode</a></th>
-        <th style="text-align: center"><a href = "" ng-click="predicate='runtime'; reverse=!reverse">Time to Watch Series</a></th>
-      </tr>
-    </thead>
-    <tbody ng-controller = 'ModalDemoCtrl' ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse'>
-      <tr class="showEntry" hide>
-        <td style="vertical-align: middle" width="2%"><button ng:click="addItem()"><a href  class="btn btn-small">Add to Starred</a></button></td>
-        <td width="9%" id="imageCell"><img class='showImage' src='{{show.poster}}'></td>
-        <td width="30%"><h2><a class="showName" href ng-click="open()" >{{ show.name }}</a></h2></td>
-        <td style="vertical-align: middle" width="5%"><h4 style="font-weight: bold">{{ show.ratings }}</h4><h5>/100</h5> </td>
-
-        <td width="20%">
-          <TABLE>
-            <TR>
-              <TD><h4><span style="color: darkgreen">Seasons:</span></h4>
-                <h4><span style="color: darkgreen;">Episodes:</span></h4>
-              <h4><span style="color: darkgreen">Runtime:</span></h4></TD>
-              <TD><h4>{{show.totalSeasons}}</h4>
-                <h4>{{show.totalEp}}</h4>
-                <h4>{{ show.runtime }} min.</h4>
-              </TD>
-            </TR>
-          </TABLE>
-          
-        </td >
-        <td width="30%" style="vertical-align: middle">
-          <TABLE class="alert alert-danger">
-            <TR>
-              <TD ><h4><span style="color: darkgreen">Straight Through</span></h4>
-              <h4><span style="color: darkgreen;">At 1 per Day</span></h4></TD>
-              <TD><h4>{{show.bingeHours}} h {{show.bingeMins}} m</h4>
-                <h4>{{show.bingeWeeks}} w {{show.bingeDays}} d</h4>
-              </TD>
-            </TR>
-          </TABLE>
+  <div class="container tvshowsArea">
+    <table class="table" >
+      <thead>
+        <tr>
+          <th><input class = 'filterBox' type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input></th>
+          <th></th>
+          <th href = "" ng-click="predicate='name'; reverse=!reverse">Title</th>
+          <th href = "" ng-click="predicate='totalSeasons'; reverse=!reverse">Season/Episode</a></th>
+          <th href = "" ng-click="predicate='ratings'; reverse=!reverse">Rating</a></th>
+          <th href = "" ng-click="predicate='bingeHours'; reverse=!reverse">Binge Time</a></th>
+        </tr>
+      </thead>
+      <tbody ng-controller = 'ModalDemoCtrl'>
+        <tr class="showEntry" ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse' hide>
+          <td class="showInfo"><button ng:click="addItem()" class="toggleEntry btn-large btn btn-success">Add to Starred</button></td>
+          <td class="showInfo"><img class='showImage' src='{{show.poster}}'></td>
+          <td class="showInfo">
+            <p class="showName" href ng-click="open()" >{{show.name}}</p>
+          </td>
+          <td class="showInfo">
+            <p class="title">{{show.totalSeasons}} / {{show.totalEp}}</p>
+          </td>
+          <td class="showInfo">
+            <p class="title"><span> </span>{{show.ratings}}%</p>
+          </td>
+          <td class="showInfo">
+              <p class="title binge">{{show.bingeHours}} hrs {{show.bingeMins}} mins</p>
+          </td>
         </tr>
       </tbody>
     </table>
