@@ -2,12 +2,12 @@ var appDiscoverCtrl = angular.module('appDiscoverCtrl', ['ui.bootstrap', 'appFac
 
 appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$location', 'getBingeTimes', function($scope, $http, getFiltered, $location, getBingeTimes){
 
+  var urlName = (""+ $location.path());
+  $scope.min = urlName.slice(11,13);
+  $scope.max = urlName.slice(15,17);
   $scope.requestShowData = function(){
     $scope.data = getFiltered.getReceivedData();
      //REFRESH GET REQUEST
-      var urlName = (""+ $location.path());
-      $scope.min = urlName.slice(11,13);
-      $scope.max = urlName.slice(15,17);
       $scope.genres = urlName.slice(19);
      if(!$scope.data){
       $http.get('/getFiltered', {
