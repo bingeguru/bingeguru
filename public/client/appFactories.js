@@ -8,7 +8,6 @@ appFactories.factory('getSearchedShow', function($http){
           params: args
         })
         .success(function(data, status, headers, config){
-          console.log("getASearchedShowData ", data);
           receivedShow = data;
         })
         .error(function(data, status, headers, config){

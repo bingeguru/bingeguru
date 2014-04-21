@@ -2,7 +2,7 @@ var appControllers = angular.module('appControllers', ['ui.bootstrap', 'appFacto
 
 appControllers.controller('homeCtrl', ['$scope', function($scope){}]);
 
-appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'getAllShows', 'getSearchedShow', '$http', function ($scope, $location, getFiltered, getAllShows, getSearchedShow, $http) {
+appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'getAllShows', 'getSearchedShow', '$http', 'getBingeTimes', function ($scope, $location, getFiltered, getAllShows, getSearchedShow, $http, getBingeTimes) {
    $scope.showNames = [];
     for (var i = 0; i < getAllShows.showNames.length; i++) {
       $scope.showNames.push(getAllShows.showNames[i].name);
@@ -28,19 +28,7 @@ appControllers.controller('errCtrl', ['$scope', '$location', 'getFiltered' ,'get
     .success(function(data,status, headers, config){
      $scope.data = data;
       for (var i = 0; i < $scope.data.length; i++) {
-       var seasonList =$scope.data[i].seasons;
-       var totalSeasons = Object.keys(seasonList).length;
-       var totalEp = 0;
-       for(var episode in seasonList){
-        totalEp += parseInt(seasonList[episode], 10);
-       }
-
-       $scope.data[i].totalSeasons = totalSeasons;
-       $scope.data[i].totalEp = totalEp;
-       $scope.data[i].bingeHours = Math.floor(($scope.data[i].totalEp * $scope.data[i].runtime * $scope.data[i].totalSeasons) / 60);
-       $scope.data[i].bingeMins = ($scope.data[i].totalEp * $scope.data[i].runtime) % 60;
-       $scope.data[i].bingeWeeks = Math.floor(($scope.data[i].totalEp* $scope.data[i].totalSeasons) / 7);
-       $scope.data[i].bingeDays = ($scope.data[i].totalEp* $scope.data[i].totalSeasons) % 7;
+       getBingeTimes.calculate(scope.data[i]);
      }
     })
     .error(function(data, status, headers, config){
