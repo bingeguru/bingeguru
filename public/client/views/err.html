@@ -1,27 +1,37 @@
-             
- <div class="container mainwrapper">
- <h3 ng-controller="errCtrl">Oops, we could not find the requested show.  Try searching again.</h3>
+<div class="container mainwrapper">
 
-  <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control">
-  <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success">Search</button>
-
-
-    <hr>
-    <h3 >Popular Shows to Binge</h3>
-    <div class="carousel">
-      <carousel interval="myInterval">
-        <slide ng-repeat="slide in data" active="slide.active">
-          <div class="row" >
-            <div>
-              <img ng-src="{{slide.poster}}" style="float: left; padding: 10px 40px; max-height: 250px; margin-top: 20px; max-width 300px" ng-click="getShowInfo(slide)" >
-            </div>
-            <div class="sliderText">
-              <h3>{{slide.name}}</h3>
-              <h4>Epsiode Length: {{slide.runtime}}</h4>
-            </div>
-          </div>
-        </slide>
-      </carousel>
+  <div ng-controller="errCtrl">
+    <div class="errText">Oops! We could not find the requested show. Please try again!</div>
+  </div>
+  <div id="searchWrapper">
+    <div class="form-group">
+      <form ng-submit="submitSearch(selected)">
+        <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control"><br>
+        <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success searchButton">SEARCH</button>
+      </form>
     </div>
-    </div> 
+  </div>
+
+  <hr>
+
+  <!-- carousel -->
+  <h3 style="text-align: center" class="popular">POPULAR SHOWS TO BINGE</h3>
+  <div class="carousel">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in data" active="slide.active">
+        <div class="row" >
+          <div>
+            <img ng-src="{{slide.poster}}" style="float: left; padding: 10px 40px; max-height: 250px; margin-top: 20px; max-width 300px" ng-click="getShowInfo(slide)">
+          </div>
+          <div class="sliderText">
+            <h3 class="slideName">{{slide.name}}</h3>
+            <div class="body-override">Binge Time: {{slide.bingeHours}} hours {{slide.bingeMins}} minutes</div><br>
+            <div class="body-override" ng-click="getShowInfo(slide)">Summary: {{slide.overview}}</div><br>
+            <button type="button" class="btn btn-default" ng-click="getShowInfo(slide)">More Info</button>
+          </div>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+</div> 
     

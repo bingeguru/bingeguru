@@ -254,7 +254,7 @@ thead > tr{
 }
 
 .mainwrapper{
- font-family: 'raleway', sans-serif;
+  font-family: 'raleway', sans-serif !important;
   width: 100%;
 }
 
@@ -291,6 +291,12 @@ thead > tr{
 
 .icon-next, .icon-prev{
 color: #000;
+}
+
+.errText{
+  margin-top: 4%;
+  font-weight: bold;
+  font-size: 1.7em;
 }
 
 .btn-success, .btn-small{
