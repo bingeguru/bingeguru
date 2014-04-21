@@ -26,7 +26,7 @@
         
         <div class="col-md-12">
           <div class="welcome">
-            <h1 class="lookingFor">Searching For / <span class="selectedFilter homePageFilter">{{runtimeModel}} </span> <span class="selectedFilter homePageFilter">{{genresModel}} / </span> Shows</h1>
+            <h1 class="lookingFor">Searching For / <span class="selectedFilter homePageFilter" ng-hide="genresModel=='All' runtimeModel=='All'">{{runtimeModel}} </span> <span class="selectedFilter homePageFilter">{{genresModel}} / </span> Shows</h1>
             <!-- <h3 class="labelFilter homefilters">Episode Runtime: <span class="selectedFilter homePageFilter">{{runtimeModel}}</span></h3>
             <h3 class="labelFilter homefilters ">Genres: <span class="selectedFilter homePageFilter">{{genresModel}}</span></h3>
             <hr> -->
