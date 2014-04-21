@@ -62,7 +62,8 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
             bingeMins: this.show.bingeMins,
             bingeWeeks: this.show.bingeWeeks,
             bingeDays: this.show.bingeDays,
-            title: this.show.title
+            title: this.show.title,
+            overview: this.show.overview
           });
         }
       };

@@ -82,17 +82,15 @@ thead > tr{
   color: darkblue;
 }
 
-#searchCriteriaBox{
+#searchCriteriaBox, .filterBox{
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 10px;
   padding: 10px
   border: 1px solid lightgrey;
-  height:50px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px; 
-  background-color: #fdf7ef;
 }
 
 #searchCriteria{
@@ -127,9 +125,9 @@ thead > tr{
 }
 
 .showImage{
-  text-align: center;
-  max-width: 100px;
-  max-height: 120px;
+  /*text-align: center;*/
+  max-width: 50%;
+  max-height: 50%;
 }
 
 #imageCell{
@@ -146,12 +144,19 @@ thead > tr{
 }
 
 .showCart{
-  margin-bottom: 10px;
-  background-color: #eee;
+  margin: 10px;
+  border: solid 1px;
+  border-radius: 10px;
 }
+
+.showCart > h2{
+  font-family: 'raleway', sans-serif;
+  font-weight: bold;
+}
+
 .modalPoster{
-  max-width: 300px;
-  max-height: 300px;
+  width: 100%;
+  height: 100%;
   float:left;
 }
 .modalBrand{
@@ -296,17 +301,18 @@ thead > tr{
 color: #000;
 }
 
-.btn-success{
+.btn-success, .btn-small{
   background-color: #000 !important;
   border-color: #000 !important;
 }
-.btn-success:hover{
+.btn-success:hover, .btn-small:hover{
   background-color: #807d6a !important;
   border-color: #807d6a !important;
   /*color: #000 !important;*/
 }
 
 .footer{
+  width:100%;
   font-family: 'raleway', sans-serif;
   font-weight: bold;
   font-size: 1.3em;
@@ -316,12 +322,40 @@ color: #000;
 }
 
 .divider{
-  padding: 60px;
+  padding: 5%;
 }
 
 a:link, a:visited, a:hover, a:active {
-  color:#000;
-  font-size: 1.1em;
+  color:#000 !important;
   font-weight:600;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.title{
+  text-align: left !important;
+  font-size: 1.4em;
+}
+
+.showName{
+  text-align: left;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.toggleEntry{
+  vertical-align: middle;
+}
+
+.showEntry{
+  text-align: left !important;
+}
+
+.showInfo{
+  vertical-align: middle;
+}
+
+th {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ca9b0a;
 }
