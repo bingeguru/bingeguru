@@ -224,6 +224,11 @@ thead > tr{
   background-image: none;
 }
 
+.slideTitles{
+  font-weight: bold;
+  color: #ca9b0a;
+}
+
 .header{
   background-image: url('/images/breakingBad.png');
   background-size: cover;
@@ -249,6 +254,10 @@ thead > tr{
   font-weight: bold;
   font-size: 2.5em;
   text-align: center;
+}
+
+.homePageFilter{
+  color: #ca9b0a;
 }
 
 .homefilters{
@@ -350,6 +359,7 @@ th:hover{
 }
 
 .container{
+  max-width: 95% !important;
   text-align: center;
 }
 

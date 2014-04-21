@@ -8,7 +8,7 @@
     <div class="row"> 
       <div class="col-md-12">
         <div class="welcome">
-          <h1 class="lookingFor">Searching For / <span class="selectedFilter homePageFilter">{{runtimeModel}} </span> <span class="selectedFilter homePageFilter">{{genresModel}} / </span> Shows</h1>
+          <h1 class="lookingFor">Searching For <span class="selectedFilter homePageFilter">{{runtimeModel}}</span> <span class="selectedFilter homePageFilter">{{genresModel}}</span> Shows</h1>
         </div>  
       </div>
       <div class="col-md-12 homeFilterArea">
@@ -61,8 +61,8 @@
             </div>
             <div class="sliderText">
               <h3 class="slideName">{{slide.name}}</h3>
-              <div class="body-override">Binge Time: {{slide.bingeHours}} hours {{slide.bingeMins}} minutes</div><br>
-              <div class="body-override" ng-click="getShowInfo(slide)">Summary: {{slide.overview}}</div><br>
+              <div class="body-override"><span class="slideTitles">Binge Time: </span>{{slide.bingeHours}} hours {{slide.bingeMins}} minutes</div><br>
+              <div class="body-override" ng-click="getShowInfo(slide)"><span class="slideTitles">Summary: </span>{{slide.overview}}</div><br>
               <button type="button" class="btn btn-default" ng-click="getShowInfo(slide)">More Info</button>
             </div>
           </div>
