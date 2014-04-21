@@ -1,11 +1,5 @@
 <div ng-controller = 'discoverCtrl'>
 
-  <div id="searchCriteriaBox">
-    <div id="searchCriteria">
-      <span class="query">You are viewing {{runtime}} minute {{genres}} shows</span>
-    </div>
-  </div>
-
   <div class = "container showCart">
     <h2>STARRED SHOWS</h2>
     <div ng-controller="CartForm">
@@ -27,18 +21,20 @@
       </tbody>
     </table>
   </div>
+
 </div>
 
-<!-- search area -->
-<input class = 'filterBox' type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input>
-<!-- <input class = 'filterBox' type = 'search' ng-model = 'q.runtime' placeholder = 'filter runtime'></input> -->
+<div id="searchCriteriaBox">
+  <div id="searchCriteria"><span class="query">You are viewing {{runtime}} minute {{genres}} shows</span></div>
+</div>
+
 
 <!-- tvshows area -->
   <div class="container tvshowsArea">
     <table class="table" >
       <thead>
         <tr>
-          <th></th>
+          <th><input class = 'filterBox' type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input></th>
           <th></th>
           <th href = "" ng-click="predicate='name'; reverse=!reverse">Title</th>
           <th href = "" ng-click="predicate='totalSeasons'; reverse=!reverse">Season/Episode</a></th>

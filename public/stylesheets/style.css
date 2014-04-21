@@ -77,30 +77,27 @@ thead > tr{
   background-color: white;
 }
 
-.showName:hover{
-  text-decoration: underline;
-  color: darkblue;
+.showName{
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.4em;
 }
 
-#searchCriteriaBox, .filterBox{
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid lightgrey;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px; 
+.showName:hover{
+  /*text-decoration: underline;*/
+  color: green;
+}
+
+#searchCriteriaBox{
+  margin-left: 7%;
+  margin-top: 1%;
+  font-size: 1.4em;
+  color: green;
 }
 
 .filterBox{
-  margin-left: 50%;
-}
-
-#searchCriteria{
-  font-size: 1.4em;
-  margin-left: 20px;
-  padding: 5px;
+  margin-top: 1%;
+  font-size: 1em;
 }
 
 .main {
@@ -177,10 +174,6 @@ thead > tr{
 .networkImage{
   max-width: 15%;
   max-height: 15%;
-}
-
-.filterBox{
-  margin-left: 5%;
 }
 
 .tvshowsArea{
@@ -334,12 +327,6 @@ a:link, a:visited, a:hover, a:active {
   font-size: 1.4em;
 }
 
-.showName{
-  text-align: left;
-  font-weight: bold;
-  font-size: 2em;
-}
-
 .toggleEntry{
   vertical-align: middle;
 }
@@ -352,8 +339,8 @@ a:link, a:visited, a:hover, a:active {
   vertical-align: middle;
 }
 
-th {
-  font-size: 1.8em;
+th{
+  font-size: 1.6em;
   font-weight: bold;
   color: #ca9b0a;
 }
@@ -363,7 +350,6 @@ th:hover{
 }
 
 .query{
-  /*margin-left: 5%;*/
   text-align: left;
   font-weight: bold;
   border: none;
