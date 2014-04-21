@@ -2,7 +2,7 @@ body {
   font-family: 'raleway', sans-serif;
   width: 100%;
   top: 0;
-  margin: 0;
+  margin-top: -1.5% !important;
   padding: 0;
 }
 
@@ -10,12 +10,6 @@ body {
   margin: 0;
   padding: 0;
   height: 150px;
-  background-color: black;
-  box-shadow: 2px 2px 2px 2px ##CCFFCC;
-  -moz-box-shadow: 2px 2px 2px 2px ##CCFFCC;
-  -webkit-box-shadow: 2px 2px 2px 2px ##CCFFCC;
-  -webkit-border-top-right-radius: 2px;
-  -webkit-border-bottom-right-radius: 2px;
 }
 
 .submit{
@@ -84,8 +78,8 @@ thead > tr{
 }
 
 .showName:hover{
-  /*text-decoration: underline;*/
   color: green;
+  cursor: pointer;
 }
 
 #searchCriteriaBox{
@@ -97,7 +91,6 @@ thead > tr{
 
 .filterBox{
   margin-top: 1%;
-  font-size: 1em;
 }
 
 .main {
@@ -233,6 +226,11 @@ thead > tr{
   background-image: none;
 }
 
+.slideTitles{
+  font-weight: bold;
+  color: #ca9b0a;
+}
+
 .header{
   background-image: url('/images/breakingBad.png');
   background-size: cover;
@@ -258,6 +256,10 @@ thead > tr{
   font-weight: bold;
   font-size: 2.5em;
   text-align: center;
+}
+
+.homePageFilter{
+  color: #ca9b0a;
 }
 
 .homefilters{
@@ -311,11 +313,12 @@ color: #000;
   font-size: 1.3em;
   text-align: center;
   background-color: #fff;
-  border-top: 1px solid #000;
+  /*border-top: 1px solid #000;  Alex. removes top line from all footers*/
 }
 
 .divider{
-  padding: 5%;
+  padding: 0 5% 2%; 
+  /* Alex. retains space between footer elements, but reduces space above and below */
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -342,12 +345,13 @@ a:link, a:visited, a:hover, a:active {
 }
 
 th{
-  font-size: 1.6em;
+  font-size: 1.2em;
   font-weight: bold;
   color: #ca9b0a;
 }
 
 th:hover{
+  text-decoration: underline;
   cursor: pointer;
 }
 
@@ -358,6 +362,7 @@ th:hover{
 }
 
 .container{
+  max-width: 95% !important;
   text-align: center;
 }
 
@@ -397,3 +402,11 @@ th:hover{
   font-size: 1.5em !important;
 }
 
+<<<<<<< HEAD
+=======
+.about a:hover{
+/* Alex - adds on-hover to elements in the about section */
+text-decoration: underline !important;
+color: green !important;
+} 
+>>>>>>> dc5e61102a3c0cd161cbcec1bd4e82117140845a

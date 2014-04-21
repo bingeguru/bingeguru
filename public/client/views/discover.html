@@ -36,10 +36,10 @@
         <tr>
           <th><input class = 'filterBox' type = 'search' ng-model = 'q.title' placeholder = 'filter title'></input></th>
           <th></th>
-          <th href = "" ng-click="predicate='name'; reverse=!reverse">Title</th>
-          <th href = "" ng-click="predicate='totalSeasons'; reverse=!reverse">Season/Episode</a></th>
-          <th href = "" ng-click="predicate='ratings'; reverse=!reverse">Rating</a></th>
-          <th href = "" ng-click="predicate='bingeHours'; reverse=!reverse">Binge Time</a></th>
+          <th href = "" ng-click="predicate='name'; reverse=!reverse">Title <span class="glyphicon glyphicon-sort"></span></th>
+          <th href = "" ng-click="predicate='totalSeasons'; reverse=!reverse">Season/Episode <span class="glyphicon glyphicon-sort"></span></a></th>
+          <th href = "" ng-click="predicate='ratings'; reverse=!reverse">Rating <span class="glyphicon glyphicon-sort"></span></a></th>
+          <th href = "" ng-click="predicate='bingeHours'; reverse=!reverse">Binge Time <span class="glyphicon glyphicon-sort"></span></a></th>
         </tr>
       </thead>
       <tbody ng-controller = 'ModalDemoCtrl'>
