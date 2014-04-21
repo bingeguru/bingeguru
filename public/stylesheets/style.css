@@ -396,3 +396,12 @@ th:hover{
   padding-top: 3%;
   padding-right:2%;
 }
+
+.well{
+  background: #fff !important;
+  border: none !important;
+}
+
+.text{
+  font-size: 1.5em !important;
+}
