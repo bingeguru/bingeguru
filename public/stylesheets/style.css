@@ -167,7 +167,7 @@ thead > tr{
   -webkit-border-radius: 10px;
   border-radius: 10px;
   padding-top: 15px 0 10px 0;
-  margin-left: -14%;
+  /*margin-left: -14%;*/
 }
 
 .supplementInfo{
@@ -219,10 +219,11 @@ thead > tr{
 }
 
 /*overwrites bootstrap*/
-/*.row {
+
+.row {
   margin-left: 65px !important;
   margin-right: 65px !important;
-}*/
+}
 .carousel-indicators{
   visibility: hidden !important;
 }
@@ -237,17 +238,13 @@ thead > tr{
   background-image: none;
 }
 
-.one-liner{
-  margin-top: 0;
-  padding-top: 0;
-}
-
 .header{
   background-image: url('/images/breakingBad.png');
   background-size: cover;
 }
 
 .one-liner{
+  padding-top: 0;
   margin-top: -35px;
   margin-left: 30px;
   font-size: 1.4em;
