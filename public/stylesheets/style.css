@@ -175,8 +175,8 @@ thead > tr{
 }
 
 .networkImage{
-  max-width: 60px;
-  max-height: 60px;
+  max-width: 15%;
+  max-height: 15%;
 }
 
 .filterBox{
@@ -186,14 +186,14 @@ thead > tr{
 .tvshowsArea{
   margin-top: 10px;
 }
+
 .detailPoster{
-  max-width: 500px;
-  max-height: 500px;
-  float: left;
+  max-width: 100%;
+  max-height: 100%;
 }
+
 .detailbody {
   text-align: center;
-  background-color: lightgray;
   padding: 0 25px;
   font-family: 'Raleway', sans-serif;
 }
@@ -201,15 +201,19 @@ thead > tr{
 .detailmain {
   width: 75%;
   margin: auto;
+  margin-top: 2%;
   text-align: left;
   background: white;
-  padding: 50px 60px;
-  border: solid #ddd;
-  border-width: 0 1px 1px 1px;
 }
 .detailTitle {
   font-weight: bold;
+  color: #ca9b0a;
 }
+
+.mainTitle{
+  font-size: 3em;
+}
+
 .bingeStats{
   font-size: 18px;
 }

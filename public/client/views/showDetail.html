@@ -1,52 +1,33 @@
 <div class="detailbody" ng-controller="showDetailCtrl">
   <div class="detailmain">
       <div class="container">
-      <h2>{{data.name}}</h2>
-      <h3>{{data.year}}</h3> 
       </div> 
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <img class='detailPoster' src={{data.poster}}>
           </div>
 
-          <div class="col-md-4">
-            <div class="alert alert-danger">
-              <div class="bingeStats"><span class="detailTitle">Hours: </span>{{data.bingeHours}} <span class="detailTitle">Minutes: </span>{{data.bingeMins}} </div>
-              <div class="bingeStats"><span class="detailTitle">Weeks: </span>{{data.bingeWeeks}} <span class="detailTitle">Days: </span>{{data.bingeDays}} </div>
-            </div>
-
-            <div class="detailStats">
+          <div class="col-md-8">
+            <p class="mainTitle"><span class="detailTitle"></span>{{data.name}}</p>    
+            <p><span class="detailTitle">Summary: </span>{{data.overview}}</p>    
+            <p><span class="detailTitle">Cast: </span>{{data.actorList}}</p>  
+            <p><span class="detailTitle">Genres: </span>{{data.genre}}</p>
+            <p><span class="detailTitle">Year: </span>{{data.year}}</p>
             <p><span class="detailTitle">Network: </span>{{data.network}}</p>
-            <p><span class="detailTitle">Rating: </span>  {{data.ratings}} /100  </p> 
-            <p><span class="detailTitle">Total # of Seasons:  </span> {{data.totalSeasons}} </p> 
-            <p><span class="detailTitle">Total # of Episodes: </span>  {{data.totalEp}} </p> 
-            <p><span class="detailTitle">Runtime:  </span> {{data.runtime}} min/episode  </p> 
-
-            <p><span class="detailTitle">Summary: </span>{{data.overview}}</p> 
-             
-            </div>
+            <p><span class="detailTitle">Rating: </span>  {{data.ratings}}%</p> 
+            <p><span class="detailTitle"># of Seasons:  </span> {{data.totalSeasons}} </p> 
+            <p><span class="detailTitle"># of Episodes: </span>  {{data.totalEp}} </p> 
+            <p><span class="detailTitle">Runtime:  </span> {{data.runtime}} minutes  </p> 
+            <p><span class="detailTitle">Binge Time: </span>{{data.bingeHours}} hours {{data.bingeMins}} minutes</p>
+            <p>
+              <a href = 'http://www.netflix.com'><img class='networkImage' src = '../../images/netflix.jpg'></a>
+              <a href = "http://www.amazon.com/s?url=search-alias%3Daps&field-keywords={{data.title}}"><img class='networkImage' src = '../../images/amazon.jpg'></a>
+              <a href = 'http://www.hulu.com/search?q={{data.title}}'><img class='networkImage' src = '../../images/hulu.jpg'></a>
+              <a href = 'http://itunes.com'><img class='networkImage' src = '../../images/itunes.jpg'></a>
+            </p>
+          </div>
           </div> <!-- text column end -->
-          <div class="col-md-2"></div>
         </div> <!-- row end -->
-
-
-        <div class="row">
-          <div class="col-md-6">
-            <p><a href = 'http://www.netflix.com'><img class='networkImage' src = '../../images/netflix.jpeg'></a>
-            <a href = "http://www.amazon.com/s?url=search-alias%3Daps&field-keywords={{data.title}}"><img class='networkImage' src = '../../images/amazon.jpeg'></a>
-            <a href = 'http://www.hulu.com/search?q={{data.title}}'><img class='networkImage' src = '../../images/hulu.jpeg'></a>
-            <a href = 'http://itunes.com'><img class='networkImage' src = '../../images/itunes.jpeg'></a></p>
-          </div>
-
-          <div class="col-md-4">
-            <div><h4>CAST:<h4></div>
-              <div ng-repeat="actor in actorList | limitTo:quantity">
-              <p><span class="detailTitle">{{actor.character}}: </span>  {{actor.name}}</p>
-              </div>
-          </div>
-           <div class="col-md-2"></div>
-          </div><!-- row end -->
-      </div> <!--container end-->
  </div>
 

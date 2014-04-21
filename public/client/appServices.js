@@ -47,20 +47,33 @@ appServices.service('getFiltered', function($http){
 appServices.service('getBingeTimes', function(){
   var bingeTimes = {
     calculate: function(show){
-       show.totalSeasons = show.seasons[0][0];
+      show.totalSeasons = show.seasons[0][0];
 
-       show.totalEp = 0;
-       for (var i = 0; i < show.seasons.length; i++) {
-          show.totalEp += show.seasons[i][1];
-        }
+      show.totalEp = 0;
+      for (var i = 0; i < show.seasons.length; i++) {
+        show.totalEp += show.seasons[i][1];
+      }
 
-       show.bingeHours = Math.floor(show.totalEp * show.runtime / 60);
-       show.bingeMins = show.totalEp * show.runtime % 60;
-       show.bingeWeeks = Math.floor(show.totalEp/ 7);
-       show.bingeDays = show.totalEp % 7;
+      show.bingeHours = Math.floor(show.totalEp * show.runtime / 60);
+      show.bingeMins = show.totalEp * show.runtime % 60;
+      show.bingeWeeks = Math.floor(show.totalEp/ 7);
+      show.bingeDays = show.totalEp % 7;
        
-       show.actorList =show.people;
-       show.quantity = 10;
+      show.genre = show.genres[0];
+      for(var j = 1; j < show.genres.length; j++){
+        if(show.genres[j] !== null){
+          show.genre += '/' + show.genres[j];
+        }
+      }
+     
+      show.actorList = show.people[0]['name'];
+      for(var k = 1; k < show.people.length; k++){
+        if(show.people[k]['name']){
+          show.actorList += ', ' + show.people[k]['name'];
+        }
+      }
+
+      show.quantity = 10;
     }
   };
   return bingeTimes;

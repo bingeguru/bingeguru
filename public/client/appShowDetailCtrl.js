@@ -1,7 +1,6 @@
 var appShowDetailCtrl = angular.module('appShowDetailCtrl', ['ui.bootstrap', 'appFactories', 'appServices']);
 
 appShowDetailCtrl.controller('showDetailCtrl', ['$scope', '$location', 'getFiltered', 'getSearchedShow', '$http', 'getBingeTimes', function ($scope, $location, getFiltered, getSearchedShow, $http, getBingeTimes) {
-  console.log(" location ", $location.path());
 
   $scope.requestShowData = function(){
     
