@@ -313,7 +313,8 @@ color: #000;
 }
 
 .divider{
-  padding: 5%;
+  padding: 0 5% 2%; 
+  /* Alex. retains space between footer elements, but reduces space above and below */
 }
 
 a:link, a:visited, a:hover, a:active {
