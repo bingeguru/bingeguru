@@ -94,6 +94,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       this.show.overview
      );
     var modalInstance = $modal.open({
+
       template: "<div class='modal-header'>"+
       "<h2 class='modalTitle topTitle'>" + $scope.items[1] + "</h2></div>" +
 
@@ -123,6 +124,7 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
       "<div class='modal-footer'>"+
       "<button class='btn btn-success' ng-click='ok()'>CLOSE</button>"+
       "</div>",
+      // templateUrl: 'client/views/modal.html',
       controller: ModalInstanceCtrl,
       resolve: {
         items: function () {
