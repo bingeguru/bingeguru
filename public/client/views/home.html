@@ -4,7 +4,7 @@
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
 >
 </script>
-<h1 id="tagline">Decide Which Shows to Watch</h1>
+<!-- <h1 id="tagline">Decide Which Shows to Watch</h1>
 <div class="welcome transparent">
   
   <div class="b"><h4>What kind of show?</h4>
@@ -19,52 +19,49 @@
   <div class="b"><h4>How much would it cost?</h4>
       <div class="glyph"><span class="glyphicon glyphicon-usd" style="font-size:80px;"></span></div>
   </div>
-</div>
+</div> -->
 <div class="container mainwrapper">
     <div class="col-md-12" ng-controller="ButtonsCtrl">
       <div class="row">
         
-        <div class="col-md-5">
+        <div class="col-md-12">
           <div class="welcome">
-            <h1>&nbsp; I'm looking for ...</h1>
-            <hr>
-            <h3 class="labelFilter">Genres: <span class="selectedFilter">{{genresModel}}</span></h3>
-            <h3 class="labelFilter">Episode Runtime: <span class="selectedFilter">{{runtimeModel}}</span></h3>
-            <h3 class="labelFilter">Watchable on: <span class="selectedFilter"></span></h3>
+            <h1 class="lookingFor">Searching For / <span class="selectedFilter homePageFilter">{{runtimeModel}} </span> <span class="selectedFilter homePageFilter">{{genresModel}} / </span> Shows</h1>
+            <!-- <h3 class="labelFilter homefilters">Episode Runtime: <span class="selectedFilter homePageFilter">{{runtimeModel}}</span></h3>
+            <h3 class="labelFilter homefilters ">Genres: <span class="selectedFilter homePageFilter">{{genresModel}}</span></h3>
+            <hr> -->
+            <!-- <h3 class="labelFilter">Watchable on: <span class="selectedFilter"></span></h3> -->
           </div>
           
           </div> <!-- row -->
           
-          <div class=col-md-7>
-            <h3 class="filterLabels">Genres</h3>
+          <div class="col-md-12 homeFilterArea">
+            <h3 class="filterLabels"> <!-- Genres --></h3>
             <div class="btn-group">
               <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'All'">ALL</button>
-              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Comedy'">Comedy</button>
-              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Drama'">Drama</button>
-              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Crime'">Crime</button>
-              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Action'">Action</button>
+              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Comedy'">COMEDY</button>
+              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Drama'">DRAMA</button>
+              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Crime'">CRIME</button>
+              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Action'">ACTION</button>
+              <button typea"button" class="btn btn-default" ng-model="genresModel" btn-radio="'Adventure'">ADVENTURE</button>
+              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Fantasy'">FANTASY</button>
+              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Family'">FAMILY</button>
+              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Thriller'">THRILLER</button>
             </div>
-            
-            <div class="btn-group">
-              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Adventure'">Adventure</button>
-              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Fantasy'">Fantasy</button>
-              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Family'">Family</button>
-              <button type="button" class="btn btn-default" ng-model="genresModel" btn-radio="'Thriller'">Thriller</button>
-            </div>
-            <h3 class="filterLabels">Episode Length</h3>
+            <h3 class="filterLabels"> <!-- Episode Length --></h3>
             <div class="btn-group">
               <button type="button" class="btn btn-default" ng-model="runtimeModel" btn-radio="'All'">ALL</button>
-              <button type="button" class="btn btn-default" ng-model="runtimeModel" btn-radio="'30 min'">30 min</button>
-              <button type="button" class="btn btn-default" ng-model="runtimeModel" btn-radio="'30 - 45 min'">30 to 45 min</button>
-              <button type="button" class="btn btn-default" ng-model="runtimeModel" btn-radio="'60 min'">Up to 60 min</button>
+              <button type="button" class="btn btn-default" ng-model="runtimeModel" btn-radio="'30 min'">30 MIN</button>
+              <button type="button" class="btn btn-default" ng-model="runtimeModel" btn-radio="'30 - 45 min'">30 TO 45 MIN</button>
+              <button type="button" class="btn btn-default" ng-model="runtimeModel" btn-radio="'60 min'">UP TO 60 MIN</button>
             </div>
-            <h3 class="filterLabels">Online Streaming</h3>
+            <!-- <h3 class="filterLabels">Online Streaming</h3>
             <div class="btn-group">
               <button type="button" class="btn btn-default" ng-model="providerModel.All" btn-checkbox>ALL</button>
               <button type="button" class="btn btn-default" ng-model="providerModel.hulu" btn-checkbox>Hulu</button>
               <button type="button" class="btn btn-default" ng-model="providerModel.netflix" btn-checkbox>Netflix</button>
               <button type="button" class="btn btn-default" ng-model="providerModel.amazon" btn-checkbox>Amazon</button>
-            </div>
+            </div> -->
             
             </div><!-- col 7 -->
             
@@ -72,18 +69,18 @@
           <div class="submit">
             <button ng-click="submitFind()" type = "button" class=".btn-block btn btn-success">FIND SHOWS</button>
           </div>
-          <h3 style="text-align: center">Or</h3>
+          <h3 style="text-align: center" class="or">or</h3>
           <div id="searchWrapper">
             <div class="form-group">
 
             <form ng-submit="submitSearch(selected)">
               <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control"><br>
-              <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success">Search</button>
+              <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success searchButton">SEARCH</button>
             </form>
 
 
                 <hr>
-                <h3 style="text-align: center">Popular Shows to Binge</h3>
+                <h3 style="text-align: center" class="popular">POPULAR SHOWS TO BINGE</h3>
                 <div class="carousel">
                   <carousel interval="myInterval">
                     <slide ng-repeat="slide in data" active="slide.active">
@@ -92,8 +89,8 @@
                           <img ng-src="{{slide.poster}}" style="float: left; padding: 10px 40px; max-height: 250px; margin-top: 20px; max-width 300px" ng-click="getShowInfo(slide)">
                         </div>
                         <div class="sliderText">
-                          <h3>{{slide.name}}</h3>
-                          <h4>Epsiode Length: {{slide.runtime}}</h4>
+                          <h3 class="slideName">{{slide.name}}</h3>
+                          <!-- <h4 class="slideTime">Episode Length: {{slide.runtime}}</h4> -->
                           <div class="body-override" ng-click="getShowInfo(slide)">{{slide.overview}}
                           </div><br>
                           <button type="button" class="btn btn-default" ng-click="getShowInfo(slide)">More Info</button>

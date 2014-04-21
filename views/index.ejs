@@ -12,6 +12,7 @@
     rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Almendra:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src = '/lib/angular.min.js'></script>
     <script src = '/lib/angular-route.min.js'></script>
@@ -36,22 +37,20 @@
   <body>
     <div class="header">
         <h1 id="logo"><a href="#/home">BingeGuru</a></h1>
-        
+        <p class="one-liner">discover the perfect match for binge-watching in your limited time</p> 
     </div>
 
     <div class = 'main'>
-
       <div ng-view></div>
-
     </div>
 
-    <ul class="footer ">
+    <div class="footer ">
       <br><br>
-      <li><a href="#/about">About</a></li>
-      <li><a href="https://twitter.com/home?status=I%20planned%20my%20next%20TV%20binge%20marathon%20with%20BingeGuru!%20http://www.bingeguru.com/%20">Tweet This!</a></li>
-      <li><a href="https://www.facebook.com/sharer/sharer.php?u=bingeguru.com">Share on Facebook</a></li>
-      <li>Made at <a href="http://hackreactor.com">Hack Reactor</a>!</li>
-    </ul>
+      <a href="#/about">About</a><span class="divider"> </span>
+      <a href="https://twitter.com/home?status=I%20planned%20my%20next%20TV%20binge%20marathon%20with%20BingeGuru!%20http://www.bingeguru.com/%20">Tweet This</a><span class="divider"> </span>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=bingeguru.com">Share on Facebook</a><span class="divider"> </span>
+      <a href="http://hackreactor.com">Made @ Hack Reactor</a>
+    </div>
 
   </body>
 </html>

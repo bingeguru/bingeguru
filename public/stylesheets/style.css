@@ -1,91 +1,48 @@
 body {
-    background: #eee;
-    /*text-align: center;*/
-    font-family: arial, sans-serif;
+  font-family: 'raleway', sans-serif;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .header{
-  margin-right: 20px;
+  margin: 0;
+  padding: 0;
   height: 150px;
-  background-color: white;
-  font-family: Verdana;
+  background-color: black;
+  box-shadow: 2px 2px 2px 2px ##CCFFCC;
+  -moz-box-shadow: 2px 2px 2px 2px ##CCFFCC;
+  -webkit-box-shadow: 2px 2px 2px 2px ##CCFFCC;
   -webkit-border-top-right-radius: 2px;
-   -webkit-border-bottom-right-radius: 2px;
-       -moz-box-shadow:    2px 2px 2px 2px ##CCFFCC;
-    -webkit-box-shadow: 2px 2px 2px 2px ##CCFFCC;
-    box-shadow:         2px 2px 2px 2px ##CCFFCC;
-}
-.b {
-    display: inline-block;
-    position: relative;
-    margin: 1%;
-    float: left;
-    width: 23%;
-    height: 90%;
-    overflow: hidden;
-    background-color: white;
-    -moz-box-shadow:    1px 1px 2px 1px #ccc;
-    -webkit-box-shadow: 1px 1px 2px 1px #ccc;
-    box-shadow:         1px 1px 2px 1px #ccc;
-    text-align:center;
-}
-
-.mainwrapper{
-  padding:10px;
+  -webkit-border-bottom-right-radius: 2px;
 }
 
 .submit{
   padding-top: 20px;
-  margin-right: auto;
-  margin-left: 45%;
-}
-
-
-
-.glyphicon{
-  padding-top:18px;
-  padding-left: 0;
-  padding-bottom: 1px;
-  margin-bottom: 20px;
-  margin-left:auto;
-  margin-right: auto;
-   font-size: 32px;
+  text-align: center;
 }
 
 .filterLabels{
-  /*font-family: 'Playfair Display SC', serif;*/
   font-weight: bold;
-}
-
-
-.explainText{
-  text-align: center;
+  font-family: 'Raleway', serif;
 }
 
 #logo{
   padding: 25px;
-  color: #fff;
   font-size: 72px;
-  font-family: 'Almendra', serif;
-  font-weight: bold;
-  text-shadow: 1px 1px 0px #fff;
+  font-family: 'Raleway', serif;
 }
 
 .selectedFilter{
-  color: #003399;
+  font-weight: bold;
   text-align: center;
-}
-
-#logo :hover{
-  text-decoration: none;
-  color: lightblue;
-  text-shadow: 1px 1px 0px #333;
-
 }
 
 .labelFilter{
   padding-left: 30px;
-
+  text-align: left;
+  font-family: 'raleway', sans-serif;
 }
 
 #searchWrapper{
@@ -110,21 +67,15 @@ body {
 }
 
 .welcome{
-  height: 190px;
   text-align: center;
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
-/*tr.showEntry:hover{
-  background-color: #ffffcc;
-}
-*/
 thead > tr{
   background-color: white;
 }
-
 
 .showName:hover{
   text-decoration: underline;
@@ -150,14 +101,14 @@ thead > tr{
   padding: 5px;
 }
 
-
 .main {
-    width: auto;
-    margin: auto;
-    text-align: left;
-    background: white;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
+  width: auto;
+  margin: auto;
+  background: white;
+  /*border: solid #ddd;*/
+  /*border-width: 0 1px 1px 1px;*/
+  font-family: 'raleway', sans-serif;
+  text-align: center;
 }
 
 .discover{
@@ -173,11 +124,6 @@ thead > tr{
   background-color: orange;
   margin: 5px;
 
-}
-
-a{
-  text-decoration: none;
-  color: #000;
 }
 
 .showImage{
@@ -219,10 +165,8 @@ a{
 }
 
 .carousel{
-  /*float:right;*/
   min-width:800px;
   height: 280px;
-  /*width: 100%;*/
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -234,16 +178,6 @@ a{
   height: 200px
 }
 
-.footer{
-  height: 200px;
-  background-color: #ddd;
-  font-size: 16px;
-}
-
-.footer li{
-  list-style-type: none;
-  margin-left: 25px;
-}
 .networkImage{
   max-width: 60px;
   max-height: 60px;
@@ -262,21 +196,20 @@ a{
   float: left;
 }
 .detailbody {
-
-    text-align: center;
-    background-color: lightgray;
-    padding: 0 25px;
-    font-family: arial, sans-serif;
+  text-align: center;
+  background-color: lightgray;
+  padding: 0 25px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .detailmain {
-    width: 75%;
-    margin: auto;
-    text-align: left;
-    background: white;
-    padding: 50px 60px;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
+  width: 75%;
+  margin: auto;
+  text-align: left;
+  background: white;
+  padding: 50px 60px;
+  border: solid #ddd;
+  border-width: 0 1px 1px 1px;
 }
 .detailTitle {
   font-weight: bold;
@@ -295,10 +228,100 @@ a{
 }
 
 .body-override{
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.05;
 }
 
 .carousel-control{
   width: 12% !important;
+  background-image: none;
+}
+
+.one-liner{
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.header{
+  background-image: url('/images/breakingBad.png');
+  background-size: cover;
+}
+
+.one-liner{
+  margin-top: -35px;
+  margin-left: 30px;
+  font-size: 1.4em;
+  color: #000;
+  font-family: 'raleway', sans-serif;
+  font-style: italic;
+}
+
+.mainwrapper{
+ font-family: 'raleway', sans-serif;
+  width: 100%;
+}
+
+.lookingFor, .or, .popular{
+  font-family: 'raleway', sans-serif;
+  font-weight: bold;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.homefilters{
+  text-align: center;
+  font-weight: bold;
+}
+
+.homeFilterArea{
+  margin: auto;
+}
+
+.btn-block {
+  background-color: #ccc;
+  border-color: #ccc;
+}
+
+.slideName{
+  font-family: 'raleway', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.carousel-control.right, .carousel-control.left{
+  background-image: none !important;
+}
+
+.icon-next, .icon-prev{
+color: #000;
+}
+
+.btn-success{
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+.btn-success:hover{
+  background-color: #807d6a !important;
+  border-color: #807d6a !important;
+  /*color: #000 !important;*/
+}
+
+.footer{
+  font-family: 'raleway', sans-serif;
+  font-weight: bold;
+  font-size: 1.3em;
+  text-align: center;
+  background-color: #fff;
+  border-top: 1px solid #000;
+}
+
+.divider{
+  padding: 60px;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color:#000;
+  font-size: 1.1em;
+  font-weight:600;
+  text-decoration: none;
 }
