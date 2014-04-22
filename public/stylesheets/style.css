@@ -407,3 +407,13 @@ th:hover{
 text-decoration: underline !important;
 color: green !important;
 } 
+
+.ng-hide {
+  /* Not to worry, this will override the AngularJS default...
+  display:block!important;
+ 
+  /* this is just another form of hiding an element */
+  position:absolute;
+  top:-9999px;
+  left:-9999px;
+}
