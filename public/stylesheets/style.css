@@ -179,20 +179,19 @@ thead > tr{
 }
 
 .detailbody {
-  text-align: center;
+  text-align: left;
   padding: 0 25px;
   font-family: 'Raleway', sans-serif;
 }
 
 .detailmain {
-
   width: 75%;
   margin: auto;
   margin-top: 2%;
   text-align: left;
   background: white;
-
 }
+
 .detailTitle {
   font-weight: bold;
   color: #ca9b0a;
