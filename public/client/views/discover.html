@@ -43,9 +43,10 @@
         </tr>
       </thead>
       <tbody ng-controller = 'ModalDemoCtrl'>
-        <tr ng-model='clicked' ng-show='!clicked' class="showEntry" ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse' hide>
-          <td class="showInfo"><button ng:click="addItem(); clicked = !clicked" class="toggleEntry btn-large btn btn-success">Add to Starred</button></td>
-          <td class="showInfo"><img class='showImage' src='{{show.poster}}'></td>
+
+        <tr class="showEntry" ng-repeat='show in data | filter:q:strict | orderBy:predicate:reverse' hide ng-show="hider(show.name)">
+          <td class="showInfo"><button ng:click="addItem()" class="toggleEntry btn-large btn btn-success">Add to Starred</button></td>
+          <td class="showInfo" ><img class='showImage' src='{{show.poster}}' ></td>
           <td class="showInfo">
             <p class="showName" href ng-click="open()" >{{show.name}}</p>
           </td>

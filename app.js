@@ -53,7 +53,7 @@ app.get('/getFiltered', function(req,res){
       res.send(data);
     });
   } else {
-    TVShows.where('genres').in([req.query.genres]).where('runtime').gt(req.query.min).lt(req.query.max).find().exec(function(err, data){
+    TVShows.where('genres').in([req.query.genres]).where('runtime').gt(req.query.min).lt(req.query.max).find().sort({ratings: -1}).exec(function(err, data){
       res.send(data);
     });
   }
