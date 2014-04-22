@@ -41,12 +41,20 @@ appDiscoverCtrl.controller('discoverCtrl', ['$scope', '$http', 'getFiltered','$l
 
    $scope.requestShowData();
 
+   $scope.hider = function(showName){
+      showName = showName+"";
+      console.log($scope.showCollection.starredShows.indexOf(showName));
+      console.log($scope.showCollection.starredShows);
+      if($scope.showCollection.starredShows.indexOf(showName) === -1){
+        return true;
+      }else {return false;}
+   }
    // starred shows
-  $scope.CartForm = function(){
       $scope.showCollection = {
           items: [],
           starredShows: []
           };
+  $scope.CartForm = function(){
 
       $scope.addItem = function() {
         if($scope.showCollection.starredShows.indexOf(this.show.name) < 0) {
