@@ -32,8 +32,8 @@
           <button type="button" class="btn btn-default" ng-model="runtimeModel" btn-radio="'60 min'">UP TO 60 MIN</button>
         </div>
       </div>
-      <div class="submit">
-        <button ng-click="submitFind()" type = "button" class=".btn-block btn btn-success">FIND SHOWS</button>
+      <div class="submit" ng-model='clicked'>
+        <button ng-show="!clicked" ng-click="submitFind(); clicked = !clicked" type = "button" class=".btn-block btn btn-success">FIND SHOWS</button> <span ng-show="clicked"> <img style="max-height:34px;" src="../images/spinner.gif"></span>
       </div>
     </div>
     
@@ -43,7 +43,7 @@
       <div class="form-group">
         <form ng-submit="submitSearch(selected)">
           <input type="text" ng-model="selected" placeholder="Search..." typeahead="state for state in showNames | filter:$viewValue | limitTo:8" class="form-control"><br>
-          <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success searchButton">SEARCH</button><!-- <img src="../images/spinner.gif"> -->
+          <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success searchButton">SEARCH</button>
         </form>
       </div>
     </div>

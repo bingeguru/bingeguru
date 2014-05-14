@@ -6,7 +6,7 @@
       <div class='modal-body'>
       <div class='row'>
       <div class='col-md-6'>
-      <img class='modalPoster' src="'"+ {{items[0]}} + "'">
+      <img class='modalPoster' src='{{ items[0] }}'>  
       </div>
 
       <div class='col-md-6'>
@@ -15,14 +15,14 @@
       <p><span class='description'># of Seasons: </span>{{items[3]}}</p>
       <p><span class='description'># of Episodes: </span>{{items[4]}} </p>
       <p><span class='description'>Runtime: </span>{{items[5]}} minutes</p>
-      <button class='btn btn-success' ng-click='sendToDetail(' +{{items[1]}}+ '); ok()'>Learn More</button>
+      <button class='btn btn-success' ng-click='sendToDetail(items[1]); ok()' >Learn More</button>
       </div>
       </div>
 
       <div class='container'>
       <p><a href = 'http://www.netflix.com'><img class='modalBrand' src = '../../images/netflix.jpg'></a>
       <a href = 'http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + items[10] + "'><img class='modalBrand' src = '../../images/amazon.jpg'></a>
-      <a href = 'http://www.hulu.com/search?q=" '+{{items[10]}} + '""><img class='modalBrand' src = '../../images/hulu.jpg'></a>
+      <a href = 'http://www.hulu.com/search?q="{{items[10]}}"'><img class='modalBrand' src = '../../images/hulu.jpg'></a>
       <a href = 'http://www.itunes.com'><img class='modalBrand' src = '../../images/itunes.jpg'></a></p>
       </div>
       </div>
