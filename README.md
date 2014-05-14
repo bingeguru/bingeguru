@@ -15,7 +15,7 @@ BingeGuru explores updating the decision making tools for 'what to watch' from s
 
 
 ###Online Demo
-[bingeguru.com](https://bingeguru.com)
+[bingeguru.com](http://bingeguru.com)
 
 
 ###Tech Stack
