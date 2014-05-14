@@ -26,7 +26,7 @@ The application is built in Javascript using the following libraries and framewo
 * Data API - [trakt.com](https://trakt.tv/api-docs)
 
 ###Team
-All team members worked equally on all parts of the of the design and implement ation of the application with Gulsen Yilmaz also providing project management.
+All team members worked equally on all parts of the of the design and implement action of the application with Gulsen Yilmaz also providing project management.
 * [Christina Cunningham ](https://github.com/tinatinatina)
 * [Alex Jacobs](https://github.com/lexjacobs)
 * [Chris Oliver](https://github.com/roczinskisquared)
