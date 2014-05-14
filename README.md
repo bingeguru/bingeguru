@@ -5,7 +5,7 @@ BingeGuru starts with the premise that the way people are consuming television c
 BingeGuru explores updating the decision making tools for 'what to watch' from simple lists of shows and descriptions to providing information more suited to emerging single session or everyday viewing habits. 
 
 ###Use
-1) On the home page the user is presented with a set of filters for episode length and genre. ![Alt text](https://github.com/bingeguru/bingeguru/blob/master/public/images/README-step1.jpg)
+1) On the home page the user is presented with a set of filters for episode length and genre. ![Alt text](/public/images/README-step1.jpg)
 
 2) The results page has information on total series length, episode length, and different times to watch series based on viewing frequency. ![Alt text](https://github.com/bingeguru/bingeguru/blob/master/public/images/README-step2.jpg)
 
